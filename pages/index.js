@@ -2,7 +2,6 @@ import React from 'react';
 import Typed from 'react-typed';
 
 import BaseLayout from '../components/layouts/BaseLayout';
-
 import { Button, Container, Row, Col } from 'reactstrap';
 
 class Index extends React.Component {
@@ -41,8 +40,8 @@ class Index extends React.Component {
 
     return (
       <BaseLayout className={`cover ${isFlipping ? 'cover-1' : 'cover-0'}`} {...this.props.auth}
-                  headerType="index"
-                  title="Filip Jerga - Portfolio">
+        headerType="index"
+        title="Bryant Patton - Portfolio">
         <div className="main-section">
           <div className="background-image">
             <img src="/static/images/background-index.png" />
@@ -59,7 +58,8 @@ class Index extends React.Component {
                           Have a look at my portfolio and job history.
                         </div>
                       </div>
-                      <img alt="Guy programming welcome picture" className="image" src="/static/images/section-1.jpg"/>
+
+                      <img alt="Guy programming welcome picture" className="image" src="/static/images/node-1.jpg" />
                       <div className="shadow-custom">
                         <div className="shadow-inner"> </div>
                       </div>
@@ -71,7 +71,7 @@ class Index extends React.Component {
                           Profesional and top quality service in web development.
                         </div>
                       </div>
-                      <img alt="Guy programming welcome picture" className="image" src="/static/images/section-2.jpg"/>
+                      <img alt="Guy programming welcome picture" className="image" src="/static/images/node-2.jpg" />
                       <div className="shadow-custom shadow-custom-2">
                         <div className="shadow-inner"> </div>
                       </div>
@@ -82,8 +82,8 @@ class Index extends React.Component {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
-                    { isAuthenticated && <span> <b> {user.name} </b> </span> }
-                    Welcome to the portfolio website of Filip Jerga.
+                    {isAuthenticated && <span> <b> {user.name} </b> </span>}
+                    Welcome to the portfolio website of Bryant Patton.
                     Get informed, collaborate and discover projects I was working on through the years!
                   </h1>
                 </div>
@@ -108,8 +108,9 @@ class Index extends React.Component {
               </Col>
             </Row>
           </Container>
-          <span className="service-link">Vector illustration credit:{' '}
-            <a href="https://www.Vecteezy.com/">vecteezy.com</a>
+          <span className="service-link">Illustration credit:{' '}
+
+            <a href="https://www.vecteezy.com/free-vector/grid">Grid Vectors by Vecteezy</a>
           </span>
         </div>
       </BaseLayout>

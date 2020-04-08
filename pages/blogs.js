@@ -13,16 +13,16 @@ import moment from 'moment';
 
 class Blogs extends React.Component {
 
-  static async getInitialProps({req}) {
+  static async getInitialProps({ req }) {
     let blogs = [];
 
     try {
       blogs = await getBlogs(req);
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
 
-    return {blogs};
+    return { blogs };
   }
 
   renderBlogs = (blogs) => (
@@ -42,19 +42,19 @@ class Blogs extends React.Component {
           <a href="#"> {blog.author} </a>
           {moment(parseInt(blog.createdAt, 10)).format('LL')}</p>
       </div>
-      )
+    )
     )
   )
 
   render() {
-    const {blogs} = this.props;
+    const { blogs } = this.props;
 
     return (
       <BaseLayout {...this.props.auth}
-                  headerType={'landing'}
-                  className="blog-listing-page"
-                  title="Filip Jerga - Newest Blogs to Read">
-        <div className="masthead" style={{"backgroundImage": "url('/static/images/home-bg.jpg')"}}>
+        headerType={'landing'}
+        className="blog-listing-page"
+        title="Filip Jerga - Newest Blogs to Read">
+        <div className="masthead" style={{ "backgroundImage": "url('/static/images/home-bg.jpg')" }}>
           <div className="overlay"></div>
           <Container>
             <div className="row">
@@ -85,7 +85,7 @@ class Blogs extends React.Component {
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <ul className="list-inline text-center">
                     <li className="list-inline-item">
-                      <a target="_blank" href="https://www.facebook.com/groups/217273012433804/?jazoest=26510012195869511271971084598756511378108122691091131211141201017010910474116557610010645897511574116115668565119119586510012177701165586491061151219048557183120488290847377451207611983109114112118697610912011183109109521091159581">
+                      <a target="_blank" href="https://www.linkedin.com/in/bryantpatton/">
                         <span className="fa-stack fa-lg">
                           <i className="fas fa-circle fa-stack-2x"></i>
                           <i className="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -93,7 +93,7 @@ class Blogs extends React.Component {
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a target="_blank" href="https://github.com/Jerga99">
+                      <a target="_blank" href="https://github.com/bryant00">
                         <span className="fa-stack fa-lg">
                           <i className="fas fa-circle fa-stack-2x"></i>
                           <i className="fab fa-github fa-stack-1x fa-inverse"></i>

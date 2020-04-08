@@ -12,7 +12,8 @@ import {
   Dropdown,
   DropdownItem,
   DropdownToggle,
-  DropdownMenu} from 'reactstrap';
+  DropdownMenu
+} from 'reactstrap';
 
 import auth0 from '../../services/auth0';
 
@@ -76,18 +77,18 @@ export default class Header extends React.Component {
           <DropdownMenu>
             <DropdownItem>
               <BsNavLink className="port-dropdown-item"
-                         route="/blogs"
-                         title="Blogs" />
+                route="/blogs"
+                title="Blogs" />
             </DropdownItem>
             <DropdownItem>
               <BsNavLink className="port-dropdown-item"
-                         route="/blogs/new"
-                         title="Create a Blog" />
+                route="/blogs/new"
+                title="Create a Blog" />
             </DropdownItem>
             <DropdownItem>
               <BsNavLink className="port-dropdown-item"
-                         route="/blogs/dashboard"
-                         title="Blogs Dashboard" />
+                route="/blogs/dashboard"
+                title="Blogs Dashboard" />
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -110,7 +111,7 @@ export default class Header extends React.Component {
     return (
       <div>
         <Navbar className={`port-navbar port-nav-base absolute ${className} ${menuOpenClass}`} color="transparent" dark expand="md">
-          <NavbarBrand className="port-navbar-brand" href="/">Filip Jerga</NavbarBrand>
+          <NavbarBrand className="port-navbar-brand" href="/">Bryant Patton</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -127,12 +128,12 @@ export default class Header extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
               </NavItem>
-              { !isAuthenticated &&
+              {!isAuthenticated &&
                 <NavItem className="port-navbar-item">
                   <Login />
                 </NavItem>
               }
-              { isAuthenticated &&
+              {isAuthenticated &&
                 <NavItem className="port-navbar-item">
                   <Logout />
                 </NavItem>
