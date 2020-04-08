@@ -10,10 +10,10 @@ exports.checkJWT = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 50,
-    jwksUri: 'https://eincode.eu.auth0.com/.well-known/jwks.json'
+    jwksUri: 'https://dev-lno02uvp.auth0.com/.well-known/jwks.json'
   }),
-  audience: 'NfvS9nw81ItncHJKPHCaAvwD9ChNWYn3',
-  issuer: 'https://eincode.eu.auth0.com/',
+  audience: 'NN4U9SfvteIISTjxY61LxdD2QJns6kA5',
+  issuer: 'https://dev-lno02uvp.auth0.com/',
   algorithms: ['RS256']
 })
 
@@ -24,9 +24,9 @@ exports.checkRole = role => (req, res, next) => {
   if (user && user[NAMESPACE + '/role'] && (user[NAMESPACE + '/role'] === role)) {
     next();
   } else {
-    return res.status(401).send({title: 'Not Authorized', detail: 'You are not authorized to access this data'})
+    return res.status(401).send({
+      title: 'Not Authorized',
+      detail: 'You are not authorized to access this data'
+    })
   }
 }
-
-
-

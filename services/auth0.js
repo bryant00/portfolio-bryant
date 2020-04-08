@@ -3,7 +3,9 @@ import Cookies from 'js-cookie';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-import { getCookieFromReq } from '../helpers/utils';
+import {
+  getCookieFromReq
+} from '../helpers/utils';
 
 const CLIENT_ID = process.env.CLIENT_ID;
 
@@ -11,7 +13,7 @@ class Auth0 {
 
   constructor() {
     this.auth0 = new auth0.WebAuth({
-      domain: 'eincode.eu.auth0.com',
+      domain: 'dev-lno02uvp.auth0.com',
       clientID: CLIENT_ID,
       redirectUri: `${process.env.BASE_URL}/callback`,
       responseType: 'token id_token',
@@ -37,7 +39,7 @@ class Auth0 {
     })
   }
 
-   setSession(authResult) {
+  setSession(authResult) {
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
 
     Cookies.set('jwt', authResult.idToken);
@@ -57,7 +59,7 @@ class Auth0 {
   }
 
   async getJWKS() {
-    const res = await axios.get('https://eincode.eu.auth0.com/.well-known/jwks.json');
+    const res = await axios.get('https://dev-lno02uvp.auth0.com/.well-known/jwks.json');
     const jwks = res.data;
     return jwks;
   }
@@ -65,9 +67,13 @@ class Auth0 {
 
   async verifyToken(token) {
     if (token) {
-      const decodedToken = jwt.decode(token, { complete: true});
+      const decodedToken = jwt.decode(token, {
+        complete: true
+      });
 
-      if (!decodedToken) { return undefined; }
+      if (!decodedToken) {
+        return undefined;
+      }
 
       const jwks = await this.getJWKS();
       const jwk = jwks.keys[0];
@@ -83,7 +89,7 @@ class Auth0 {
           const expiresAt = verifiedToken.exp * 1000;
 
           return (verifiedToken && new Date().getTime() < expiresAt) ? verifiedToken : undefined;
-        } catch(err) {
+        } catch (err) {
           return undefined;
         }
       }
