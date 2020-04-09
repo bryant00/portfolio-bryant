@@ -2,6 +2,11 @@
 /.next
 /server/.next
 /server/config/dev.js
+pages/blogDetail.js
+pages/blogEditor.js
+pages/blogEditorUpdate.js
+pages/blogs.js
+pages/userBlogs.js
 # Logs
 logs
 *.log
