@@ -8,6 +8,7 @@ pages/blogEditorUpdate.js
 pages/blogs.js
 pages/userBlogs.js
 /resources*
+assigments.txt
 # Logs
 logs
 *.log
