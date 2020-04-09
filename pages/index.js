@@ -13,7 +13,7 @@ class Index extends React.Component {
       isFlipping: false
     }
 
-    this.roles = ['Developer', 'Tech Lover', 'Team Player', 'Course Creator', 'React.js', 'Angular'];
+    this.roles = ['Developer', 'Tech Lover', 'Team Player', 'Explorer'];
   }
 
   componentDidMount() {

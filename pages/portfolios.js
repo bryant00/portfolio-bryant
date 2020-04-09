@@ -16,11 +16,11 @@ class Portfolios extends React.Component {
 
     try {
       portfolios = await getPortfolios();
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
 
-    return {portfolios};
+    return { portfolios };
   }
 
   navigateToEdit(portfolioId, e) {
@@ -51,14 +51,14 @@ class Portfolios extends React.Component {
     return portfolios.map((portfolio, index) => {
       return (
         <Col key={index} md="4">
-         <PortfolioCard portfolio={portfolio}>
-          { isAuthenticated && isSiteOwner &&
-            <React.Fragment>
-              <Button onClick={(e) => this.navigateToEdit(portfolio._id, e)} color="warning">Edit</Button>{' '}
-              <Button onClick={(e) => this.displayDeleteWarning(portfolio._id, e)} color="danger">Delete</Button>
-            </React.Fragment>
-          }
-         </PortfolioCard>
+          <PortfolioCard portfolio={portfolio}>
+            {isAuthenticated && isSiteOwner &&
+              <React.Fragment>
+                <Button onClick={(e) => this.navigateToEdit(portfolio._id, e)} color="warning">Edit</Button>{' '}
+                <Button onClick={(e) => this.displayDeleteWarning(portfolio._id, e)} color="danger">Delete</Button>
+              </React.Fragment>
+            }
+          </PortfolioCard>
         </Col>
       )
     })
@@ -69,16 +69,16 @@ class Portfolios extends React.Component {
     const { isAuthenticated, isSiteOwner } = this.props.auth;
 
     return (
-      <BaseLayout title="Filip Jerga - Learn About My Experience" {...this.props.auth}>
+      <BaseLayout title="Bryant Patton - Learn About My Experience" {...this.props.auth}>
         <BasePage className="portfolio-page" title="Portfolios">
-        { isAuthenticated && isSiteOwner &&
-          <Button onClick={() => Router.pushRoute('/portfolios/new')}
-                  color="success"
-                  className="create-port-btn">Create Portfolio
+          {isAuthenticated && isSiteOwner &&
+            <Button onClick={() => Router.pushRoute('/portfolios/new')}
+              color="success"
+              className="create-port-btn">Create Portfolio
           </Button>
-        }
+          }
           <Row>
-            { this.renderPortfolios(portfolios) }
+            {this.renderPortfolios(portfolios)}
           </Row>
         </BasePage>
       </BaseLayout>
