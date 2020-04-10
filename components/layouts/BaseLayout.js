@@ -20,14 +20,14 @@ const BaseLayout = (props) => {
                 />
                 <meta property="og:title" content="Bryant Patton - programmer, developer" />
                 <meta property="og:locale" content="en_EU" />
-                <meta property="og:url" content={`${process.env.BASE_URL}`} />
+                <meta property="og:url" content={`${process.env.POST_LOGOUT_REDIRECT_URI}`} />
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:description"
                     content="My name is Bryant Patton and I am an experienced software engineer and freelance developer."
                 />
                 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
-                {cannonical && <link rel="cannonical" href={`${process.env.BASE_URL}${cannonical}`} />}
+                {cannonical && <link rel="cannonical" href={`${process.env.POST_LOGOUT_REDIRECT_URI}${cannonical}`} />}
                 <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />

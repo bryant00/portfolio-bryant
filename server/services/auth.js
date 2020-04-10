@@ -1,32 +1,29 @@
-const jwt = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
-
-const config = require('../config');
-const NAMESPACE = config.NAMESPACE;
+const jwt = require("express-jwt")
+const jwksRsa = require("jwks-rsa")
+const config = require("../../services/config")
 
 // MIDDLEWARE
 exports.checkJWT = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 50,
-    jwksUri: 'https://dev-lno02uvp.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'NN4U9SfvteIISTjxY61LxdD2QJns6kA5',
-  issuer: 'https://dev-lno02uvp.auth0.com/',
-  algorithms: ['RS256']
+    secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 50,
+        jwksUri: `${config.AUTH0_DOMAIN}/.well-known/jwks.json`,
+    }),
+    audience: config.AUTH0_CLIENT_ID,
+    issuer: config.AUTH0_DOMAIN,
+    algorithms: ["RS256"],
 })
 
+exports.checkRole = (role) => (req, res, next) => {
+    const user = req.user
 
-exports.checkRole = role => (req, res, next) => {
-  const user = req.user;
-
-  if (user && user[NAMESPACE + '/role'] && (user[NAMESPACE + '/role'] === role)) {
-    next();
-  } else {
-    return res.status(401).send({
-      title: 'Not Authorized',
-      detail: 'You are not authorized to access this data'
-    })
-  }
+    if (user && user[config.NAMESPACE + "/role"] && user[config.NAMESPACE + "/role"] === role) {
+        next()
+    } else {
+        return res.status(401).send({
+            title: "Not Authorized",
+            detail: "You are not authorized to access this data",
+        })
+    }
 }
