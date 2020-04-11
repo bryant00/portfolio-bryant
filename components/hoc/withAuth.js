@@ -1,5 +1,5 @@
 import React from "react"
-import BaseLayout from "../layouts/BaseLayout"
+import withLayout from "../layouts/BaseLayout"
 import BasePage from "../BasePage"
 
 export default (role) => (Component) =>
@@ -25,7 +25,7 @@ export default (role) => (Component) =>
 
             if (!isAuthenticated) {
                 return (
-                    <BaseLayout {...this.props.auth}>
+                    <withLayout {...this.props.auth}>
                         <BasePage>
                             <h1> You are not authenticated. Please Login to access this page. </h1>
                         </BasePage>
@@ -33,7 +33,7 @@ export default (role) => (Component) =>
                 )
             } else if (!isAuthorized) {
                 return (
-                    <BaseLayout {...this.props.auth}>
+                    <withLayout {...this.props.auth}>
                         <BasePage>
                             <h1> You are not authorized. You dont have a permission to visit this page </h1>
                         </BasePage>
