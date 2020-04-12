@@ -136,6 +136,7 @@ export default class Header extends React.Component {
           dark
           expand="md"
         >
+          {console.dir(this.props)}
           <NavbarBrand className="port-navbar-brand" href="/">
             Bryant Patton
           </NavbarBrand>
