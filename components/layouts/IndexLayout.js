@@ -12,7 +12,7 @@ export default ({
     <>
       <div className="layout-container">
         <Header
-          className={`port-nav-default`}
+          className={`port-nav-index`}
           isAuthenticated={isAuthenticated}
           user={user}
           isSiteOwner={isSiteOwner}
