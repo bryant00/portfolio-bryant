@@ -1,6 +1,6 @@
 const jwt = require('express-jwt')
 const jwksRsa = require('jwks-rsa')
-const config = require('../../common/config')
+const config = require('../../lib/config')
 
 // MIDDLEWARE
 exports.checkJWT = jwt({

@@ -7,12 +7,9 @@ const routes = require('../routes')
 
 // SERVICE
 const authService = require('./services/auth')
-const config = require('../common/config')
-// console.log(config)
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = routes.getRequestHandler(app)
-// const config = require('./config');
 
 const bodyParser = require('body-parser')
 const portfolioRoutes = require('./routes/portfolio')
@@ -24,17 +21,6 @@ const robotsOptions = {
     'Content-Type': 'text/plain;charset=UTF-8',
   },
 }
-
-const secretData = [
-  {
-    title: 'SecretData 1',
-    description: 'Plans how to build spaceship',
-  },
-  {
-    title: 'SecretData 2',
-    description: 'My secret passwords',
-  },
-]
 
 mongoose
   .connect(process.env.DB_URI, { useNewUrlParser: true })
@@ -54,10 +40,6 @@ app
 
     server.get('/robots.txt', (req, res) => {
       return res.status(200).sendFile('robots.txt', robotsOptions)
-    })
-
-    server.get('/api/v1/secret', authService.checkJWT, (req, res) => {
-      return res.json(secretData)
     })
 
     server.get(

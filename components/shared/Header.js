@@ -15,8 +15,6 @@ import {
   DropdownMenu,
 } from 'reactstrap'
 
-import auth0 from '../../common/auth0'
-
 const BsNavLink = (props) => {
   const { route, title } = props
   const className = props.className || ''

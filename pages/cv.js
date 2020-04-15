@@ -19,14 +19,14 @@ const Cv = () => {
                   <a
                     download="bryant_cv.pdf"
                     className="btn btn-success"
-                    href="/static/bryant_cv.pdf"
+                    href="/public/bryant_cv.pdf"
                   >
                     Download
                   </a>
                 </div>
                 <iframe
                   style={{ width: '100%', height: '800px' }}
-                  src="/static/bryant_cv.pdf"
+                  src="/public/bryant_cv.pdf"
                 ></iframe>
               </Col>
             </Row>
