@@ -1,40 +1,28 @@
 import React from 'react'
-import withLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/BasePage'
+import BaseLayout from '../components/layouts/BaseLayout'
 import { withRouter } from 'next/router'
-import axios from 'axios'
 
-class Portfolio extends React.Component {
-  static async getInitialProps({ query }) {
-    const portfolioId = query.id
-    let portfolio = {}
+const Portfolio = ({ data }) => {
+  let portfolio = data
 
-    try {
-      const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${portfolioId}`
-      )
-      portfolio = response.data
-    } catch (err) {
-      console.log('portfolio.js err')
-      // console.error(err)
-    }
-
-    return { portfolio }
-  }
-
-  render() {
-    const { portfolio } = this.props
-
-    return (
-      <withLayout {...this.props.auth}>
-        <BasePage>
+  return (
+    <main className="cover">
+      <div className="wrapper">
+        <div className="base-page portfolio-page">
           <h1> {portfolio.title} </h1>
           <p> BODY: {portfolio.body} </p>
           <p> ID: {portfolio.id} </p>
-        </BasePage>
-      </BaseLayout>
-    )
-  }
+        </div>
+      </div>
+    </main>
+  )
 }
-
+Portfolio.Layout = BaseLayout
+Portfolio.getInitialProps = async (portfolioId) => {
+  const res = await fetch(
+    `${process.env.POST_LOGOUT_REDIRECT_URI}api/portfolios`
+  )
+  const json = await res.json()
+  return { data: json }
+}
 export default withRouter(Portfolio)

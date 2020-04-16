@@ -1,72 +1,56 @@
-import React from "react"
-import withLayout from "../components/layouts/BaseLayout"
-import BasePage from "../components/BasePage"
-import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm"
-
-import { Row, Col } from "reactstrap"
-
-import { createPortfolio } from "../actions"
-
-import withAuth from "../components/hoc/withAuth"
-import { Router } from "../routes"
-import moment from "moment"
+import React, { useState } from 'react'
+import BaseLayout from '../components/layouts/BaseLayout'
+import PortfolioCreateForm from '../components/portfolios/PortfolioCreateForm'
+import { Row, Col } from 'reactstrap'
+import { createPortfolio } from '../actions'
+import { Router } from '../routes'
+import moment from 'moment'
 
 const INITIAL_VALUES = {
-    title: "",
-    company: "",
-    location: "",
-    position: "",
-    description: "",
-    startDate: moment(),
-    endDate: moment(),
+  title: '',
+  company: '',
+  location: '',
+  position: '',
+  description: '',
+  startDate: moment(),
+  endDate: moment(),
 }
 
-class PortfolioNew extends React.Component {
-    constructor(props) {
-        super()
+const PortfolioNew = () => {
+  const [error, setError] = useState(undefined)
 
-        this.state = {
-            error: undefined,
-        }
+  function savePortfolio(portfolioData, { setSubmitting }) {
+    setSubmitting(true)
 
-        this.savePortfolio = this.savePortfolio.bind(this)
-    }
+    createPortfolio(portfolioData)
+      .then((portfolio) => {
+        setSubmitting(false)
+        Router.pushRoute('/portfolios')
+      })
+      .catch((err) => {
+        const error = err.message || 'Server Error!'
+        setSubmitting(false)
+        setError({ error })
+      })
+  }
 
-    savePortfolio(portfolioData, { setSubmitting }) {
-        setSubmitting(true)
-
-        createPortfolio(portfolioData)
-            .then((portfolio) => {
-                setSubmitting(false)
-                this.setState({ error: undefined })
-                Router.pushRoute("/portfolios")
-            })
-            .catch((err) => {
-                const error = err.message || "Server Error!"
-                setSubmitting(false)
-                this.setState({ error })
-            })
-    }
-
-    render() {
-        const { error } = this.state
-
-        return (
-            <withLayout {...this.props.auth}>
-                <BasePage className="portfolio-create-page" title="Create New Portfolio">
-                    <Row>
-                        <Col md="6">
-                            <PortfolioCreateForm
-                                initialValues={INITIAL_VALUES}
-                                error={error}
-                                onSubmit={this.savePortfolio}
-                            />
-                        </Col>
-                    </Row>
-                </BasePage>
-            </BaseLayout>
-        )
-    }
+  return (
+    <main className="cover">
+      <div className="wrapper">
+        <div className="base-page portfolio-create-page">
+          <Row>
+            <Col md="6">
+              <PortfolioCreateForm
+                initialValues={INITIAL_VALUES}
+                error={error}
+                onSubmit={savePortfolio}
+              />
+            </Col>
+          </Row>
+        </div>
+      </div>
+    </main>
+  )
 }
-
-export default withAuth("siteOwner")(PortfolioNew)
+PortfolioNew.Layout = BaseLayout
+export default PortfolioNew
