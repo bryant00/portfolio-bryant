@@ -1,75 +1,56 @@
-import React from 'react'
-import withLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/BasePage'
+import React, { useState } from 'react'
+import BaseLayout from '../components/layouts/BaseLayout'
 import PortfolioCreateForm from '../components/portfolios/PortfolioCreateForm'
-
 import { Row, Col } from 'reactstrap'
-
 import { updatePortfolio, getPortfolioById } from '../actions'
 
-import withAuth from '../components/hoc/withAuth'
 import { Router } from '../routes'
 
-class PortfolioEdit extends React.Component {
-  static async getInitialProps({ query }) {
-    let portfolio = {}
+const PortfolioEdit = ({ data }) => {
+  const portfolio = data
+  const [error, setError] = useState(undefined)
 
-    try {
-      portfolio = await getPortfolioById(query.id)
-    } catch (error) {
-      // console.error(err)
-      console.error('portfolioEdit.js err')
-    }
-
-    return { portfolio }
-  }
-
-  constructor(props) {
-    super()
-
-    this.state = {
-      error: undefined,
-    }
-
-    this.updatePortfolio = this.updatePortfolio.bind(this)
-  }
-
-  updatePortfolio(portfolioData, { setSubmitting }) {
+  function updatePortfolio(portfolioData, { setSubmitting }) {
     setSubmitting(true)
 
     updatePortfolio(portfolioData)
       .then((portfolio) => {
         setSubmitting(false)
-        this.setState({ error: undefined })
         Router.pushRoute('/portfolios')
       })
       .catch((err) => {
         const error = err.message || 'Server Error!'
         setSubmitting(false)
-        this.setState({ error })
+        setError({ error })
       })
   }
 
-  render() {
-    const { error } = this.state
-    const { portfolio } = this.props
-
-    return (
-      <withLayout {...this.props.auth}>
-        <BasePage className="portfolio-create-page" title="Update Portfolio">
+  return (
+    <main className="cover">
+      <div className="wrapper">
+        <div className="base-page portfolio-create-page">
           <Row>
             <Col md="6">
               <PortfolioCreateForm
                 initialValues={portfolio}
                 error={error}
-                onSubmit={this.updatePortfolio}
+                onSubmit={updatePortfolio}
               />
             </Col>
           </Row>
-        </BasePage>
-      </BaseLayout>
-    )
-  }
+        </div>
+      </div>
+    </main>
+  )
 }
 
-export default withAuth('siteOwner')(PortfolioEdit)
+PortfolioEdit.Layout = BaseLayout
+PortfolioEdit.getInitialProps = async (portfolioId) => {
+  const res = await fetch(
+    `${process.env.POST_LOGOUT_REDIRECT_URI}api/portfolios`
+  )
+  const json = await res.json()
+  return { data: json }
+}
+
+export default PortfolioEdit
