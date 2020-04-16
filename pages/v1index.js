@@ -40,7 +40,7 @@ class HomePage extends React.Component {
         <div className="wrapper">
           <div className="main-section">
             <div className="background-image">
-              <img src="/public/images/background-index.png" />
+              <img src="/images/background-index.png" />
             </div>
             <Container>
               <Row>
@@ -60,7 +60,7 @@ class HomePage extends React.Component {
                         <img
                           alt="Guy programming welcome picture"
                           className="image"
-                          src="/public/images/node-1.jpg"
+                          src="/images/node-1.jpg"
                         />
                         <div className="shadow-custom">
                           <div className="shadow-inner"> </div>
@@ -77,7 +77,7 @@ class HomePage extends React.Component {
                         <img
                           alt="Guy programming welcome picture"
                           className="image"
-                          src="/public/images/node-2.jpg"
+                          src="/images/node-2.jpg"
                         />
                         <div className="shadow-custom shadow-custom-2">
                           <div className="shadow-inner"> </div>

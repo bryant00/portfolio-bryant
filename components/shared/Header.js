@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useUser } from '../../lib/user'
+import { useFetchUser } from '../../lib/user'
 import ActiveLink from '../ActiveLink'
 import {
   Collapse,
@@ -30,7 +30,8 @@ const Header = ({ className }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   // const { isAuthenticated, user, className } = props
-  const { user, loading } = useUser()
+  const { user, loading } = useFetchUser()
+  // console.log(user, loading)
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
 
   function toggle() {
@@ -71,6 +72,7 @@ const Header = ({ className }) => {
             {!loading &&
               (user ? (
                 <NavItem className="port-navbar-item">
+                  {console.log(user)}
                   <a
                     href="api/logout"
                     // onClick={auth0.login}
