@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import PortfolioCreateForm from '../components/portfolios/PortfolioCreateForm'
 import { Row, Col } from 'reactstrap'
-import { updatePortfolio, getPortfolioById } from '../actions'
+// import { updatePortfolio, getPortfolioById } from '../actions'
 
 import { Router } from '../routes'
 

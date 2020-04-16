@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import PortfolioCreateForm from '../components/portfolios/PortfolioCreateForm'
 import { Row, Col } from 'reactstrap'
-import { createPortfolio } from '../actions'
+// import { createPortfolio } from '../actions'
 import { Router } from '../routes'
 import moment from 'moment'
 
@@ -18,7 +18,9 @@ const INITIAL_VALUES = {
 
 const PortfolioNew = () => {
   const [error, setError] = useState(undefined)
-
+  function createPortfolio(portfolioData) {
+    return undefined
+  }
   function savePortfolio(portfolioData, { setSubmitting }) {
     setSubmitting(true)
 

@@ -8,7 +8,7 @@ const withCSS = require('@zeit/next-css')
 if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
-console.log(dotEnvResult.parsed)
+// console.log(dotEnvResult.parsed)
 
 const nextConfig = {
   //   target: 'serverless',
