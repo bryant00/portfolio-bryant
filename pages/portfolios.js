@@ -82,9 +82,7 @@ const PortfolioPage = ({ data }) => {
 }
 PortfolioPage.Layout = BaseLayout
 PortfolioPage.getInitialProps = async () => {
-  const res = await fetch(
-    `${process.env.POST_LOGOUT_REDIRECT_URI}api/portfolios`
-  )
+  const res = await fetch(`${process.env.NOW_URL}api/portfolios`)
   const json = await res.json()
   return { data: json }
 }

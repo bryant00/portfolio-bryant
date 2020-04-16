@@ -23,6 +23,7 @@ const nextConfig = {
     SESSION_COOKIE_LIFETIME: process.env.SESSION_COOKIE_LIFETIME,
     DB_URI: process.env.DB_URI,
     NAMESPACE: process.env.NAMESPACE,
+    NOW_URL: process.env.NOW_URL,
   },
   // webpack: (config, { dev, isServer }) => {
   //     if (isServer) {

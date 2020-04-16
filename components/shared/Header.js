@@ -72,7 +72,7 @@ const Header = ({ className }) => {
             {!loading &&
               (user ? (
                 <NavItem className="port-navbar-item">
-                  {console.log(user)}
+                  {/* {console.log(user)} */}
                   <a
                     href="api/logout"
                     // onClick={auth0.login}
