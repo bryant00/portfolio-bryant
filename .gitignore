@@ -2,6 +2,7 @@
 /.next
 /server/.next
 /server/config/dev.js
+/old_server
 /pages/blogDetail.js
 /pages/blogEditor.js
 /pages/blogEditorUpdate.js
