@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import App from 'next/app'
 import { ToastContainer } from 'react-toastify'
 import Fonts from '../helpers/Fonts'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import Head from 'next/head'
+import { ThemeContext, themes } from '../lib/themeContext'
+import { UserProvider, useFetchUser } from '../lib//user.js'
 // Stylings
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/main.scss'
@@ -13,20 +15,13 @@ import 'react-toastify/dist/ReactToastify.css'
 const Noop = ({ children }) => children
 
 function MyApp({ Component, pageProps }) {
-  // const user = process.browser
-  // const isSiteOwner =
-  //   user && user[process.env.NAMESPACE + '/role'] === 'siteOwner'
-  // const auth = {
-  //   user,
-  //   isAuthenticated: !!user,
-  //   isSiteOwner,
-  // }
   const Layout = Component.Layout || Noop
   const title = 'Bryant Patton Portfolio'
   const headerType = 'default'
+  const { user, loading } = useFetchUser()
   return (
-    <>
-      <DefaultSeo {...SEO} />
+    <UserProvider value={{ user, loading }}>
+      {/* <DefaultSeo {...SEO} /> */}
       <Head>
         <title>{title}</title>
         <link
@@ -54,13 +49,12 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <ToastContainer />
-      <Layout>
-        <Component
-          {...pageProps}
-          //auth={auth}
-        />
-      </Layout>
-    </>
+      <ThemeContext.Provider value={themes}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeContext.Provider>
+    </UserProvider>
   )
 }
 export default MyApp

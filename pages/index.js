@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Typed from 'react-typed'
-
 import IndexLayout from '../components/layouts/IndexLayout'
 import { Button, Container, Row, Col } from 'reactstrap'
+import { useFetchUser } from '../lib//user.js'
 
 function useInterval(callback, delay) {
   const savedCallback = useRef()
@@ -27,7 +27,7 @@ function useInterval(callback, delay) {
 const HomePage = () => {
   const [isFlipping, setIsFlipping] = useState(false)
   const roles = ['Developer', 'Tech Lover', 'Team Player', 'Explorer']
-
+  const { user, loading } = useFetchUser()
   useInterval(() => {
     // Your custom logic here
     setIsFlipping(!isFlipping)
@@ -85,6 +85,12 @@ const HomePage = () => {
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
                   <h1>
+                    {user && (
+                      <span>
+                        {user.email}
+                        <br></br>
+                      </span>
+                    )}
                     Welcome to the portfolio website of Bryant Patton. Get
                     informed, collaborate and discover projects I was working on
                     through the years!

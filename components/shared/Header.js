@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useFetchUser } from '../../lib/user'
+import { useFetchUser } from '../../lib/user.js'
 import ActiveLink from '../ActiveLink'
 import {
   Collapse,
@@ -29,9 +29,7 @@ const BsNavLink = (props) => {
 const Header = ({ className }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  // const { isAuthenticated, user, className } = props
   const { user, loading } = useFetchUser()
-  // console.log(user, loading)
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
 
   function toggle() {

@@ -1,19 +1,12 @@
 import React from 'react'
 import Header from '../shared/Header'
-import { UserProvider } from '../../lib/user'
+// import {ThemeContext} from '../../lib/themeContext'
 
-export default ({ user, loading = false, isSiteOwner = false, children }) => {
+export default ({ children }) => {
   return (
-    <UserProvider value={{ user, loading }}>
-      <div className="layout-container">
-        <Header
-          className={`port-nav-default`}
-          loading={loading}
-          user={user}
-          isSiteOwner={isSiteOwner}
-        />
-        {children}
-      </div>
-    </UserProvider>
+    <div className="layout-container">
+      <Header className={`port-nav-default`} />
+      {children}
+    </div>
   )
 }

@@ -6,8 +6,8 @@ import PortfolioCard from '../components/portfolios/PortfolioCard'
 import { useFetchUser } from '../lib/user'
 import { Router } from '../routes'
 
-const PortfolioPage = ({ data }) => {
-  const { user, loading } = useFetchUser()
+const PortfolioPage = ({ user, loading, data }) => {
+  // const { user, loading } = useFetchUser()
   const { isSiteOwner } = true //user['https://portfolio-bryant.now.sh/role']
   const [portfolios, setPortfolios] = useState([data])
 
