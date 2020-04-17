@@ -5,6 +5,7 @@ import { Col, Row, Button } from 'reactstrap'
 import PortfolioCard from '../components/portfolios/PortfolioCard'
 import { useFetchUser } from '../lib/user'
 import { Router } from '../routes'
+import { server } from '../lib/server'
 
 const PortfolioPage = ({ data }) => {
   const { user, loading } = useFetchUser()
@@ -89,7 +90,7 @@ const PortfolioPage = ({ data }) => {
 }
 PortfolioPage.Layout = BaseLayout
 PortfolioPage.getInitialProps = async () => {
-  const res = await fetch(`${process.env.NOW_URL}api/portfolios`)
+  const res = await fetch(`${server}/api/portfolios`)
   const json = await res.json()
   return { data: json }
 }
