@@ -1,13 +1,13 @@
 const dotEnvResult = require('dotenv').config()
-const prod = process.env.NODE_ENV === 'production'
+// const prod = process.env.NODE_ENV === 'production'
 const withPlugins = require('next-compose-plugins')
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
 // const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
-if (dotEnvResult.error) {
-  throw dotEnvResult.error
-}
+// if (dotEnvResult.error) {
+//   throw dotEnvResult.error
+// }
 // console.log(dotEnvResult.parsed)
 
 const nextConfig = {
