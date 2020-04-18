@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Typed from 'react-typed'
 import IndexLayout from '../components/layouts/IndexLayout'
 import { Button, Container, Row, Col } from 'reactstrap'
-import { useFetchUser } from '../lib//user.js'
+import { useFetchUser } from '../lib/user.js'
 
 function useInterval(callback, delay) {
   const savedCallback = useRef()

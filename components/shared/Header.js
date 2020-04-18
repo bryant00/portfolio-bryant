@@ -72,7 +72,7 @@ const Header = ({ className }) => {
                 <NavItem className="port-navbar-item">
                   {/* {console.log(user)} */}
                   <a
-                    href="api/logout"
+                    href="/api/logout"
                     // onClick={auth0.login}
                     className="nav-link port-navbar-link clickable"
                   >
@@ -82,7 +82,7 @@ const Header = ({ className }) => {
               ) : (
                 <NavItem className="port-navbar-item">
                   <a
-                    href="api/login"
+                    href="/api/login"
                     // onClick={auth0.login}
                     className="nav-link port-navbar-link clickable"
                   >
