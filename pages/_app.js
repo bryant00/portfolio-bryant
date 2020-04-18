@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || Noop
   const title = 'Bryant Patton Portfolio'
   const headerType = 'default'
-  const { user, loading } = useFetchUser()
+  const { user, loading, owner } = useFetchUser()
   return (
-    <UserProvider value={{ user, loading }}>
+    <UserProvider value={{ user, loading, owner }}>
       {/* <DefaultSeo {...SEO} /> */}
       <Head>
         <title>{title}</title>

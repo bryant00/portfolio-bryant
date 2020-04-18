@@ -8,8 +8,7 @@ import { Router } from '../routes'
 import { server } from '../lib/server'
 
 const PortfolioPage = ({ data }) => {
-  const { user, loading } = useFetchUser()
-  const { isSiteOwner } = true //user['https://portfolio-bryant.now.sh/role']
+  const { user, loading, owner } = useFetchUser()
   const [portfolios, setPortfolios] = useState([data])
 
   function navigateToEdit(portfolioId, e) {
@@ -40,7 +39,7 @@ const PortfolioPage = ({ data }) => {
       return (
         <Col key={index} md="4">
           <PortfolioCard portfolio={portfolio}>
-            {user && isSiteOwner && (
+            {user && owner && (
               <React.Fragment>
                 <Button
                   onClick={(e) => this.navigateToEdit(portfolio._id, e)}
@@ -73,7 +72,7 @@ const PortfolioPage = ({ data }) => {
     <main className="cover">
       <div className="wrapper">
         <div className="base-page portfolio-page">
-          {user && isSiteOwner && (
+          {user && owner && (
             <Button
               onClick={() => Router.pushRoute('/portfolios/new')}
               color="success"
