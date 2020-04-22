@@ -1,60 +1,52 @@
-import React, { useState, useEffect, useContext } from 'react'
-import App from 'next/app'
+import React from 'react'
+import Router from 'next/router'
 import { ToastContainer } from 'react-toastify'
-import Fonts from '../helpers/Fonts'
-import { DefaultSeo } from 'next-seo'
-import SEO from '../next-seo.config'
-import Head from 'next/head'
-import { ThemeContext, themes } from '../lib/themeContext'
-import { UserProvider, useFetchUser } from '../lib//user.js'
+// import { DefaultSeo } from 'next-seo'
+// import SEO from '../next-seo.config'
+import { Auth0Provider } from '../lib/auth0-spa'
+// import { Auth0Provider } from '../lib/react-auth0-spa'
+// import { ThemeContext, themes } from '../lib/themeContext'
+import { MyHead } from '../components/shared/MyHead'
+import NProgress from 'nprogress'
 // Stylings
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/main.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
+Router.events.on('routeChangeStart', (url) => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
+
 const Noop = ({ children }) => children
+// const onRedirectCallback = (appState) => {
+//   console.log('appState', appState)
 
-function MyApp({ Component, pageProps }) {
+//   Router.push(appState && appState.targetUrl ? appState.targetUrl : '/')
+// }
+
+function MyApp({ Component, pageProps, router }) {
   const Layout = Component.Layout || Noop
-  const title = 'Bryant Patton Portfolio'
-  const headerType = 'default'
-  const { user, loading, owner } = useFetchUser()
-  return (
-    <UserProvider value={{ user, loading, owner }}>
-      {/* <DefaultSeo {...SEO} /> */}
-      <Head>
-        <title>{title}</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-          rel="stylesheet"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-      </Head>
+  // let browserUri = undefined
+  // React.useEffect(() => {
+  //   // window is accessible here.
+  //   browserUri = window.location.origin + '/callback'
+  //   console.log(browserUri)
+  // })
 
-      <ToastContainer />
-      <ThemeContext.Provider value={themes}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeContext.Provider>
-    </UserProvider>
+  return (
+    <Auth0Provider
+    // redirect_uri={browserUri}
+    // onRedirectCallback={onRedirectCallback}
+    >
+      <MyHead />
+      {/* <ToastContainer /> */}
+      <Layout>
+        <Component {...pageProps} router={router} />
+      </Layout>
+    </Auth0Provider>
   )
 }
 export default MyApp

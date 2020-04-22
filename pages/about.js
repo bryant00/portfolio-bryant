@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
-import { ThemeContext } from '../lib/themeContext'
+import { ThemeContext, themes } from '../lib/themeContext'
 import { Row, Col, Container } from 'reactstrap'
 
 const AboutPage = () => {
-  const title = 'Bryant Patton - Learn More About Me'
   const theme = useContext(ThemeContext)
   return (
     <main className="cover">

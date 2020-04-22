@@ -1,58 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
-import { Link } from '../routes'
 import { Col, Row, Button } from 'reactstrap'
 import PortfolioCard from '../components/portfolios/PortfolioCard'
-import { useFetchUser } from '../lib/user'
+import { useAuth0 } from '../lib/auth0-spa'
 import { Router } from '../routes'
-import { server } from '../lib/server'
 
 const PortfolioPage = ({ data }) => {
-  const { user, loading, owner } = useFetchUser()
+  const { user, loading, isAuthenticated } = useAuth0()
   const [portfolios, setPortfolios] = useState([data])
-
-  function navigateToEdit(portfolioId, e) {
-    e.stopPropagation()
-    Router.pushRoute(`/portfolios/${portfolioId}/edit`)
-  }
-
-  function deletePortfolio(portfolioId) {
-    deletePortfolio(portfolioId)
-      .then(() => {
-        Router.pushRoute('/portfolios')
-      })
-      .catch((err) => console.error(err))
-  }
-
-  function displayDeleteWarning(portfolioId, e) {
-    e.stopPropagation()
-    const isConfirm = confirm(
-      'Are you sure you want to delete this portfolio???'
-    )
-    if (isConfirm) {
-      deletePortfolio(portfolioId)
-    }
-  }
 
   function renderPortfolios(portfolios) {
     return portfolios.map((portfolio, index) => {
       return (
         <Col key={index} md="4">
           <PortfolioCard portfolio={portfolio}>
-            {user && owner && (
+            {user && isAuthenticated && (
               <React.Fragment>
-                <Button
-                  onClick={(e) => this.navigateToEdit(portfolio._id, e)}
-                  color="warning"
-                >
-                  Edit
-                </Button>{' '}
-                <Button
-                  onClick={(e) => this.displayDeleteWarning(portfolio._id, e)}
-                  color="danger"
-                >
-                  Delete
-                </Button>
+                <Button color="warning">Edit</Button>{' '}
+                <Button color="danger">Delete</Button>
               </React.Fragment>
             )}
           </PortfolioCard>
@@ -61,13 +26,6 @@ const PortfolioPage = ({ data }) => {
     })
   }
 
-  if (loading) {
-    return (
-      <BaseLayout>
-        <p>Loading...</p>
-      </BaseLayout>
-    )
-  }
   return (
     <main className="cover">
       <div className="wrapper">
@@ -89,7 +47,7 @@ const PortfolioPage = ({ data }) => {
 }
 PortfolioPage.Layout = BaseLayout
 PortfolioPage.getInitialProps = async () => {
-  const res = await fetch(`${server}/api/portfolios`)
+  const res = await fetch(`https://u76xn.sse.codesandbox.io/api/portfolios`)
   const json = await res.json()
   return { data: json }
 }

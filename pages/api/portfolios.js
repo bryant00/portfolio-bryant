@@ -1,5 +1,6 @@
 import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
+// import { ObjectID } from 'mongodb'
 
 const handler = nextConnect()
 
@@ -11,4 +12,15 @@ handler.get(async (req, res) => {
   res.json(doc)
 })
 
-export default handler
+handler.post(async (req, res) => {
+  let data = req.body
+  data = JSON.parse(data)
+  let doc = await req.db
+    .collection('portfolios')
+    .updateOne({ $set: data }, { upsert: true })
+
+  res.json({ message: 'ok' })
+})
+
+// export default handler
+export default (req, res) => handler.apply(req, res)

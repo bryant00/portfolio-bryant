@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Typed from 'react-typed'
-import IndexLayout from '../components/layouts/IndexLayout'
-import { Button, Container, Row, Col } from 'reactstrap'
-import { useFetchUser } from '../lib/user.js'
+import BaseLayout from '../components/layouts/BaseLayout'
+import { Container, Row, Col } from 'reactstrap'
+import { useAuth0 } from '../lib/auth0-spa'
 
 function useInterval(callback, delay) {
   const savedCallback = useRef()
@@ -27,7 +27,8 @@ function useInterval(callback, delay) {
 const HomePage = () => {
   const [isFlipping, setIsFlipping] = useState(false)
   const roles = ['Developer', 'Tech Lover', 'Team Player', 'Explorer']
-  const { user, loading } = useFetchUser()
+  const { user, loading } = useAuth0()
+
   useInterval(() => {
     // Your custom logic here
     setIsFlipping(!isFlipping)
@@ -88,7 +89,7 @@ const HomePage = () => {
                     {user && (
                       <span>
                         {user.email}
-                        <br></br>
+                        <br />
                       </span>
                     )}
                     Welcome to the portfolio website of Bryant Patton. Get
@@ -125,6 +126,6 @@ const HomePage = () => {
     </main>
   )
 }
-HomePage.Layout = IndexLayout
+HomePage.Layout = BaseLayout
 // export default Index
 export default HomePage
