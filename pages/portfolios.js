@@ -3,7 +3,6 @@ import BaseLayout from '../components/layouts/BaseLayout'
 import { Col, Row, Button } from 'reactstrap'
 import PortfolioCard from '../components/portfolios/PortfolioCard'
 import { useAuth0 } from '../lib/auth0-spa'
-import { Router } from '../routes'
 
 const PortfolioPage = ({ data }) => {
   const { user, loading, isAuthenticated } = useAuth0()
@@ -31,11 +30,7 @@ const PortfolioPage = ({ data }) => {
       <div className="wrapper">
         <div className="base-page portfolio-page">
           {user && owner && (
-            <Button
-              onClick={() => Router.pushRoute('/portfolios/new')}
-              color="success"
-              className="create-port-btn"
-            >
+            <Button color="success" className="create-port-btn">
               Create Portfolio
             </Button>
           )}
