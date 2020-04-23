@@ -4,6 +4,8 @@ import BaseLayout from '../components/layouts/BaseLayout'
 import { Container, Row, Col } from 'reactstrap'
 import { useAuth0 } from '../lib/auth0-spa'
 
+import Layout from '../components/layout'
+
 function useInterval(callback, delay) {
   const savedCallback = useRef()
 
