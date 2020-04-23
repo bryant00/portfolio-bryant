@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useFetchUser } from '../../lib/user.js'
+import React, { useState, useContext } from 'react'
+
+import { useAuth0 } from '../../lib/auth0-spa'
 import ActiveLink from '../ActiveLink'
 import {
   Collapse,
@@ -8,30 +9,28 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  Dropdown,
-  DropdownItem,
-  DropdownToggle,
-  DropdownMenu,
 } from 'reactstrap'
+import { ThemeContext } from '../../lib/themeContext'
 
 const BsNavLink = (props) => {
   const { route, title } = props
   const className = props.className || ''
 
   return (
-    <ActiveLink activeClassName="active" route={route}>
+    <ActiveLink activeClassName="active" href={route}>
       <a className={`nav-link port-navbar-link ${className}`}> {title} </a>
     </ActiveLink>
   )
 }
 
-const Header = ({ className }) => {
+const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const { user, loading } = useFetchUser()
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
-
+  const theme = useContext(ThemeContext)
+  console.log(theme)
+  const navStyle = 'index'
   function toggle() {
     setIsNavOpen(!isNavOpen)
   }
@@ -43,7 +42,7 @@ const Header = ({ className }) => {
   return (
     <div>
       <Navbar
-        className={`port-navbar port-nav-base absolute ${className} ${menuOpenClass}`}
+        className={`port-navbar port-nav-base absolute port-nav-${theme.index} ${menuOpenClass}`}
         color="transparent"
         dark
         expand="md"
@@ -67,29 +66,28 @@ const Header = ({ className }) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="Cv" />
             </NavItem>
-            {!loading &&
-              (user ? (
-                <NavItem className="port-navbar-item">
-                  {/* {console.log(user)} */}
-                  <a
-                    href="/api/logout"
-                    // onClick={auth0.login}
-                    className="nav-link port-navbar-link clickable"
-                  >
-                    Logout
-                  </a>
-                </NavItem>
-              ) : (
-                <NavItem className="port-navbar-item">
-                  <a
-                    href="/api/login"
-                    // onClick={auth0.login}
-                    className="nav-link port-navbar-link clickable"
-                  >
-                    Login
-                  </a>
-                </NavItem>
-              ))}
+            {isAuthenticated && (
+              <NavItem className="port-navbar-item">
+                <a
+                  // href="/api/logout"
+                  onClick={() => logout()}
+                  className="nav-link port-navbar-link clickable"
+                >
+                  Logout
+                </a>
+              </NavItem>
+            )}
+            {!isAuthenticated && (
+              <NavItem className="port-navbar-item">
+                <a
+                  // href="/api/login"
+                  onClick={() => loginWithRedirect()}
+                  className="nav-link port-navbar-link clickable"
+                >
+                  Login
+                </a>
+              </NavItem>
+            )}
           </Nav>
         </Collapse>
       </Navbar>
@@ -97,7 +95,7 @@ const Header = ({ className }) => {
   )
 }
 
-export default Header
+export default NavBar
 // function renderBlogMenu({ isSiteOwner }) {
 //   if (isSiteOwner) {
 //     return (

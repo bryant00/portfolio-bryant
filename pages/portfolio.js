@@ -1,7 +1,6 @@
 import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import { withRouter } from 'next/router'
-
 const Portfolio = ({ data }) => {
   let portfolio = data
 
@@ -18,8 +17,8 @@ const Portfolio = ({ data }) => {
   )
 }
 Portfolio.Layout = BaseLayout
-Portfolio.getInitialProps = async (portfolioId) => {
-  const res = await fetch(`${process.env.NOW_URL}api/portfolios`)
+Portfolio.getInitialProps = async portfolioId => {
+  const res = await fetch(`https://u76xn.sse.codesandbox.io/api/portfolios`)
   const json = await res.json()
   return { data: json }
 }
