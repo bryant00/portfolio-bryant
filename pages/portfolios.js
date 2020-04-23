@@ -1,13 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react'
-import BaseLayout from '../components/layouts/BaseLayout'
-import { Col, Row, Button } from 'reactstrap'
+import React from 'react'
+import Layout from '../components/layouts/Layout'
+import { Col, Row, Container } from 'reactstrap'
 import PortfolioCard from '../components/portfolios/PortfolioCard'
-import { useAuth0 } from '../lib/auth0-spa'
 import useSWR from 'swr'
+
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const PortfolioPage = () => {
-  const { user, loading, isAuthenticated } = useAuth0()
+  const theme = {
+    mainClass: '',
+    navClass: 'default',
+    title: 'Bryant Patton - Porfolio',
+  }
 
   const Data = () => {
     const { data, error } = useSWR('/api/portfolios', fetcher)
@@ -28,16 +32,19 @@ const PortfolioPage = () => {
   }
 
   return (
-    <main className="cover">
-      <div className="wrapper">
-        <div className="base-page portfolio-page">
+    <Layout theme={theme}>
+      <div className="base-page portfolio-page">
+        <Container>
+          <div className="page-header">
+            <h1 className="page-header-title">Porfolio</h1>
+          </div>
           <Row>
             <Data></Data>
           </Row>
-        </div>
+        </Container>
       </div>
-    </main>
+    </Layout>
   )
 }
-PortfolioPage.Layout = BaseLayout
+
 export default PortfolioPage
