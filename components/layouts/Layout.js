@@ -1,31 +1,13 @@
-import Link from 'next/link'
-import Head from 'next/head'
+import React from 'react'
+import { MyHead } from '../shared/MyHead'
+import NavBar from '../shared/NavBar'
 
-export default ({ children, title = 'This is the default title' }) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <header>
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |
-        <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |
-        <Link href="/contact">
-          <a>Contact</a>
-        </Link>
-      </nav>
-    </header>
-
-    {children}
-
-    <footer>{'I`m here to stay'}</footer>
+export default ({ children, theme }) => (
+  <div className="layout-container">
+    <MyHead title={theme.title} />
+    <NavBar navClass={theme.navClass} />
+    <main className={`cover ${theme.mainClass}`}>
+      <div className="wrapper">{children}</div>
+    </main>
   </div>
 )

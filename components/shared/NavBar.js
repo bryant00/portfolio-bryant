@@ -23,13 +23,12 @@ const BsNavLink = (props) => {
   )
 }
 
-const NavBar = () => {
+const NavBar = ({ navClass }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
   const theme = useContext(ThemeContext)
-  console.log(theme)
   const navStyle = 'index'
   function toggle() {
     setIsNavOpen(!isNavOpen)
@@ -42,7 +41,7 @@ const NavBar = () => {
   return (
     <div>
       <Navbar
-        className={`port-navbar port-nav-base absolute port-nav-${theme.index} ${menuOpenClass}`}
+        className={`port-navbar port-nav-base absolute port-nav-${navClass} ${menuOpenClass}`}
         color="transparent"
         dark
         expand="md"
