@@ -93,7 +93,7 @@ const NavBar = ({ navClass }) => {
     </div>
   )
 }
-
+NavBar.whyDidYouRender = true
 export default NavBar
 // function renderBlogMenu({ isSiteOwner }) {
 //   if (isSiteOwner) {
