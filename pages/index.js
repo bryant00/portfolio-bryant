@@ -75,7 +75,7 @@ const HomePage = () => {
 
                     <img
                       alt="web network"
-                      // className="image"
+                      className="image"
                       src="/images/node-1.jpg"
                     />
                     <div className="shadow-custom">
@@ -91,7 +91,7 @@ const HomePage = () => {
                     </div>
                     <img
                       alt="web network"
-                      // className="image"
+                      className="image"
                       src="/images/node-2.jpg"
                     />
                     <div className="shadow-custom shadow-custom-2">
