@@ -1,6 +1,10 @@
 // ------------- INDEX PAGE -------------
 .cover {
-  background-image: linear-gradient(45deg, #00aeef 0%, #096fb9 100%);
+  background-image: linear-gradient(
+    45deg,
+    $main-color-black 0%,
+    $main-color-black 100%
+  );
   position: relative;
 }
 
@@ -19,13 +23,13 @@
 
 .hero-section {
   h2 {
-    color: white;
+    color: $main-color-white;
     font-weight: bold;
     margin-bottom: 10px;
   }
 
   perspective: 1000px;
-  color: white;
+  color: $main-color-white;
   width: 400px;
   position: relative;
 
@@ -48,7 +52,7 @@
 }
 
 .hero-welcome-text > h1 {
-  color: white;
+  color: $main-color-white;
   text-transform: uppercase;
   font-size: 27px;
   margin-top: 80px;
@@ -56,7 +60,7 @@
 
 .hero-welcome-bio {
   margin-top: 20px;
-  color: white;
+  color: $main-color-white;
 
   .fa-stack {
     font-size: 28px;
@@ -64,7 +68,7 @@
 
   .list-inline-item {
     > a {
-      color: #373737;
+      color: $main-color-black;
     }
   }
 }
@@ -123,8 +127,8 @@
 .cover-1 {
   background-image: linear-gradient(
     45deg,
-    rgb(254, 202, 83),
-    rgb(253, 157, 97)
+    $main-color-black,
+    $main-color-black
   );
 }
 
@@ -158,12 +162,12 @@
 .service-link {
   position: absolute;
   bottom: 0;
-  color: white;
+  color: $main-color-white;
   font-style: italic;
   font-size: 13px;
   margin-left: 15px;
 
   > a {
-    color: white;
+    color: $main-color-white;
   }
 }
