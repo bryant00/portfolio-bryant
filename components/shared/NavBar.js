@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-
 import { useAuth0 } from '../../lib/auth0-spa'
 import ActiveLink from '../ActiveLink'
 import {
@@ -93,50 +92,5 @@ const NavBar = ({ navClass }) => {
     </div>
   )
 }
-NavBar.whyDidYouRender = true
+// NavBar.whyDidYouRender = true
 export default NavBar
-// function renderBlogMenu({ isSiteOwner }) {
-//   if (isSiteOwner) {
-//     return (
-//       <Dropdown
-//         className="port-navbar-link port-dropdown-menu"
-//         nav
-//         isOpen={dropdownOpen}
-//         toggle={toggleDropdown}
-//       >
-//         <DropdownToggle className="port-dropdown-toggle" nav caret>
-//           Blog
-//         </DropdownToggle>
-//         <DropdownMenu>
-//           <DropdownItem>
-//             <BsNavLink
-//               className="port-dropdown-item"
-//               route="/blogs"
-//               title="Blogs"
-//             />
-//           </DropdownItem>
-//           <DropdownItem>
-//             <BsNavLink
-//               className="port-dropdown-item"
-//               route="/blogs/new"
-//               title="Create a Blog"
-//             />
-//           </DropdownItem>
-//           <DropdownItem>
-//             <BsNavLink
-//               className="port-dropdown-item"
-//               route="/blogs/dashboard"
-//               title="Blogs Dashboard"
-//             />
-//           </DropdownItem>
-//         </DropdownMenu>
-//       </Dropdown>
-//     )
-//   }
-
-//   return (
-//     <NavItem className="port-navbar-item">
-//       <BsNavLink route="/blogs" title="Blog" />
-//     </NavItem>
-//   )
-// }

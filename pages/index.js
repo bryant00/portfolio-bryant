@@ -56,7 +56,7 @@ const HomePage = () => {
     <Layout theme={state}>
       <div className="main-section">
         <div className="background-image">
-          <img src="/images/background-index.png" />
+          {/* <img src="/images/background-index.png" /> */}
         </div>
         <Container>
           <Row>
@@ -69,7 +69,7 @@ const HomePage = () => {
                     <div className="hero-section-content">
                       <h2> Full Stack Web Developer </h2>
                       <div className="hero-section-content-intro">
-                        Have a look at my portfolio and job history.
+                        Take a look at my portfolio and work history.
                       </div>
                     </div>
 
@@ -110,9 +110,9 @@ const HomePage = () => {
                       <br />
                     </span>
                   )}
-                  Welcome to the portfolio website of Bryant Patton. Get
-                  informed, collaborate and discover projects I was working on
-                  through the years!
+                  Welcome to the portfolio website of Bryant Patton. I use this
+                  site to share what I've built and experiment with new
+                  technologies.
                 </h1>
               </div>
               <Typed
@@ -128,7 +128,7 @@ const HomePage = () => {
               />
 
               <div className="hero-welcome-bio">
-                <h2>Let's take a look on my work.</h2>
+                <h2>Take a look and drop me a line.</h2>
               </div>
             </Col>
           </Row>

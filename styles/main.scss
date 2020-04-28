@@ -1,3 +1,4 @@
+@use './shared/colors';
 @import './shared/colors';
 @import './shared/mixins';
 
@@ -5,18 +6,23 @@
 @import './loader';
 @import './index';
 @import './portfolios';
-@import './blogs';
 @import './about';
 @import './cv';
+@import './modal';
 
 // COMPONENTS
 @import './header';
 @import './slate-editor';
 
-html, body {
+$font-stack: Helvetica, sans-serif;
+
+html,
+body {
   height: 100%;
   width: 100%;
-  font-family: 'Montserrat', 'Helvetica';
+  font-family: $font-stack;
+  background-color: $main-color-black;
+  color: $main-color-white;
 }
 
 .clickable {
@@ -27,7 +33,7 @@ html, body {
   font-size: 31px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: white;
+  color: $main-color-white;
 }
 
 .absolute {
@@ -41,14 +47,15 @@ html, body {
 
 .base-page {
   padding: 150px 0 100px 0;
-  color: black;
-  background-color: #ecedee;
+  color: $main-color-white;
+  background-color: $main-color-black;
   min-height: 100vh;
 
   .page-header {
     .page-header-title {
       font-weight: 700;
-      color: black;
+      color: $main-color-white;
+      background-color: $main-color-black;
       display: inline-block;
       margin-bottom: 20px;
     }
