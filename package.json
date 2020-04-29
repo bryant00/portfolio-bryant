@@ -42,6 +42,7 @@
     "swr": "^0.2.0"
   },
   "devDependencies": {
+    "next-images": "^1.4.0",
     "prettier": "^2.0.4"
   }
 }
