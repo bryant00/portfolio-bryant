@@ -1,7 +1,7 @@
 const dotenv = require('dotenv')
-
+const withImages = require('next-images')
 dotenv.config()
-module.exports = {
+module.exports = withImages({
   //   target: 'serverless',
   env: {
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
@@ -12,8 +12,8 @@ module.exports = {
     SESSION_COOKIE_SECRET: process.env.SESSION_COOKIE_SECRET,
     SESSION_COOKIE_LIFETIME: process.env.SESSION_COOKIE_LIFETIME,
     DB_URI: process.env.DB_URI,
-    DB_NAME: process.env.DB_NAME
-  }
-}
+    DB_NAME: process.env.DB_NAME,
+  },
+})
 
 // module.exports = withPlugins([[withSass], [withCSS]], nextConfig)

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout'
-import { Row, Col, Container, Media } from 'reactstrap'
-
+import { Row, Col, Container, Button } from 'reactstrap'
+import Cat from '../svgs/cat.svg'
 const AboutPage = () => {
   const theme = {
     mainClass: '',
@@ -29,11 +29,33 @@ const AboutPage = () => {
                 <img
                   alt="web network"
                   // className="image"
-                  src="/images/tesla.png"
+                  // src="/images/tesla.png"
+                  src={Cat}
                 />
-
-                <p>...</p>
-                <p>....</p>
+                <div>
+                  <Button
+                    as="a"
+                    outline
+                    color="primary"
+                    // className="btn btn-success"
+                    download="bryant_cv.pdf"
+                    style={{ marginLeft: '0.5em' }}
+                    href="/bryant_cv.pdf"
+                  >
+                    Download CV
+                  </Button>
+                  <Button
+                    as="a"
+                    outline
+                    color="primary"
+                    style={{ marginLeft: '0.5em' }}
+                    href="https://github.com/bryant00"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Github
+                  </Button>
+                </div>
               </div>
             </Col>
           </Row>
