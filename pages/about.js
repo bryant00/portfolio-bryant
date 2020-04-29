@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout'
-import { Row, Col, Container } from 'reactstrap'
+import { Row, Col, Container, Media } from 'reactstrap'
 
 const AboutPage = () => {
   const theme = {
@@ -16,18 +16,22 @@ const AboutPage = () => {
             <Col md="6">
               <div className="left-side">
                 <h1 className="title fadein">Hello, Welcome</h1>
-                <h4 className="subtitle fadein">To About Page</h4>
+                <h4 className="subtitle fadein">To My About Page</h4>
                 <p className="subsubTitle fadein">
-                  Feel free to read short description about me.
+                  My name is Bryant Patton. I'm a Full Stack developer and
+                  experienced marketing tech who’s passionate about the web,
+                  design, and backend development.
                 </p>
               </div>
             </Col>
             <Col md="6">
               <div className="fadein">
-                <p>
-                  My name is Bryant Patton and I am an experienced software
-                  engineer and freelance developer.{' '}
-                </p>
+                <img
+                  alt="web network"
+                  // className="image"
+                  src="/images/tesla.png"
+                />
+
                 <p>...</p>
                 <p>....</p>
               </div>
