@@ -8,6 +8,7 @@ import NProgress from 'nprogress'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/main.scss'
 import 'react-toastify/dist/ReactToastify.css'
+import 'react-datepicker/dist/react-datepicker.css'
 
 // if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
 //   whyDidYouRender(React)

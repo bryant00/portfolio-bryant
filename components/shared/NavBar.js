@@ -9,7 +9,6 @@ import {
   Nav,
   NavItem,
 } from 'reactstrap'
-import { ThemeContext } from '../../lib/themeContext'
 
 const BsNavLink = (props) => {
   const { route, title } = props
@@ -27,8 +26,6 @@ const NavBar = ({ navClass }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
-  const theme = useContext(ThemeContext)
-  const navStyle = 'index'
   function toggle() {
     setIsNavOpen(!isNavOpen)
   }
