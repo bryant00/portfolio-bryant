@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layouts/Layout'
 import { Row, Col, Container, Button } from 'reactstrap'
 import Cat from '../svgs/cat.svg'
+import Author from '../svgs/author.svg'
 const AboutPage = () => {
   const theme = {
     mainClass: '',
@@ -30,7 +31,8 @@ const AboutPage = () => {
                   alt="web network"
                   // className="image"
                   // src="/images/tesla.png"
-                  src={Cat}
+                  // src={Cat}
+                  src={Author}
                 />
                 <div>
                   <Button
