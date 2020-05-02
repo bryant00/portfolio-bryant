@@ -25,7 +25,7 @@ const validateInputs = (values) => {
   return errors
 }
 
-const PortfolioCreateForm = ({ initialValues, onSubmit, error }) => (
+const PortfolioCreateForm = ({ initialValues, error }) => (
   <div>
     <Formik
       initialValues={initialValues}
@@ -103,7 +103,7 @@ const PortfolioCreateForm = ({ initialValues, onSubmit, error }) => (
             type="submit"
             disabled={isSubmitting}
           >
-            Create
+            Submit
           </Button>
         </Form>
       )}
