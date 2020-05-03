@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../../../components/layouts/Layout'
-import PortfolioCreateForm from '../../../components/portfolios/PortfolioCreateForm'
+import PortfolioEditForm from '../../../components/portfolios/PortfolioEditForm'
 import { Row, Col, Container } from 'reactstrap'
 import { useRouter } from 'next/router'
 import moment from 'moment'
@@ -15,65 +15,45 @@ const theme = {
   title: 'Bryant Patton - Porfolio',
 }
 
-const INITIAL_VALUES = {
-  title: '',
-  company: '',
-  location: '',
-  position: '',
-  description: '',
-  projectUrl: '',
-  githubUrl: '',
-  imageName: '',
-  startDate: moment(),
-  endDate: moment(),
-}
-
 const Edit = () => {
   const router = useRouter()
   const { id } = router.query
-  const [error, setError] = useState(undefined)
+  // const [error, setError] = useState(undefined)
 
-  function updatePortfolio(portfolioData, { setSubmitting }) {
-    setSubmitting(false)
-    // setSubmitting(true)
-    // updatePortfolio(portfolioData)
-    router
-      .push('/portfolios')
-      // setTimeout(() => {
-      //   alert(JSON.stringify(portfolioData, null, 2))
-      //   setSubmitting(false)
-      // }, 400)
-      //   .then(() => {
-      //     router.push('/portfolios')
-      //   })
+  function createPortfolio(portfolioData) {
+    return undefined
+  }
+  function savePortfolio(portfolioData, { setSubmitting }) {
+    setSubmitting(true)
+
+    createPortfolio(portfolioData)
+      .then((portfolio) => {
+        setSubmitting(false)
+        router.push('/portfolios')
+      })
       .catch((err) => {
         const error = err.message || 'Server Error!'
         setSubmitting(false)
-        setError({ error })
+        // setError({ error })
       })
   }
 
-  const Data = () => {
-    const { data, error } = useSWR('/api/portfolios', fetcher)
+  // const Data = () => {
+  const { data, error } = useSWR('/api/portfolios', fetcher)
 
-    if (error) {
-      console.log(error)
-      return <div>Failed to load</div>
-    }
-    if (!data) return <div>Loading...</div>
-    console.log(id)
-    let p = data.filter((d) => d._id === id)[0]
-    if (!p) return <div>Loading...</div>
-    return (
-      <Col md="10">
-        <PortfolioCreateForm
-          initialValues={p}
-          error={error}
-          updatePortfolio={updatePortfolio}
-        />
-      </Col>
-    )
+  if (error) {
+    console.log(error)
+    return <div>Failed to load</div>
   }
+  if (!data) return <div>Loading...</div>
+  console.log(id)
+  let p = data.filter((d) => d._id === id)[0]
+  if (!p) return <div>Loading...</div>
+
+  // return (
+
+  // )
+  // }
 
   return (
     <Layout theme={theme}>
@@ -83,7 +63,13 @@ const Edit = () => {
             <h1 className="page-header-title">Edit Porfolio</h1>
           </div>
           <Row>
-            <Data></Data>
+            <Col md="10">
+              <PortfolioEditForm
+                portfolio={p}
+                // error={error}
+                // onSubmit={savePortfolio}
+              />
+            </Col>
           </Row>
         </Container>
       </div>
