@@ -6,7 +6,18 @@ import Layout from '../../../components/layouts/Layout'
 import { useRouter } from 'next/router'
 import PortfolioCard from '../../../components/portfolios/PortfolioCard'
 import Link from 'next/link'
-const fetcher = (url) => fetch(url).then((res) => res.json())
+// const fetcher = (url) => fetch(url).then((res) => res.json())
+
+const fetcher = async (url) => {
+  const res = await fetch(url)
+  const data = await res.json()
+
+  if (res.status !== 200) {
+    throw new Error(data.message)
+  }
+  return data
+}
+
 const theme = {
   mainClass: '',
   navClass: 'default',
@@ -14,34 +25,19 @@ const theme = {
 }
 
 const Portfolio = () => {
-  const router = useRouter()
-  const { id } = router.query
-
-  const { isAuthenticated, isOwner } = useAuth0()
-  const Data = () => {
-    const { data, error } = useSWR('/api/portfolios', fetcher)
-
-    if (error) {
-      console.log(error)
-      return <div>Failed to load</div>
-    }
-    if (!data) return <div>Loading...</div>
-    console.log(id)
-    let p = data.filter((d) => d._id === id)[0]
-    if (!p) return <div>Loading...</div>
-    return (
-      <Col sm="12" md={{ size: 6, offset: 3 }}>
-        <PortfolioCard portfolio={p}></PortfolioCard>
-        {isAuthenticated && isOwner && (
-          <Button>
-            <Link href="/portfolio/[id]/edit" as={`/portfolio/${id}/edit`}>
-              <a className="create-port-btn">Edit</a>
-            </Link>
-          </Button>
-        )}
-      </Col>
-    )
+  const { isAuthenticated, isOwner, logout, user } = useAuth0()
+  const { query } = useRouter()
+  const { id } = query
+  const { data, error } = useSWR(
+    () => query.id && `/api/portfolios/${query.id}`,
+    fetcher
+  )
+  if (error) {
+    console.log(error)
+    return <div>Failed to load</div>
   }
+  if (!data) return <div>Loading...</div>
+
   return (
     <Layout theme={theme}>
       <div className="base-page portfolio-page">
@@ -50,7 +46,20 @@ const Portfolio = () => {
             <h1 className="page-header-title">Porfolio</h1>
           </div>
           <Row>
-            <Data></Data>
+            {/* <Data></Data> */}
+            <Col sm="12" md={{ size: 6, offset: 3 }}>
+              <PortfolioCard portfolio={data}></PortfolioCard>
+              {isAuthenticated && isOwner && (
+                <Button>
+                  <Link
+                    href="/portfolio/[id]/edit"
+                    as={`/portfolio/${id}/edit`}
+                  >
+                    <a className="create-port-btn">Edit</a>
+                  </Link>
+                </Button>
+              )}
+            </Col>
           </Row>
         </Container>
       </div>
