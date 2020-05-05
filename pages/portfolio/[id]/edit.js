@@ -7,7 +7,15 @@ import moment from 'moment'
 import useSWR from 'swr'
 import { useAuth0 } from '../../../lib/auth0-spa'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+const fetcher = async (url) => {
+  const res = await fetch(url)
+  const data = await res.json()
+
+  if (res.status !== 200) {
+    throw new Error(data.message)
+  }
+  return data
+}
 
 const theme = {
   mainClass: '',
@@ -17,8 +25,12 @@ const theme = {
 
 const Edit = () => {
   const router = useRouter()
-  const { id } = router.query
-  // const [error, setError] = useState(undefined)
+  const { query } = useRouter()
+  const { id } = query
+  const { data, error } = useSWR(
+    () => query.id && `/api/portfolios/${query.id}`,
+    fetcher
+  )
 
   function createPortfolio(portfolioData) {
     return undefined
@@ -39,21 +51,12 @@ const Edit = () => {
   }
 
   // const Data = () => {
-  const { data, error } = useSWR('/api/portfolios', fetcher)
 
   if (error) {
     console.log(error)
     return <div>Failed to load</div>
   }
   if (!data) return <div>Loading...</div>
-  console.log(id)
-  let p = data.filter((d) => d._id === id)[0]
-  if (!p) return <div>Loading...</div>
-
-  // return (
-
-  // )
-  // }
 
   return (
     <Layout theme={theme}>
@@ -65,7 +68,7 @@ const Edit = () => {
           <Row>
             <Col md="10">
               <PortfolioEditForm
-                portfolio={p}
+                portfolio={data}
                 // error={error}
                 // onSubmit={savePortfolio}
               />

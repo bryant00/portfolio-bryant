@@ -12,7 +12,6 @@ const dbName = 'portfolios'
 export default async ({ query: { id } }, res) => {
   try {
     const afterConnection = await client.connect()
-    // console.log("afterConnection", afterConnection)
 
     const db = await client.db(process.env.DB_NAME)
 

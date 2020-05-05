@@ -19,7 +19,7 @@ const MyForm = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field
-        value={values.title}
+        // value={values.title}
         type="text"
         name="title"
         label="Title"
@@ -44,7 +44,6 @@ const MyForm = (props) => {
         label="Description"
         component={PortInput}
       />
-
       <Field
         type="text"
         name="projectUrl"
@@ -86,11 +85,20 @@ const MyForm = (props) => {
 }
 
 const PortfolioCreateForm = withFormik({
-  // mapPropsToValues({ portfolio }) {
-  //   return {
-  //     title: portfolio.title || '',
-  //   }
-  // },
+  mapPropsToValues({ portfolio }) {
+    return {
+      title: portfolio.title || '',
+      company: portfolio.company || '',
+      location: portfolio.location || '',
+      position: portfolio.position || '',
+      description: portfolio.description || '',
+      projectUrl: portfolio.projectUrl || '',
+      githubUrl: portfolio.githubUrl || '',
+      imageName: portfolio.imageName || '',
+      startDate: portfolio.startDate || moment(),
+      endDate: portfolio.endDate || moment(),
+    }
+  },
   // Custom sync validation
   validate: (values) => {
     const errors = {}
