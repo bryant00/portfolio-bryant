@@ -4,19 +4,18 @@ import PortfolioEditForm from '../../components/portfolios/PortfolioEditForm'
 import { Row, Col, Container } from 'reactstrap'
 import moment from 'moment'
 import { useRouter } from 'next/router'
+import useSWR, { mutate, cache } from 'swr'
 
-const INITIAL_VALUES = {
-  title: '',
-  company: '',
-  location: '',
-  position: '',
-  description: '',
-  projectUrl: '',
-  githubUrl: '',
-  imageName: '',
-  startDate: moment(),
-  endDate: moment(),
+const fetcher = async (...args) => {
+  const res = await fetch(...args)
+  const data = await res.json()
+
+  if (res.status !== 200) {
+    throw new Error(data.message)
+  }
+  return data
 }
+
 const theme = {
   mainClass: '',
   navClass: 'default',
@@ -25,13 +24,9 @@ const theme = {
 
 const New = () => {
   const router = useRouter()
-  const { query } = useRouter()
-  const { id } = query
-  const [data, setData] = useState({})
-  // const { data, error } = useSWR(
-  //   () => query.id && `/api/portfolios/${query.id}`,
-  //   fetcher
-  // )
+  // const [data, setData] = useState(null)
+  const { data } = useSWR('/api/portfolios', fetcher)
+  // const { data, error } = useSWR('/api/portfolios/new', fetcher)
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
@@ -39,12 +34,24 @@ const New = () => {
 
   async function savePortfolio(portfolioData, setSubmitting, props, setErrors) {
     try {
+      // console.log('data', data)
+      mutate('/api/portfolios', [...data, portfolioData], false)
       await sleep(2000)
+      mutate(
+        '/api/portfolios/new',
+        await fetcher('/api/portfolios/new', {
+          method: 'POST',
+          body: JSON.stringify(portfolioData),
+        })
+      )
+      // console.log('data', data)
+      console.dir(cache)
       setSubmitting(false)
-      props.router.push('/portfolios')
+      // props.router.push('/portfolios')
     } catch (err) {
       console.log(err)
       setErrors(err)
+      setSubmitting(false)
     }
   }
 
@@ -52,6 +59,7 @@ const New = () => {
     <Layout theme={theme}>
       <div className="base-page portfolio-create-page">
         <Container>
+          {console.dir(cache)}
           <div className="page-header">
             <h1 className="page-header-title">New Porfolio</h1>
           </div>
@@ -59,7 +67,7 @@ const New = () => {
             <Col md="8">
               <PortfolioEditForm
                 onSubmit={savePortfolio}
-                portfolio={data}
+                portfolio={{}}
                 router={router}
               />
             </Col>

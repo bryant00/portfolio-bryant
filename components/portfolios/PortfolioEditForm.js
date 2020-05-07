@@ -95,8 +95,8 @@ const PortfolioEditForm = withFormik({
       projectUrl: portfolio.projectUrl || '',
       githubUrl: portfolio.githubUrl || '',
       imageName: portfolio.imageName || '',
-      startDate: portfolio.startDate || moment(),
-      endDate: portfolio.endDate || moment(),
+      startDate: portfolio.startDate || new Date(),
+      endDate: portfolio.endDate || new Date(),
     }
   },
   // Custom sync validation
@@ -111,7 +111,7 @@ const PortfolioEditForm = withFormik({
   },
 
   handleSubmit: (values, { setSubmitting, setErrors, props }) => {
-    props.onSubmit(values, setSubmitting, props)
+    props.onSubmit(values, setSubmitting, props, setErrors)
   },
 
   displayName: 'PortfolioFormik',
