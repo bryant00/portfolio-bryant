@@ -103,18 +103,19 @@ const PortfolioCreateForm = withFormik({
   validate: (values) => {
     const errors = {}
 
-    if (!values.name) {
-      errors.name = 'Required'
-    }
+    // if (!values.name) {
+    //   errors.name = 'Required'
+    // }
 
     return errors
   },
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setSubmitting(false)
-    }, 1000)
+  handleSubmit: (values, { setSubmitting, setErrors, props }) => {
+    props.onSubmit(values, setSubmitting, props)
+    //   setTimeout(() => {
+    //     alert(JSON.stringify(values, null, 2))
+    //     setSubmitting(false)
+    //   }, 1000)
   },
 
   displayName: 'BasicForm',

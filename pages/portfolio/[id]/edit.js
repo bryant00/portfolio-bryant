@@ -33,24 +33,16 @@ const Edit = () => {
   )
 
   function createPortfolio(portfolioData) {
-    return undefined
+    // setTimeout(() => {
+    //   alert(JSON.stringify(portfolioData, null, 2))
+    // }, 1000)
+    return portfolioData
   }
-  function savePortfolio(portfolioData, { setSubmitting }) {
-    setSubmitting(true)
-
-    createPortfolio(portfolioData)
-      .then((portfolio) => {
-        setSubmitting(false)
-        router.push('/portfolios')
-      })
-      .catch((err) => {
-        const error = err.message || 'Server Error!'
-        setSubmitting(false)
-        // setError({ error })
-      })
+  function savePortfolio(portfolioData, setSubmitting, props) {
+    console.log(props)
+    setSubmitting(false)
+    props.router.push('/portfolios')
   }
-
-  // const Data = () => {
 
   if (error) {
     console.log(error)
@@ -70,7 +62,8 @@ const Edit = () => {
               <PortfolioEditForm
                 portfolio={data}
                 // error={error}
-                // onSubmit={savePortfolio}
+                onSubmit={savePortfolio}
+                router={router}
               />
             </Col>
           </Row>
