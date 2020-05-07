@@ -84,7 +84,7 @@ const MyForm = (props) => {
   )
 }
 
-const PortfolioCreateForm = withFormik({
+const PortfolioEditForm = withFormik({
   mapPropsToValues({ portfolio }) {
     return {
       title: portfolio.title || '',
@@ -112,17 +112,9 @@ const PortfolioCreateForm = withFormik({
 
   handleSubmit: (values, { setSubmitting, setErrors, props }) => {
     props.onSubmit(values, setSubmitting, props)
-    //   setTimeout(() => {
-    //     alert(JSON.stringify(values, null, 2))
-    //     setSubmitting(false)
-    //   }, 1000)
   },
 
-  displayName: 'BasicForm',
+  displayName: 'PortfolioFormik',
 })(MyForm)
 
-// const mapStateToProps = (state) => ({
-//   portfolio: state.portfolio,
-// })
-export default PortfolioCreateForm
-// export default connect(mapStateToProps)(PortfolioCreateForm)
+export default PortfolioEditForm

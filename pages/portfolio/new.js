@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layouts/Layout'
-import PortfolioCreateForm from '../../components/portfolios/PortfolioCreateForm'
+import PortfolioEditForm from '../../components/portfolios/PortfolioEditForm'
 import { Row, Col, Container } from 'reactstrap'
 import moment from 'moment'
 import { useRouter } from 'next/router'
@@ -25,36 +25,42 @@ const theme = {
 
 const New = () => {
   const router = useRouter()
+  const { query } = useRouter()
+  const { id } = query
+  const [data, setData] = useState({})
+  // const { data, error } = useSWR(
+  //   () => query.id && `/api/portfolios/${query.id}`,
+  //   fetcher
+  // )
 
-  const [error, setError] = useState(undefined)
-  function createPortfolio(portfolioData) {
-    return undefined
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
   }
-  function savePortfolio(portfolioData, { setSubmitting }) {
-    setSubmitting(true)
 
-    createPortfolio(portfolioData)
-      .then((portfolio) => {
-        setSubmitting(false)
-        router.push('/portfolios')
-      })
-      .catch((err) => {
-        const error = err.message || 'Server Error!'
-        setSubmitting(false)
-        setError({ error })
-      })
+  async function savePortfolio(portfolioData, setSubmitting, props, setErrors) {
+    try {
+      await sleep(2000)
+      setSubmitting(false)
+      props.router.push('/portfolios')
+    } catch (err) {
+      console.log(err)
+      setErrors(err)
+    }
   }
 
   return (
     <Layout theme={theme}>
       <div className="base-page portfolio-create-page">
         <Container>
+          <div className="page-header">
+            <h1 className="page-header-title">New Porfolio</h1>
+          </div>
           <Row>
             <Col md="8">
-              <PortfolioCreateForm
-                initialValues={INITIAL_VALUES}
-                error={error}
+              <PortfolioEditForm
                 onSubmit={savePortfolio}
+                portfolio={data}
+                router={router}
               />
             </Col>
           </Row>

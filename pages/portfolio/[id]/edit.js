@@ -32,16 +32,19 @@ const Edit = () => {
     fetcher
   )
 
-  function createPortfolio(portfolioData) {
-    // setTimeout(() => {
-    //   alert(JSON.stringify(portfolioData, null, 2))
-    // }, 1000)
-    return portfolioData
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
   }
-  function savePortfolio(portfolioData, setSubmitting, props) {
-    console.log(props)
-    setSubmitting(false)
-    props.router.push('/portfolios')
+
+  async function savePortfolio(portfolioData, setSubmitting, props, setErrors) {
+    try {
+      await sleep(2000)
+      setSubmitting(false)
+      props.router.push('/portfolios')
+    } catch (err) {
+      console.log(err)
+      setErrors(err)
+    }
   }
 
   if (error) {
@@ -61,7 +64,6 @@ const Edit = () => {
             <Col md="10">
               <PortfolioEditForm
                 portfolio={data}
-                // error={error}
                 onSubmit={savePortfolio}
                 router={router}
               />
