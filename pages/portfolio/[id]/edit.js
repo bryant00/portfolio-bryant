@@ -3,12 +3,11 @@ import Layout from '../../../components/layouts/Layout'
 import PortfolioEditForm from '../../../components/portfolios/PortfolioEditForm'
 import { Row, Col, Container } from 'reactstrap'
 import { useRouter } from 'next/router'
-import moment from 'moment'
-import useSWR from 'swr'
+import useSWR, { mutate, cache } from 'swr'
 import { useAuth0 } from '../../../lib/auth0-spa'
 
-const fetcher = async (url) => {
-  const res = await fetch(url)
+const fetcher = async (...args) => {
+  const res = await fetch(...args)
   const data = await res.json()
 
   if (res.status !== 200) {
@@ -37,13 +36,50 @@ const Edit = () => {
   }
 
   async function savePortfolio(portfolioData, setSubmitting, props, setErrors) {
+    console.dir(props)
     try {
-      await sleep(2000)
+      // mutate('/api/portfolios', [...data, portfolioData], false)
+      // await sleep(2000)
+      let port = { id: id, data: portfolioData }
+      console.dir(portfolioData)
+      // mutate(
+      //   '/api/portfolios/[id]/edit',
+      //   await fetcher('/api/portfolios/[id]/edit', {
+      //     method: 'PATCH',
+      //     body: JSON.stringify(port),
+      //   })
+      // )
+      // console.dir(cache)
+      setSubmitting(false)
+      // props.router.push('/portfolios')
+    } catch (err) {
+      console.log(err)
+      setErrors(err)
+      setSubmitting(false)
+    }
+  }
+
+  async function deletePortfolio(
+    portfolioData,
+    setSubmitting,
+    props,
+    setErrors
+  ) {
+    try {
+      let port = { id: id, data: portfolioData }
+      mutate(
+        '/api/portfolios/[id]/edit',
+        await fetcher('/api/portfolios/[id]/edit', {
+          method: 'delete',
+          body: JSON.stringify(port),
+        })
+      )
       setSubmitting(false)
       props.router.push('/portfolios')
     } catch (err) {
       console.log(err)
       setErrors(err)
+      setSubmitting(false)
     }
   }
 
@@ -66,6 +102,7 @@ const Edit = () => {
                 portfolio={data}
                 onSubmit={savePortfolio}
                 router={router}
+                crud=""
               />
             </Col>
           </Row>

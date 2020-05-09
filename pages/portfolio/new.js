@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Layout from '../../components/layouts/Layout'
 import PortfolioEditForm from '../../components/portfolios/PortfolioEditForm'
 import { Row, Col, Container } from 'reactstrap'
-import moment from 'moment'
 import { useRouter } from 'next/router'
 import useSWR, { mutate, cache } from 'swr'
 
@@ -24,9 +23,7 @@ const theme = {
 
 const New = () => {
   const router = useRouter()
-  // const [data, setData] = useState(null)
-  const { data } = useSWR('/api/portfolios', fetcher)
-  // const { data, error } = useSWR('/api/portfolios/new', fetcher)
+  // const { data } = useSWR('/api/portfolios', fetcher)
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
@@ -34,9 +31,8 @@ const New = () => {
 
   async function savePortfolio(portfolioData, setSubmitting, props, setErrors) {
     try {
-      // console.log('data', data)
-      mutate('/api/portfolios', [...data, portfolioData], false)
-      await sleep(2000)
+      // mutate('/api/portfolios', [...data, portfolioData], false)
+      // await sleep(2000)
       mutate(
         '/api/portfolios/new',
         await fetcher('/api/portfolios/new', {
@@ -44,10 +40,9 @@ const New = () => {
           body: JSON.stringify(portfolioData),
         })
       )
-      // console.log('data', data)
-      console.dir(cache)
+      // console.dir(cache)
       setSubmitting(false)
-      // props.router.push('/portfolios')
+      props.router.push('/portfolios')
     } catch (err) {
       console.log(err)
       setErrors(err)
@@ -59,7 +54,7 @@ const New = () => {
     <Layout theme={theme}>
       <div className="base-page portfolio-create-page">
         <Container>
-          {console.dir(cache)}
+          {/* {console.dir(cache)} */}
           <div className="page-header">
             <h1 className="page-header-title">New Porfolio</h1>
           </div>

@@ -23,7 +23,7 @@ export default async (req, res) => {
 
     // if (req.method === 'POST') {
     const body = JSON.parse(req.body)
-    let r = await db.collection(collectionName).insertOne({ body })
+    let r = await db.collection(collectionName).insertOne(body)
     assert.equal(1, r.insertedCount)
     // } else {
     //   let r = 'hi'

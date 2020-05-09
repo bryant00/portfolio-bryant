@@ -15,6 +15,7 @@ const MyForm = (props) => {
     handleChange,
     handleBlur,
     handleSubmit,
+    setFieldValue,
   } = props
   return (
     <Form onSubmit={handleSubmit}>
@@ -80,12 +81,25 @@ const MyForm = (props) => {
       <Button color="success" size="lg" type="submit" disabled={isSubmitting}>
         Submit
       </Button>
+      <Button
+        color="warning"
+        size="lg"
+        type="submit"
+        disabled={isSubmitting}
+        id="del"
+        onClick={(e) => {
+          setFieldValue('crud', 'del')
+          handleSubmit(e)
+        }}
+      >
+        Delete
+      </Button>
     </Form>
   )
 }
 
 const PortfolioEditForm = withFormik({
-  mapPropsToValues({ portfolio }) {
+  mapPropsToValues({ portfolio, crud }) {
     return {
       title: portfolio.title || '',
       company: portfolio.company || '',
@@ -97,6 +111,7 @@ const PortfolioEditForm = withFormik({
       imageName: portfolio.imageName || '',
       startDate: portfolio.startDate || new Date(),
       endDate: portfolio.endDate || new Date(),
+      crud: crud,
     }
   },
   // Custom sync validation
