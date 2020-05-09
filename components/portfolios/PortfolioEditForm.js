@@ -88,7 +88,7 @@ const MyForm = (props) => {
         disabled={isSubmitting}
         id="del"
         onClick={(e) => {
-          setFieldValue('crud', 'del')
+          // setFieldValue('crud', 'del')
           handleSubmit(e)
         }}
       >
@@ -111,7 +111,7 @@ const PortfolioEditForm = withFormik({
       imageName: portfolio.imageName || '',
       startDate: portfolio.startDate || new Date(),
       endDate: portfolio.endDate || new Date(),
-      crud: crud,
+      // crud: crud,
     }
   },
   // Custom sync validation

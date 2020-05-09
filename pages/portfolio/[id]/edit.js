@@ -41,14 +41,14 @@ const Edit = () => {
       // mutate('/api/portfolios', [...data, portfolioData], false)
       // await sleep(2000)
       let port = { id: id, data: portfolioData }
-      console.dir(portfolioData)
-      // mutate(
-      //   '/api/portfolios/[id]/edit',
-      //   await fetcher('/api/portfolios/[id]/edit', {
-      //     method: 'PATCH',
-      //     body: JSON.stringify(port),
-      //   })
-      // )
+      // console.dir(portfolioData)
+      mutate(
+        '/api/portfolios/[id]/edit',
+        await fetcher('/api/portfolios/[id]/edit', {
+          method: 'PATCH',
+          body: JSON.stringify(port),
+        })
+      )
       // console.dir(cache)
       setSubmitting(false)
       // props.router.push('/portfolios')
