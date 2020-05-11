@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import moment from 'moment'
+import { useAuth0 } from '../../lib/auth0-spa'
+import Link from 'next/link'
 
 const PortfolioCardDetail = (props) => {
   const { isOpen, toggle, portfolio } = props
+  const { isAuthenticated, isOwner, logout, user } = useAuth0()
   const externalCloseBtn = (
     <button
       className="close"
@@ -48,6 +51,14 @@ const PortfolioCardDetail = (props) => {
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>
             Close
+          </Button>
+          <Button color="secondary">
+            <Link
+              href="/portfolio/[portfolio._id]"
+              as={`/portfolio/${portfolio._id}`}
+            >
+              <a className="create-port-btn">View</a>
+            </Link>
           </Button>
         </ModalFooter>
       </Modal>
