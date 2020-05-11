@@ -12,7 +12,6 @@ const collectionName = 'portfolios'
 
 export default async (req, res) => {
   let client
-
   try {
     client = await MongoClient.connect(uri, {
       useNewUrlParser: true,
@@ -30,7 +29,7 @@ export default async (req, res) => {
         .collection(collectionName)
         .updateOne({ _id: ObjectID(id) }, { $set: data })
     }
-
+    console.dir(r)
     res.status(200).json(r)
   } catch (err) {
     console.log(err.stack)

@@ -78,21 +78,8 @@ const MyForm = (props) => {
       />
       {errors.name && touched.name && <div id="feedback">{errors.name}</div>}
       {/* {error && <Alert color="danger">{error}</Alert>} */}
-      <Button color="success" size="lg" type="submit" disabled={isSubmitting}>
+      <Button color="warning" size="lg" type="submit" disabled={isSubmitting}>
         Submit
-      </Button>
-      <Button
-        color="warning"
-        size="lg"
-        type="submit"
-        disabled={isSubmitting}
-        id="del"
-        onClick={(e) => {
-          // setFieldValue('crud', 'del')
-          handleSubmit(e)
-        }}
-      >
-        Delete
       </Button>
     </Form>
   )
@@ -111,7 +98,6 @@ const PortfolioEditForm = withFormik({
       imageName: portfolio.imageName || '',
       startDate: portfolio.startDate || new Date(),
       endDate: portfolio.endDate || new Date(),
-      // crud: crud,
     }
   },
   // Custom sync validation

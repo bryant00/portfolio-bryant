@@ -59,30 +59,6 @@ const Edit = () => {
     }
   }
 
-  async function deletePortfolio(
-    portfolioData,
-    setSubmitting,
-    props,
-    setErrors
-  ) {
-    try {
-      let port = { id: id, data: portfolioData }
-      mutate(
-        '/api/portfolios/[id]/edit',
-        await fetcher('/api/portfolios/[id]/edit', {
-          method: 'delete',
-          body: JSON.stringify(port),
-        })
-      )
-      setSubmitting(false)
-      props.router.push('/portfolios')
-    } catch (err) {
-      console.log(err)
-      setErrors(err)
-      setSubmitting(false)
-    }
-  }
-
   if (error) {
     console.log(error)
     return <div>Failed to load</div>
@@ -102,7 +78,6 @@ const Edit = () => {
                 portfolio={data}
                 onSubmit={savePortfolio}
                 router={router}
-                crud=""
               />
             </Col>
           </Row>
