@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
 import ActiveLink from '../ActiveLink'
+import Link from 'next/link'
 import {
   Collapse,
   Navbar,
@@ -8,6 +9,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from 'reactstrap'
 
 const BsNavLink = (props) => {
@@ -24,7 +29,8 @@ const BsNavLink = (props) => {
 const NavBar = ({ navClass }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0()
+  const [portdropdownOpen, setPortDropdownOpen] = useState(false)
+  const { isAuthenticated, loginWithRedirect, logout, isOwner } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
   function toggle() {
     setIsNavOpen(!isNavOpen)
@@ -33,6 +39,7 @@ const NavBar = ({ navClass }) => {
   function toggleDropdown() {
     setDropdownOpen(!dropdownOpen)
   }
+  const toggler = () => setPortDropdownOpen((prevState) => !prevState)
 
   return (
     <div>
@@ -54,10 +61,32 @@ const NavBar = ({ navClass }) => {
             <NavItem className="port-navbar-item">
               <BsNavLink route="/about" title="About" />
             </NavItem>
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/portfolio" title="Portfolio" />
-            </NavItem>
-            {/* {this.renderBlogMenu()} */}
+            {isAuthenticated && isOwner ? (
+              <NavItem className="port-navbar-item">
+                <Dropdown isOpen={portdropdownOpen} toggle={toggler}>
+                  <DropdownToggle
+                    tag="a"
+                    caret
+                    className="nav-link port-navbar-link"
+                  >
+                    Portfolio
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem>
+                      <Link href="/portfolio">Portfolio</Link>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Link href="/portfolio/new">Create Portfolio</Link>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </NavItem>
+            ) : (
+              <NavItem className="port-navbar-item">
+                <BsNavLink route="/portfolio" title="Portfolio" />
+              </NavItem>
+            )}
+
             <NavItem className="port-navbar-item">
               <BsNavLink route="/cv" title="Cv" />
             </NavItem>

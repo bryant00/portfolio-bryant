@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/layouts/Layout'
-import { Col, Row, Container, Button, CardDeck } from 'reactstrap'
+import { Col, Row, Container, Button, CardDeck, CardColumns } from 'reactstrap'
 import PortfolioCard from '../../components/portfolios/PortfolioCard'
 import useSWR from 'swr'
 import { useAuth0 } from '../../lib/auth0-spa'
@@ -26,9 +26,9 @@ export default () => {
     if (!data) return <div>Loading...</div>
 
     const list = data.map((portfolio, index) => (
-      <Col key={index} md="4">
-        <PortfolioCard portfolio={portfolio}></PortfolioCard>
-      </Col>
+      // <Col key={index} md="4">
+      <PortfolioCard portfolio={portfolio}></PortfolioCard>
+      // </Col>
     ))
 
     return list
@@ -40,20 +40,12 @@ export default () => {
         <Container>
           <div className="page-header">
             <h1 className="page-header-title">Porfolio</h1>
-            {isAuthenticated && isOwner && (
-              <Button outline size="lg" color="warning" type="submit">
-                <Link href="/portfolio/new">
-                  Create Portfolio
-                  {/* <a className="create-port-btn">Create Portfolio</a> */}
-                </Link>
-              </Button>
-            )}
           </div>
 
           <Row>
-            <CardDeck>
+            <CardColumns>
               <Data></Data>
-            </CardDeck>
+            </CardColumns>
           </Row>
         </Container>
       </div>

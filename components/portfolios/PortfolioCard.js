@@ -28,26 +28,43 @@ const PortfolioCard = (props) => {
         isOpen={modal}
       />
       <div>
-        <Card inverse className="portfolio-card">
+        <Card body outline color="secondary" className="portfolio-card">
           <CardImg
             width="100%"
             src={`/images/${portfolio.imageName}`}
             alt="Card image cap"
           />
-          <CardImgOverlay>
-            <CardHeader className="portfolio-card-header">
-              {portfolio.imageName}
-            </CardHeader>
+          <CardBody>
             <CardTitle className="portfolio-card-title">
               {portfolio.title}
             </CardTitle>
+            <CardSubtitle>{portfolio.position}</CardSubtitle>
             <CardText className="portfolio-card-text">
               {portfolio.description}
             </CardText>
-            <CardText className="portfolio-card-text">
-              {portfolio.position}
-            </CardText>
-          </CardImgOverlay>
+            <Button
+              as="a"
+              outline
+              color="primary"
+              style={{ marginLeft: '0.5em' }}
+              href={portfolio.githubUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Github
+            </Button>
+            <Button
+              as="a"
+              outline
+              color="primary"
+              style={{ marginLeft: '0.5em' }}
+              href={portfolio.projectUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Project
+            </Button>
+          </CardBody>
         </Card>
       </div>
     </span>
