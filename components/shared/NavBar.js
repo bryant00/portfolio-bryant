@@ -55,7 +55,7 @@ const NavBar = ({ navClass }) => {
               <BsNavLink route="/about" title="About" />
             </NavItem>
             <NavItem className="port-navbar-item">
-              <BsNavLink route="/portfolios" title="Portfolio" />
+              <BsNavLink route="/portfolio" title="Portfolio" />
             </NavItem>
             {/* {this.renderBlogMenu()} */}
             <NavItem className="port-navbar-item">

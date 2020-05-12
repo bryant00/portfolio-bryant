@@ -48,7 +48,7 @@ const Portfolio = () => {
         })
       )
       setSubmitting(false)
-      router.push('/portfolios')
+      router.push('/portfolio')
     } catch (err) {
       console.log(err)
       setErrors(err)

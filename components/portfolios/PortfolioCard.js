@@ -6,7 +6,11 @@ import {
   CardText,
   CardTitle,
   Button,
+  CardImg,
+  CardSubtitle,
+  CardImgOverlay,
 } from 'reactstrap'
+import Cat from '../../svgs/cat.svg'
 import PortfolioCardDetail from './PortfolioCardDetail'
 
 const PortfolioCard = (props) => {
@@ -23,22 +27,29 @@ const PortfolioCard = (props) => {
         portfolio={portfolio}
         isOpen={modal}
       />
-
-      <Card className="portfolio-card">
-        <CardHeader className="portfolio-card-header">
-          {portfolio.position}
-        </CardHeader>
-        <CardBody>
-          <p className="portfolio-card-city">{portfolio.location}</p>
-          <CardTitle className="portfolio-card-title">
-            {portfolio.title}
-          </CardTitle>
-          <CardText className="portfolio-card-text">
-            {portfolio.description}
-          </CardText>
-          <div className="readMore">{children}</div>
-        </CardBody>
-      </Card>
+      <div>
+        <Card inverse className="portfolio-card">
+          <CardImg
+            width="100%"
+            src={`/images/${portfolio.imageName}`}
+            alt="Card image cap"
+          />
+          <CardImgOverlay>
+            <CardHeader className="portfolio-card-header">
+              {portfolio.imageName}
+            </CardHeader>
+            <CardTitle className="portfolio-card-title">
+              {portfolio.title}
+            </CardTitle>
+            <CardText className="portfolio-card-text">
+              {portfolio.description}
+            </CardText>
+            <CardText className="portfolio-card-text">
+              {portfolio.position}
+            </CardText>
+          </CardImgOverlay>
+        </Card>
+      </div>
     </span>
   )
 }

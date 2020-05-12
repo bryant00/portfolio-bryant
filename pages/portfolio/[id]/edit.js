@@ -51,7 +51,7 @@ const Edit = () => {
       )
       // console.dir(cache)
       setSubmitting(false)
-      // props.router.push('/portfolios')
+      // props.router.push('/portfolio')
     } catch (err) {
       console.log(err)
       setErrors(err)

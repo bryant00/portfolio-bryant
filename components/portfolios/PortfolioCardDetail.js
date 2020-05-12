@@ -47,6 +47,32 @@ const PortfolioCardDetail = (props) => {
               ? moment(portfolio.endDate).format('MMMM YYYY')
               : 'Still Working Here'}
           </p>
+          <p>
+            <Button
+              as="a"
+              outline
+              color="primary"
+              style={{ marginLeft: '0.5em' }}
+              href={portfolio.githubUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Github
+            </Button>
+          </p>
+          <p>
+            <Button
+              as="a"
+              outline
+              color="primary"
+              style={{ marginLeft: '0.5em' }}
+              href={portfolio.projectUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Project
+            </Button>
+          </p>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>
