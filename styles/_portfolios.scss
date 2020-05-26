@@ -4,11 +4,12 @@
   background-color: $base-page-white;
 
   .portfolio-card {
-    background-image: $main-color-white;
-    border: none;
-    color: $main-color-black;
+    background-color: $main-color-black;
+    // border: none;
+    color: $main-color-white;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
     margin-bottom: 20px;
+    margin-top: 20px;
 
     &:hover {
       cursor: pointer;
