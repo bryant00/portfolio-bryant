@@ -26,9 +26,7 @@ export default () => {
     if (!data) return <div>Loading...</div>
 
     const list = data.map((portfolio, index) => (
-      // <Col key={index} md="4">
       <PortfolioCard portfolio={portfolio}></PortfolioCard>
-      // </Col>
     ))
 
     return list
@@ -41,12 +39,9 @@ export default () => {
           <div className="page-header">
             <h1 className="page-header-title">Porfolio</h1>
           </div>
-
-          <Row>
-            <CardColumns>
-              <Data></Data>
-            </CardColumns>
-          </Row>
+          <div className="row row-cols-1 justify-content-center">
+            <Data></Data>
+          </div>
         </Container>
       </div>
     </Layout>
