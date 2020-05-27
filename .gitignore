@@ -1,5 +1,6 @@
 /node_modules
 /.next
+/.vscode
 /server/.next
 /server/config/dev.js
 /old_server

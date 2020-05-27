@@ -1,10 +1,8 @@
 import React from 'react'
 import Layout from '../../components/layouts/Layout'
-import { Col, Row, Container, Button, CardDeck, CardColumns } from 'reactstrap'
 import PortfolioCard from '../../components/portfolios/PortfolioCard'
 import useSWR from 'swr'
 import { useAuth0 } from '../../lib/auth0-spa'
-import Link from 'next/link'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -26,9 +24,7 @@ export default () => {
     if (!data) return <div>Loading...</div>
 
     const list = data.map((portfolio, index) => (
-      // <Col key={index} md="4">
       <PortfolioCard portfolio={portfolio}></PortfolioCard>
-      // </Col>
     ))
 
     return list
@@ -36,21 +32,18 @@ export default () => {
 
   return (
     <Layout theme={theme}>
-      <div className="base-page portfolio-page">
-        <Container>
-          <div className="page-header">
-            <h1 className="page-header-title">Porfolio</h1>
+      <div className="base-page portfolio-page  bg-dark">
+        <div className="jumbotron bg-dark">
+          <div className="container">
+            <h1 className="display-3">Porfolio</h1>
           </div>
-
-          <Row>
-            <CardColumns>
-              <Data></Data>
-            </CardColumns>
-          </Row>
-        </Container>
+        </div>
+        <div className="container">
+          <div className="row row-cols-1 justify-content-center">
+            <Data></Data>
+          </div>
+        </div>
       </div>
     </Layout>
   )
 }
-
-// export default PortfolioPage

@@ -1,73 +1,46 @@
 import React, { useState } from 'react'
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardText,
-  CardTitle,
-  Button,
-  CardImg,
-  CardSubtitle,
-  CardImgOverlay,
-} from 'reactstrap'
-import Cat from '../../svgs/cat.svg'
-import PortfolioCardDetail from './PortfolioCardDetail'
 
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
 
-  const [modal, setModal] = useState(false)
-
-  const toggle = () => setModal(!modal)
-
   return (
-    <span onClick={toggle}>
-      <PortfolioCardDetail
-        toggle={toggle}
-        portfolio={portfolio}
-        isOpen={modal}
-      />
-      <div>
-        <Card body outline color="secondary" className="portfolio-card">
-          <CardImg
-            width="100%"
-            src={`/images/${portfolio.imageName}`}
-            alt="Card image cap"
-          />
-          <CardBody>
-            <CardTitle className="portfolio-card-title">
-              {portfolio.title}
-            </CardTitle>
-            <CardSubtitle>{portfolio.position}</CardSubtitle>
-            <CardText className="portfolio-card-text">
-              {portfolio.description}
-            </CardText>
-            <Button
-              as="a"
-              outline
-              color="primary"
-              style={{ marginLeft: '0.5em' }}
-              href={portfolio.githubUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Github
-            </Button>
-            <Button
-              as="a"
-              outline
-              color="primary"
-              style={{ marginLeft: '0.5em' }}
-              href={portfolio.projectUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Project
-            </Button>
-          </CardBody>
-        </Card>
+    <div className="col-12">
+      <div className="card border-light bg-secondary mb-5  portfolio-card">
+        <div className="row no-gutters">
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{portfolio.title}</h5>
+              <p class="card-text">{portfolio.description}</p>
+              <a
+                className="card-link text-primary"
+                // style={{ marginLeft: '0.5em' }}
+                href={portfolio.githubUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Github
+              </a>
+              <a
+                className="card-link text-primary"
+                // style={{ marginLeft: '0.5em' }}
+                target="_blank"
+                rel="noreferrer noopener"
+                href={portfolio.projectUrl}
+              >
+                Project
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <img
+              src={`/images/${portfolio.imageName}`}
+              alt="Card image cap"
+              className="card-img"
+            />
+          </div>
+        </div>
       </div>
-    </span>
+    </div>
   )
 }
 // }
