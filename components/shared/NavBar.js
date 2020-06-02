@@ -1,30 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
-import ActiveLink from '../ActiveLink'
 import Link from 'next/link'
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap'
-
-const BsNavLink = (props) => {
-  const { route, title } = props
-  const className = props.className || ''
-
-  return (
-    <ActiveLink activeClassName="active" href={route}>
-      <a className={`nav-link port-navbar-link ${className}`}> {title} </a>
-    </ActiveLink>
-  )
-}
+import { Navbar, Nav, NavItem, Dropdown } from 'react-bootstrap'
 
 const NavBar = ({ navClass }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -42,79 +19,80 @@ const NavBar = ({ navClass }) => {
   const toggler = () => setPortDropdownOpen((prevState) => !prevState)
 
   return (
-    <div>
-      <Navbar
-        className={`port-navbar port-nav-base absolute port-nav-${navClass} ${menuOpenClass}`}
-        color="transparent"
-        dark
-        expand="md"
-      >
-        <NavbarBrand className="port-navbar-brand" href="/">
+    <div className={`navbar navbar-expand navbar-dark bg-dark ${navClass}`}>
+      <div className="container">
+        <a className="navbar-brand" href="/">
           Bryant Patton
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isNavOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/" title="Home" />
-            </NavItem>
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/about" title="About" />
-            </NavItem>
+        </a>
+        <div className="collapse navbar-collapse" id="navbarsExample02">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/about">
+                About
+              </a>
+            </li>
             {isAuthenticated && isOwner ? (
-              <NavItem className="port-navbar-item">
-                <Dropdown isOpen={portdropdownOpen} toggle={toggler}>
-                  <DropdownToggle
-                    tag="a"
-                    caret
-                    className="nav-link port-navbar-link"
-                  >
-                    Portfolio
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem>
-                      <Link href="/portfolio">Portfolio</Link>
-                    </DropdownItem>
-                    <DropdownItem>
-                      <Link href="/portfolio/new">Create Portfolio</Link>
-                    </DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
-            ) : (
-              <NavItem className="port-navbar-item">
-                <BsNavLink route="/portfolio" title="Portfolio" />
-              </NavItem>
-            )}
-
-            <NavItem className="port-navbar-item">
-              <BsNavLink route="/cv" title="Cv" />
-            </NavItem>
-            {isAuthenticated && (
-              <NavItem className="port-navbar-item">
+              <li className="nav-item dropdown">
                 <a
-                  // href="/api/logout"
+                  className="nav-link dropdown-toggle"
+                  href="/portfolio"
+                  id="dropdown01"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Portfolio
+                </a>
+                <div className="dropdown-menu" aria-labelledby="dropdown01">
+                  {/* <ul className="dropdown-menu" aria-labelledby="dropdown01"> */}
+                  {/* <li> */}
+                  <a className="dropdown-item" href="/portfolio">
+                    Portfolio
+                  </a>
+                  {/* </li> */}
+                  {/* <li> */}
+                  <a className="dropdown-item" href="/portfolio/new">
+                    New Portfolio
+                  </a>
+                  {/* </li> */}
+                  {/* </ul> */}
+                </div>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <a className="nav-link" href="/portfolio">
+                  Portfolio
+                </a>
+              </li>
+            )}
+            <li className="nav-item">
+              <a className="nav-link" href="/cv">
+                CV
+              </a>
+            </li>
+            {isAuthenticated && isOwner && (
+              <li className="nav-item">
+                <a
                   onClick={() => logout()}
                   className="nav-link port-navbar-link clickable"
                 >
                   Logout
                 </a>
-              </NavItem>
+              </li>
             )}
-            {!isAuthenticated && (
-              <NavItem className="port-navbar-item">
+            {!isAuthenticated && isOwner && (
+              <li className="nav-item">
                 <a
-                  // href="/api/login"
                   onClick={() => loginWithRedirect()}
                   className="nav-link port-navbar-link clickable"
                 >
                   Login
                 </a>
-              </NavItem>
+              </li>
             )}
-          </Nav>
-        </Collapse>
-      </Navbar>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useReducer } from 'react'
 import Typed from 'react-typed'
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useAuth0 } from '../lib/auth0-spa'
 import Layout from '../components/layouts/Layout'
 
@@ -143,6 +143,4 @@ const HomePage = () => {
     </Layout>
   )
 }
-// HomePage.Layout = BaseLayout
-// export default Index
 export default HomePage

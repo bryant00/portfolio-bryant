@@ -7,8 +7,6 @@
 
   .port-navbar {
     &-brand {
-      color: $main-color-white;
-      background-color: $main-color-black;
       font-size: 24px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -21,36 +19,32 @@
     }
 
     &-link {
-      color: $main-color-white;
-      background-color: $main-color-black;
       font-weight: bold;
       letter-spacing: 0.8px;
       font-size: 18px;
       text-transform: uppercase;
 
       &.active {
-        color: $primary;
+        // color: $primary;
       }
 
       &:hover,
       &:focus {
-        color: $primary;
+        // color: $primary;
       }
     }
   }
 
   .port-dropdown-menu {
     .port-dropdown-item {
-      color: $secondary;
+      // color: $secondary;
 
       &.active {
-        color: $primary;
+        // color: $primary;
       }
     }
 
     .port-dropdown-toggle {
-      color: $main-color-white;
-      background-color: $main-color-black;
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -59,11 +53,9 @@
 
 .port-navbar.port-nav-base.port-nav-default {
   padding: 30px;
-  background-color: $main-color-black;
 }
 
 .bg-transparent.menu-open {
-  background-color: $main-color-black;
 }
 
 .bg-transparent.menu-close {

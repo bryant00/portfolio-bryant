@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import useSWR, { mutate, cache } from 'swr'
 import { useAuth0 } from '../../../lib/auth0-spa'
-import { Col, Row, Container, Button, ButtonGroup } from 'reactstrap'
+import { Col, Row, Container, Button, ButtonGroup } from 'react-bootstrap'
 import Layout from '../../../components/layouts/Layout'
 import { useRouter } from 'next/router'
 import PortfolioCard from '../../../components/portfolios/PortfolioCard'

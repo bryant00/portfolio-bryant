@@ -1,7 +1,7 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import { FormGroup, Label, Button } from 'reactstrap'
+import { FormGroup, Label, Button } from 'react-bootstrap'
 
 export default class PortDate extends React.Component {
   constructor(props) {

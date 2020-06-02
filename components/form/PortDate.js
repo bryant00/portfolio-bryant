@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { FormGroup, Label, Button } from 'reactstrap'
+import { FormGroup, Label, Button } from 'react-bootstrap'
 
 const PortDate = ({ initialDate, label, field, form: { touched, errors } }) => {
   const [startDate, setStartDate] = useState(new Date(initialDate))

@@ -1,5 +1,11 @@
 import React from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from 'react-bootstrap'
 import moment from 'moment'
 import { useAuth0 } from '../../lib/auth0-spa'
 import Link from 'next/link'

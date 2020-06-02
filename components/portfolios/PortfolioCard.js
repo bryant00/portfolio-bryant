@@ -10,7 +10,7 @@ const PortfolioCard = (props) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{portfolio.title}</h5>
-              <p class="card-text">{portfolio.description}</p>
+              <p className="card-text">{portfolio.description}</p>
               <a
                 className="card-link text-primary"
                 // style={{ marginLeft: '0.5em' }}
@@ -32,11 +32,13 @@ const PortfolioCard = (props) => {
             </div>
           </div>
           <div className="col-md-4">
-            <img
-              src={`/images/${portfolio.imageName}`}
-              alt="Card image cap"
-              className="card-img"
-            />
+            {portfolio.imageName && (
+              <img
+                src={`/images/${portfolio.imageName}`}
+                alt="Card image cap"
+                className="card-img"
+              />
+            )}
           </div>
         </div>
       </div>

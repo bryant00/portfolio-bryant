@@ -1,6 +1,6 @@
 import React from 'react'
 import { withFormik, Form, Field, ErrorMessage, connect } from 'formik'
-import { Button, Alert } from 'reactstrap'
+import { Button, Alert } from 'react-bootstrap'
 import PortInput from '../form/PortInput'
 import PortDate from '../form/PortDate'
 

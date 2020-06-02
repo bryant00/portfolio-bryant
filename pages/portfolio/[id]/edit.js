@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../../../components/layouts/Layout'
 import PortfolioEditForm from '../../../components/portfolios/PortfolioEditForm'
-import { Row, Col, Container } from 'reactstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import useSWR, { mutate, cache } from 'swr'
 import { useAuth0 } from '../../../lib/auth0-spa'

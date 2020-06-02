@@ -5,27 +5,15 @@
 // PAGES
 @import './loader';
 @import './index';
-@import './portfolios';
 @import './about';
 @import './cv';
-@import './modal';
-@import './buttons';
-@import './forms';
+// @import './buttons';
+// @import './forms';
 
 // COMPONENTS
-@import './header';
-@import './slate-editor';
+// @import './header';
 
 $font-stack: Helvetica, sans-serif;
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  font-family: $font-stack;
-  background-color: $main-color-black;
-  color: $main-color-white;
-}
 
 .clickable {
   cursor: pointer;
@@ -35,7 +23,6 @@ body {
   font-size: 31px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: $main-color-white;
 }
 
 .absolute {
@@ -47,19 +34,16 @@ body {
   color: red;
 }
 
-.base-page {
-  padding: 150px 0 100px 0;
-  color: $main-color-white;
-  background-color: $main-color-black;
-  min-height: 100vh;
+/* import bootstrap to set changes */
+@import '../node_modules/bootstrap/scss/bootstrap';
 
-  .page-header {
-    .page-header-title {
-      font-weight: 700;
-      color: $main-color-white;
-      background-color: $main-color-black;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-  }
-}
+// @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+
+// // Optional
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/code";
+// @import "../node_modules/bootstrap/scss/grid";
