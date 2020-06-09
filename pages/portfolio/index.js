@@ -24,7 +24,7 @@ export default () => {
     if (!data) return <div>Loading...</div>
 
     const list = data.map((portfolio, index) => (
-      <PortfolioCard portfolio={portfolio}></PortfolioCard>
+      <PortfolioCard key={index} portfolio={portfolio}></PortfolioCard>
     ))
 
     return list

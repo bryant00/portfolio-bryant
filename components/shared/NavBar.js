@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
-import Link from 'next/link'
-import { Navbar, Nav, NavItem, Dropdown } from 'react-bootstrap'
+import ActiveLink from './ActiveLink'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { useRouter } from 'next/router'
 
 const NavBar = ({ navClass }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -9,6 +11,7 @@ const NavBar = ({ navClass }) => {
   const [portdropdownOpen, setPortDropdownOpen] = useState(false)
   const { isAuthenticated, loginWithRedirect, logout, isOwner } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
+  const router = useRouter()
   function toggle() {
     setIsNavOpen(!isNavOpen)
   }
@@ -19,62 +22,59 @@ const NavBar = ({ navClass }) => {
   const toggler = () => setPortDropdownOpen((prevState) => !prevState)
 
   return (
-    <div className={`navbar navbar-expand navbar-dark bg-dark ${navClass}`}>
+    <Navbar className={`navbar navbar-expand navbar-dark bg-dark ${navClass}`}>
       <div className="container">
-        <a className="navbar-brand" href="/">
-          Bryant Patton
-        </a>
+        <ActiveLink activeClassName="active" href="/">
+          <a className="navbar-brand " href="/">
+            Bryant Patton
+          </a>
+        </ActiveLink>
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/about">
-                About
-              </a>
+              <ActiveLink activeClassName="active" href="/about">
+                <a className="nav-link" href="/about">
+                  About
+                </a>
+              </ActiveLink>
             </li>
             {isAuthenticated && isOwner ? (
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="/portfolio"
-                  id="dropdown01"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Portfolio
-                </a>
-                <div className="dropdown-menu" aria-labelledby="dropdown01">
-                  {/* <ul className="dropdown-menu" aria-labelledby="dropdown01"> */}
-                  {/* <li> */}
-                  <a className="dropdown-item" href="/portfolio">
+              <ActiveLink activeClassName="active" href="/portfolio">
+                <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
+                  <NavDropdown.Item href="/portfolio">
                     Portfolio
-                  </a>
-                  {/* </li> */}
-                  {/* <li> */}
-                  <a className="dropdown-item" href="/portfolio/new">
-                    New Portfolio
-                  </a>
-                  {/* </li> */}
-                  {/* </ul> */}
-                </div>
-              </li>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onClick={(e) => {
+                      e.preventDefault()
+                      router.push('/portfolio/new')
+                    }}
+                  >
+                    Add Portfolio
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </ActiveLink>
             ) : (
               <li className="nav-item">
-                <a className="nav-link" href="/portfolio">
-                  Portfolio
-                </a>
+                <ActiveLink activeClassName="active" href="/portfolio">
+                  <a className="nav-link" href="/portfolio">
+                    Portfolio
+                  </a>
+                </ActiveLink>
               </li>
             )}
             <li className="nav-item">
-              <a className="nav-link" href="/cv">
-                CV
-              </a>
+              <ActiveLink activeClassName="active" href="/cv">
+                <a className="nav-link" href="/cv">
+                  CV
+                </a>
+              </ActiveLink>
             </li>
             {isAuthenticated && isOwner && (
               <li className="nav-item">
                 <a
                   onClick={() => logout()}
-                  className="nav-link port-navbar-link clickable"
+                  className="nav-link port-navbar-link "
                 >
                   Logout
                 </a>
@@ -84,7 +84,7 @@ const NavBar = ({ navClass }) => {
               <li className="nav-item">
                 <a
                   onClick={() => loginWithRedirect()}
-                  className="nav-link port-navbar-link clickable"
+                  className="nav-link port-navbar-link "
                 >
                   Login
                 </a>
@@ -93,7 +93,7 @@ const NavBar = ({ navClass }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </Navbar>
   )
 }
 // NavBar.whyDidYouRender = true

@@ -1,31 +1,4 @@
-import { MongoClient } from 'mongodb'
-
-// const uri = process.env.DB_URI
-
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-
-const dbName = 'portfolios'
-
-export default async (req, res) => {
-  try {
-    // const afterConnection = await client.connect()
-
-    // const db = await client.db(process.env.DB_NAME)
-
-    // const collection = await db.collection(dbName)
-
-    // const portfolios = await collection.find({}).toArray()
-    const portfolios = portfolioData
-    res.status(200).json(portfolios)
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-const portfolioData = [
+export default portfolios = [
   {
     _id: '5e9de6c21c9d4400006194a0',
     title: 'Work Order Management Api',
@@ -58,5 +31,31 @@ const portfolioData = [
     endDate: '2020-02-08T17:26:33.664Z',
     userId: 'google-oauth2|107898228644517862021',
     __v: 0,
+  },
+  {
+    _id: '5eb9de38746e9b1de1c4d905',
+    title: 'Test',
+    company: 'Test',
+    location: 'Test',
+    position: 'Test',
+    description: 'Test',
+    projectUrl: 'Test',
+    githubUrl: 'Test',
+    imageName: '',
+    startDate: '2020-05-11T23:22:13.410Z',
+    endDate: '2020-05-11T23:22:13.410Z',
+  },
+  {
+    _id: '5eb9de90746e9b1de1c4d906',
+    title: 'test',
+    company: 'test',
+    location: 'test',
+    position: 'test',
+    description: 'test',
+    projectUrl: 'test',
+    githubUrl: 'test',
+    imageName: 'test',
+    startDate: '2020-05-11T23:23:45.905Z',
+    endDate: '2020-05-11T23:23:45.905Z',
   },
 ]

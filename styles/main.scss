@@ -1,5 +1,5 @@
-@use './shared/colors';
-@import './shared/colors';
+// @use './shared/colors';
+// @import './shared/colors';
 @import './shared/mixins';
 
 // PAGES
@@ -14,10 +14,6 @@
 // @import './header';
 
 $font-stack: Helvetica, sans-serif;
-
-.clickable {
-  cursor: pointer;
-}
 
 .self-typed {
   font-size: 31px;
