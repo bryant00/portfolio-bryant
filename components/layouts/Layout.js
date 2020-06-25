@@ -6,6 +6,10 @@ export default ({ children, theme }) => (
   <>
     <MyHead title={theme.title} />
     <NavBar navClass={theme.navClass} />
-    <main className={`container ${theme.mainClass}`}>{children}</main>
+    <div className={theme.mainClass}>
+      {/* <div className="middle"> */}
+      <main>{children}</main>
+      {/* </div> */}
+    </div>
   </>
 )

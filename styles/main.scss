@@ -1,34 +1,18 @@
 // @use './shared/colors';
 // @import './shared/colors';
-@import './shared/mixins';
+// @import './shared/mixins';
 
 // PAGES
 @import './loader';
 @import './index';
-@import './about';
+// @import './about';
 @import './cv';
 // @import './buttons';
 // @import './forms';
 
-// COMPONENTS
-// @import './header';
+@import './header';
 
 $font-stack: Helvetica, sans-serif;
-
-.self-typed {
-  font-size: 31px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.error {
-  font-weight: 700;
-  color: red;
-}
 
 /* import bootstrap to set changes */
 @import '../node_modules/bootstrap/scss/bootstrap';

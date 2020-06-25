@@ -4,6 +4,7 @@ import ActiveLink from './ActiveLink'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
+import Author from '../../svgs/author.svg'
 
 const NavBar = ({ navClass }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -12,32 +13,28 @@ const NavBar = ({ navClass }) => {
   const { isAuthenticated, loginWithRedirect, logout, isOwner } = useAuth0()
   const menuOpenClass = isNavOpen ? 'menu-open' : 'menu-close'
   const router = useRouter()
-  function toggle() {
-    setIsNavOpen(!isNavOpen)
-  }
-
-  function toggleDropdown() {
-    setDropdownOpen(!dropdownOpen)
-  }
-  const toggler = () => setPortDropdownOpen((prevState) => !prevState)
 
   return (
-    <Navbar className={`navbar navbar-expand navbar-dark bg-dark ${navClass}`}>
+    <Navbar
+      fixed="top"
+      // className={`navbar-light text-light bg-transparent p-2 navhead ${navClass}`}
+      className={navClass}
+    >
       <div className="container">
         <ActiveLink activeClassName="active" href="/">
-          <a className="navbar-brand " href="/">
-            Bryant Patton
+          <a className="navbar-brand" href="/">
+            <img
+              src={Author}
+              width="35"
+              height="35"
+              className="d-inline-block align-top"
+              alt="Bryant Patton logo"
+            />
+            Home
           </a>
         </ActiveLink>
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <ActiveLink activeClassName="active" href="/about">
-                <a className="nav-link" href="/about">
-                  About
-                </a>
-              </ActiveLink>
-            </li>
             {isAuthenticated && isOwner ? (
               <ActiveLink activeClassName="active" href="/portfolio">
                 <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
@@ -84,7 +81,7 @@ const NavBar = ({ navClass }) => {
               <li className="nav-item">
                 <a
                   onClick={() => loginWithRedirect()}
-                  className="nav-link port-navbar-link "
+                  className="nav-link port-navbar-link"
                 >
                   Login
                 </a>
