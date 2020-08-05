@@ -5,49 +5,11 @@ import React, {
   useReducer,
   useLayoutEffect,
 } from 'react'
-import Typed from 'react-typed'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useAuth0 } from '../lib/auth0-spa'
 import Layout from '../components/layouts/Layout'
 import AboutPage from '../components/about'
-
-function useScrollTop(effect, deps, element, useWindow, wait) {
-  const position = useRef(getScrollPosition({ useWindow }))
-  let throttleTimeout = null
-
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow })
-    effect({ prefPos: position.current, currPos })
-    position.current = currPos
-    throttleTimeout = null
-  }
-
-  useLayoutEffect(() => {
-    function handleScroll() {
-      if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callBack, wait)
-        } else {
-          callBack()
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, deps)
-}
-
-const isBrowser = typeof window !== 'undefined'
-
-function getScrollPosition({ element, useWindow }) {
-  if (!isBrowser) return { x: 0, y: 0 }
-  const target = element ? element.current : document.body
-  const position = target.getBoundingClientRect()
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
-}
+import PortfolioPage from '../components/portfolio'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -71,50 +33,41 @@ function reducer(state, action) {
 }
 
 const HomePage = () => {
-  const roles = ['Developer', 'Tech Lover', 'Team Player', 'Explorer']
   const { user, loading } = useAuth0()
   const [state, dispatch] = useReducer(reducer, {
     mainClass: `index-header text-light`,
-    navClass: 'navbar-dark text-light bg-transparent p-2 navhead',
     title: 'Bryant Patton Portfolio',
-    navShrink: false,
   })
 
-  useScrollTop(
-    ({ prefPos, currPos }) => {
-      // const isShow = currPos.y > prefPos.y
-      const isShow = currPos.y < -60
-      console.log(
-        'currPos.y > prefPos.y',
-        currPos.y,
-        prefPos.y,
-        'isShow:',
-        isShow,
-        'state.navShrink:',
-        state.navShrink
-      )
-      if (isShow !== state.navShrink)
-        isShow ? dispatch({ type: 'shrink' }) : dispatch({ type: 'grow' })
-    },
-    [state],
-    false,
-    false,
-    300
-  )
-
-  // useScroll((direction) => {
-  //   setScrollDirection(direction)
-  // })
   return (
     <Layout theme={state}>
-      <Container className="">
-        <Row className="">
-          <Col className="mx-auto my-5 py-5 ">
-            <h1>Welcome to the portfolio website of Bryant Patton.</h1>
+      <Container fluid className="">
+        <Row className="welcome">
+          <Col className="mx-auto mt-5 pt-5 text-center">
+            <h1 className="text-uppercase m-2">Bryant Patton</h1>
+          </Col>
+          <div className="w-100"></div>
+          <Col className="mx-auto mt-3 text-center text-muted">
+            <h3>Welcome to my website</h3>
           </Col>
         </Row>
         <Row>
-          <AboutPage />
+          <Container fluid className="bg-light text-dark rounded mx-2">
+            <Row className="mt-5">
+              <Col md="6" className="mx-auto">
+                <AboutPage />
+              </Col>
+            </Row>
+          </Container>
+        </Row>
+        <Row className="mt-3">
+          <Container fluid className="bg-light text-dark rounded mx-2">
+            <Row className="mt-5">
+              <Col md="6" className="mx-auto">
+                <PortfolioPage />
+              </Col>
+            </Row>
+          </Container>
         </Row>
       </Container>
     </Layout>

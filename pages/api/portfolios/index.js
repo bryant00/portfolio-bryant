@@ -27,36 +27,21 @@ export default async (req, res) => {
 
 const portfolioData = [
   {
-    _id: '5e9de6c21c9d4400006194a0',
-    title: 'Work Order Management Api',
-    company: 'Net Giver',
-    location: 'San Francisco, CA',
-    position: 'Developer',
-    description: 'Work order management app',
-    projectUrl: 'https://netgiver-stage.herokuapp.com/graphql',
-    githubUrl:
-      'https://github.com/Lambda-School-Labs/net-giver-work-order-management-be',
-    ImageName: 'womApi',
-    startDate: '2020-01-08T17:26:33.664Z',
-    endDate: '2020-02-08T17:26:33.664Z',
-    userId: 'google-oauth2|107898228644517862021',
-    __v: 0,
-    imageName: 'apollo-server.svg',
-  },
-  {
     _id: '5ea8b0a8f2b85d283e9ece60',
-    title: 'Work Order Management App',
+    title: 'Net Giver Work Order Management App',
     company: 'Net Giver',
-    location: 'San Francisco, CA',
-    position: 'App Developer',
-    description: 'Work order management app',
+    description:
+      'An app used to simplify work order utilization. Coordinating work orders among groups of people is difficult, from creating the list of tasks to prioritizing and assigning them. Digital task lists exist, but they do not connect the tasks at hand to objects in the physical world. Net Giver provides user ease for creating and editing work orders, all in one convenient app.',
     projectUrl: 'https://expo.io/@skylerwebdev/ngwom',
     githubUrl:
       'https://github.com/Lambda-School-Labs/net-giver-work-order-management-fe',
     imageName: 'netgiverapp.png',
-    startDate: '2020-01-08T17:26:33.664Z',
-    endDate: '2020-02-08T17:26:33.664Z',
-    userId: 'google-oauth2|107898228644517862021',
-    __v: 0,
+    features: [
+      'QR scanner',
+      'Create, edit and assign work orders',
+      'View all work orders in one convenient place',
+      'Take pictures and upload images',
+    ],
+    tech: ['React Native', 'Postgres', 'GraphQL', 'Twilio Authy'],
   },
 ]

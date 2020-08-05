@@ -1,16 +1,14 @@
 .index-header {
   width: 100%;
-  background-image: url('/images/landingPage/background-index-2000w.jpg'),
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  background-repeat: no-repeat, no-repeat;
+  // background-image: url('/images/landingPage/background-index-2000w.jpg');
+  // background-repeat: no-repeat, no-repeat;
   // height: 580px;
   position: relative;
+  // background-color: lightgray;
+  background: url('/images/landingPage/background-index-2000w.jpg') no-repeat,
+    radial-gradient(circle, black, white);
+  // linear-gradient(black, white);
 }
-.middle {
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  // background-color: transparent !important;
-  // background-color: black;
-  // position: relative;
-  // z-index: 3;
+.welcome {
+  margin-bottom: 23vh;
 }
