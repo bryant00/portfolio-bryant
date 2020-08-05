@@ -1,37 +1,31 @@
-import React, { useState, useEffect, useRef, useReducer } from 'react'
-import Typed from 'react-typed'
-import { Container, Row, Col } from 'reactstrap'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useReducer,
+  useLayoutEffect,
+} from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useAuth0 } from '../lib/auth0-spa'
 import Layout from '../components/layouts/Layout'
-
-function useInterval(callback, delay) {
-  const savedCallback = useRef()
-
-  // Remember the latest function.
-  useEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
-
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      savedCallback.current()
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay)
-      return () => clearInterval(id)
-    }
-  }, [delay])
-}
+import AboutPage from '../components/about'
+import PortfolioPage from '../components/portfolio'
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'decrement':
+    case 'shrink':
+      console.log('shrink')
       return {
         ...state,
-        isFlipping: !state.isFlipping,
-        count: state.isFlipping + 0,
-        mainClass: `cover-${state.count}`,
+        navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
+        navShrink: true,
+      }
+    case 'grow':
+      console.log('grow')
+      return {
+        ...state,
+        navClass: 'navbar-dark text-light bg-transparent p-2 navhead',
+        navShrink: false,
       }
     default:
       throw new Error()
@@ -39,110 +33,44 @@ function reducer(state, action) {
 }
 
 const HomePage = () => {
-  const roles = ['Developer', 'Tech Lover', 'Team Player', 'Explorer']
   const { user, loading } = useAuth0()
   const [state, dispatch] = useReducer(reducer, {
-    isFlipping: false,
-    count: 0,
-    mainClass: `cover-0`,
-    navClass: 'index',
+    mainClass: `index-header text-light`,
     title: 'Bryant Patton Portfolio',
   })
-  useInterval(() => {
-    dispatch({ type: 'decrement' })
-  }, 6000)
 
   return (
     <Layout theme={state}>
-      <div className="main-section">
-        <div className="background-image">
-          {/* <img src="/images/background-index.png" /> */}
-        </div>
-        <Container>
-          <Row>
-            <Col md="6">
-              <div className="hero-section">
-                <div
-                  className={`flipper ${state.isFlipping ? 'isFlipping' : ''}`}
-                >
-                  <div className="front">
-                    <div className="hero-section-content">
-                      <h2> Full Stack Web Developer </h2>
-                      <div className="hero-section-content-intro">
-                        Take a look at my portfolio and work history.
-                      </div>
-                    </div>
-
-                    <img
-                      alt="web network"
-                      className="image"
-                      src="/images/node-1.jpg"
-                    />
-                    <div className="shadow-custom">
-                      <div className="shadow-inner"> </div>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <div className="hero-section-content">
-                      <h2> Get Your Projects Done </h2>
-                      <div className="hero-section-content-intro">
-                        Profesional and top quality service in web development.
-                      </div>
-                    </div>
-                    <img
-                      alt="web network"
-                      className="image"
-                      src="/images/node-2.jpg"
-                    />
-                    <div className="shadow-custom shadow-custom-2">
-                      <div className="shadow-inner"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col md="6" className="hero-welcome-wrapper">
-              <div className="hero-welcome-text">
-                <h1>
-                  {user && (
-                    <span>
-                      {user.email}
-                      <br />
-                    </span>
-                  )}
-                  Welcome to the portfolio website of Bryant Patton. I use this
-                  site to share what I've built and experiment with new
-                  technologies.
-                </h1>
-              </div>
-              <Typed
-                loop
-                typeSpeed={60}
-                backSpeed={60}
-                strings={roles}
-                backDelay={1000}
-                loopCount={0}
-                showCursor
-                className="self-typed"
-                cursorChar="|"
-              />
-
-              <div className="hero-welcome-bio">
-                <h2>Take a look and drop me a line.</h2>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-        <span className="service-link">
-          Illustration credit:{' '}
-          <a href="https://www.vecteezy.com/free-vector/grid">
-            Grid Vectors by Vecteezy
-          </a>
-        </span>
-      </div>
+      <Container fluid className="">
+        <Row className="welcome">
+          <Col className="mx-auto mt-5 pt-5 text-center">
+            <h1 className="text-uppercase m-2">Bryant Patton</h1>
+          </Col>
+          <div className="w-100"></div>
+          <Col className="mx-auto mt-3 text-center text-muted">
+            <h3>Welcome to my website</h3>
+          </Col>
+        </Row>
+        <Row>
+          <Container fluid className="bg-light text-dark rounded mx-2">
+            <Row className="mt-5">
+              <Col md="6" className="mx-auto">
+                <AboutPage />
+              </Col>
+            </Row>
+          </Container>
+        </Row>
+        <Row className="mt-3">
+          <Container fluid className="bg-light text-dark rounded mx-2">
+            <Row className="mt-5">
+              <Col md="6" className="mx-auto">
+                <PortfolioPage />
+              </Col>
+            </Row>
+          </Container>
+        </Row>
+      </Container>
     </Layout>
   )
 }
-// HomePage.Layout = BaseLayout
-// export default Index
 export default HomePage

@@ -1,46 +1,56 @@
 import React, { useState } from 'react'
-
+import { Row, Col, Image } from 'react-bootstrap'
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
-
+  const projectImage = `/images/${portfolio.imageName}`
   return (
-    <div className="col-12">
-      <div className="card border-light bg-secondary mb-5  portfolio-card">
-        <div className="row no-gutters">
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">{portfolio.title}</h5>
-              <p class="card-text">{portfolio.description}</p>
-              <a
-                className="card-link text-primary"
-                // style={{ marginLeft: '0.5em' }}
-                href={portfolio.githubUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Github
-              </a>
-              <a
-                className="card-link text-primary"
-                // style={{ marginLeft: '0.5em' }}
-                target="_blank"
-                rel="noreferrer noopener"
-                href={portfolio.projectUrl}
-              >
-                Project
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <img
-              src={`/images/${portfolio.imageName}`}
-              alt="Card image cap"
-              className="card-img"
-            />
-          </div>
+    <>
+      <h5>{portfolio.title}</h5>
+      <Row>
+        <div className="col">
+          <p>{portfolio.description}</p>
+          <h5>Features:</h5>
+          <ul className="list-inline row justify-content-md-start">
+            {portfolio.features.map((f) => (
+              <li className="list-inline-item col-md-auto">{f}</li>
+            ))}
+          </ul>
+          <h5>Tech Stack</h5>
+          <ul className="list-inline row justify-content-md-start">
+            {portfolio.tech.map((f) => (
+              <li className="list-inline-item col-md-auto">{f}</li>
+            ))}
+          </ul>
+          <p>
+            <a
+              className="text-primary"
+              href={portfolio.githubUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Github Code
+            </a>
+          </p>
+          <a
+            className="text-primary"
+            target="_blank"
+            rel="noreferrer noopener"
+            href={portfolio.projectUrl}
+          >
+            Demo
+          </a>
         </div>
-      </div>
-    </div>
+        <div
+          className="col-md-4"
+          style={{
+            backgroundImage: `url(${projectImage})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '100px 0',
+            backgroundSize: 'cover',
+          }}
+        ></div>
+      </Row>
+    </>
   )
 }
 // }

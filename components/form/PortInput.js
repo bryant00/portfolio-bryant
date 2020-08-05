@@ -1,5 +1,6 @@
-import { Button, FormGroup, Label, Input } from 'reactstrap'
-
+import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 const PortInput = ({
   value,
   label,
@@ -9,13 +10,13 @@ const PortInput = ({
   ...props
 }) => {
   return (
-    <FormGroup>
-      <Label>{label}</Label>
-      <Input type={type} {...field} {...props} />
+    <Form.Group>
+      <Form.Label>{label}</Form.Label>
+      <InputGroup type={type} {...field} {...props} />
       {touched[field.name] && errors[field.name] && (
         <div className="error">{errors[field.name]}</div>
       )}
-    </FormGroup>
+    </Form.Group>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout'
 
-import { Row, Col, Container } from 'reactstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 
 const Cv = () => {
   const theme = {

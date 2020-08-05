@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { FormGroup, Label, Button } from 'reactstrap'
+import InputGroup from 'react-bootstrap/InputGroup'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 const PortDate = ({ initialDate, label, field, form: { touched, errors } }) => {
   const [startDate, setStartDate] = useState(new Date(initialDate))
   // const [endDate, setEndDate] = useState(new Date("2014/02/10"));
   return (
-    <FormGroup>
-      <Label>{label}</Label>
+    <Form.Group>
+      <Form.Label>{label}</Form.Label>
       <div className="input-group">
         <DatePicker
           selected={startDate}
@@ -20,7 +22,7 @@ const PortDate = ({ initialDate, label, field, form: { touched, errors } }) => {
           <div className="error">{errors[field.name]}</div>
         )}
       </div>
-    </FormGroup>
+    </Form.Group>
 
     //  <DatePicker
     //   selected={endDate}
