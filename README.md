@@ -6,7 +6,6 @@ https://github.com/zeit/swr/blob/master/examples/optimistic-ui/pages/index.js
 
 **_Test Crud_**
 
-**_Style portfolio_**
 
 **_Consolidate lambdas_**
 
