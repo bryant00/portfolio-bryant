@@ -45,7 +45,7 @@ const PortfolioCard = (props) => {
           style={{
             backgroundImage: `url(${projectImage})`,
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '100px 0',
+            backgroundPosition: '0 0',
             backgroundSize: 'cover',
           }}
         ></div>
