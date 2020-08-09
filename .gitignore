@@ -11,6 +11,8 @@
 /pages/userBlogs.js
 /resources
 ./assigments.txt
+/bootstrap-4.5.0-examples
+*-copy.js
 # Logs
 logs
 *.log

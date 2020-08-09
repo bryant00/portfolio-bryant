@@ -73,7 +73,8 @@ const NavBar = ({ useNavShrink }) => {
         </a>
       </ActiveLink>
       <ul className="navbar-nav mr-auto">
-        {isAuthenticated && isOwner ? (
+        {/* hiding portfolio page until formatted */}
+        {/* {isAuthenticated && isOwner ? (
           <ActiveLink activeClassName="active" href="/portfolio">
             <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
               <NavDropdown.Item href="/portfolio">Portfolio</NavDropdown.Item>
@@ -95,7 +96,7 @@ const NavBar = ({ useNavShrink }) => {
               </a>
             </ActiveLink>
           </li>
-        )}
+        )} */}
         <li className="nav-item">
           <ActiveLink activeClassName="active" href="/cv">
             <a className="nav-link" href="/cv">

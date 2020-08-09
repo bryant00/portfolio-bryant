@@ -19,14 +19,14 @@ export default ({ children, page }) => {
           <Footer />
         </div>
       ) : (
-        // <div className="d-flex flex-column h-100 layout">
-        <>
+        <div className="d-flex flex-column h-100 layout">
           <MyHead />
           <NavBar useNavShrink={theme.useNavShrink} />
-          <Container fluid> {children}</Container>
+          <div className={theme.heroClass}>
+            <main>{children}</main>
+          </div>
           <Footer />
-          {/* </div> */}
-        </>
+        </div>
       )}
     </ThemeContext.Provider>
   )
