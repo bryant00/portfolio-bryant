@@ -17,7 +17,6 @@ const fetcher = async (...args) => {
 }
 
 const theme = {
-  mainClass: '',
   navClass: 'default',
   title: 'Bryant Patton - Porfolio',
 }

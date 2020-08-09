@@ -9,7 +9,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default () => {
   const theme = {
-    mainClass: '',
     navClass: 'default',
     title: 'Bryant Patton - Porfolio',
   }

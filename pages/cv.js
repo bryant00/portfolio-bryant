@@ -1,22 +1,19 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout'
-
 import { Row, Col, Container } from 'react-bootstrap'
 
 const Cv = () => {
-  const theme = {
-    mainClass: '',
-    navClass: 'default',
-    title: 'Preview of my CV',
-  }
+  // theme.title = 'Preview of my CV'
+  // theme.pageName = 'cv'
 
   return (
-    <Layout theme={theme}>
-      <div className="base-page cv-page">
-        <Container>
-          <div className="page-header">
-            <h1 className="page-header-title">Preview of my CV</h1>
-          </div>
+    <Layout page="default">
+      <Row>
+        <Col md="6" className="mx-auto">
+          <div className="w-100"></div>
+          <Col className="mx-auto mt-3 text-center text-muted">
+            <h3>My Cv</h3>
+          </Col>
           <Row>
             <Col md={{ size: 8, offset: 2 }}>
               <div className="cv-title">
@@ -34,8 +31,8 @@ const Cv = () => {
               ></iframe>
             </Col>
           </Row>
-        </Container>
-      </div>
+        </Col>
+      </Row>
     </Layout>
   )
 }

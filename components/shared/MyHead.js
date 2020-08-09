@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from 'react'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../../next-seo.config'
+import { ThemeContext } from '../../lib/themeContext'
 
-export function MyHead({ title = 'Bryant Patton Portfolio' }) {
+export function MyHead() {
+  const theme = useContext(ThemeContext)
   return (
     <>
       <DefaultSeo {...SEO} />
       <Head>
-        <title>{title}</title>
+        <title>{theme.title}</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

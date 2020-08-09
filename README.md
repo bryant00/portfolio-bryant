@@ -1,11 +1,12 @@
-https://mongodb.github.io/node-mongodb-native/3.0/reference/ecmascriptnext/crud/
+https://react-bootstrap.github.io/getting-started/introduction/#examples
 
-https://github.com/zeit/swr/blob/master/examples/optimistic-ui/pages/index.js
+https://getbootstrap.com/docs/4.5/examples/
+
+https://getbootstrap.com/docs/4.5/layout/grid/#variable-width-content
 
 **Todo**
 
 **_Test Crud_**
-
 
 **_Consolidate lambdas_**
 

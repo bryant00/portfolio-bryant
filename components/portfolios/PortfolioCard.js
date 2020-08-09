@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
+
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
   const projectImage = `/images/${portfolio.imageName}`
@@ -11,14 +12,18 @@ const PortfolioCard = (props) => {
           <p>{portfolio.description}</p>
           <h5>Features:</h5>
           <ul className="list-inline row justify-content-md-start">
-            {portfolio.features.map((f) => (
-              <li className="list-inline-item col-md-auto">{f}</li>
+            {portfolio.features.map((f, i) => (
+              <li key={i} className="list-inline-item col-md-auto">
+                {f}
+              </li>
             ))}
           </ul>
           <h5>Tech Stack</h5>
           <ul className="list-inline row justify-content-md-start">
-            {portfolio.tech.map((f) => (
-              <li className="list-inline-item col-md-auto">{f}</li>
+            {portfolio.tech.map((f, i) => (
+              <li key={i} className="list-inline-item col-md-auto">
+                {f}
+              </li>
             ))}
           </ul>
           <p>
@@ -53,5 +58,5 @@ const PortfolioCard = (props) => {
     </>
   )
 }
-// }
+
 export default PortfolioCard

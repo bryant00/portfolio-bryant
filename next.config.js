@@ -15,5 +15,3 @@ module.exports = withImages({
     DB_NAME: process.env.DB_NAME,
   },
 })
-
-// module.exports = withPlugins([[withSass], [withCSS]], nextConfig)

@@ -5,7 +5,6 @@ import Cat from '../svgs/cat.svg'
 import Author from '../svgs/author.svg'
 const AboutPage = () => {
   const theme = {
-    mainClass: '',
     navClass: 'default',
     title: 'Bryant Patton - About Me',
   }
