@@ -22,9 +22,11 @@ export default ({ children, page }) => {
         <div className="d-flex flex-column h-100 layout">
           <MyHead />
           <NavBar useNavShrink={theme.useNavShrink} />
-          <div className={theme.heroClass}>
-            <main>{children}</main>
-          </div>
+          <Container className="about">
+            <Row className="">
+              <Col className="">{children}</Col>
+            </Row>
+          </Container>
           <Footer />
         </div>
       )}
