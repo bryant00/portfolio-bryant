@@ -1,12 +1,12 @@
-import React from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Layout from '../components/layouts/Layout'
-import { Document, Page } from 'react-pdf'
+import { Document, Page, pdfjs } from 'react-pdf'
+// import { Document, Page } from 'react-pdf/dist/entry.webpack'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const Cv = () => {
-  // theme.title = 'Preview of my CV'
-  // theme.pageName = 'cv'
-
   return (
     <Layout page="default">
       <Document

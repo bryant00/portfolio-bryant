@@ -9,44 +9,46 @@ import AuthorLight from '../../svgs/authorLight.svg'
 import GitHub from '../../svgs/github.svg'
 import GitHubDark from '../../svgs/githubDark.svg'
 import { useScrollPosition } from '../layouts/UseScrollPosition'
-import { ThemeContext } from '../../lib/themeContext'
+import { ThemeContext, DispatchContext } from '../../lib/themeContext'
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'shrink':
-      return {
-        ...state,
-        navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
-        navShrink: true,
-        authorImage: Author,
-        gitHubImage: GitHubDark,
-        // gitHubImage: theme.dark.gitHubImage,
-      }
-    case 'grow':
-      return {
-        ...state,
-        navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
-        navShrink: false,
-        authorImage: AuthorLight,
-        gitHubImage: GitHub,
-      }
-    default:
-      throw new Error()
-  }
-}
+// function navReducer(state, action) {
+//   switch (action.type) {
+//     case 'shrink':
+//       return {
+//         ...state,
+//         navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
+//         navShrink: true,
+//         authorImage: Author,
+//         gitHubImage: GitHubDark,
+//         // gitHubImage: theme.dark.gitHubImage,
+//       }
+//     case 'grow':
+//       return {
+//         ...state,
+//         navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
+//         navShrink: false,
+//         authorImage: AuthorLight,
+//         gitHubImage: GitHub,
+//       }
+//     default:
+//       throw new Error()
+//   }
+// }
 
-const NavBar = ({ useNavShrink }) => {
-  const theme = useContext(ThemeContext)
+const NavBar = ({ page }) => {
+  const state = useContext(ThemeContext)
+  const dispatch = useContext(DispatchContext)
+
   const { isAuthenticated, loginWithRedirect, logout, isOwner } = useAuth0()
   const router = useRouter()
-  const [state, dispatch] = useReducer(reducer, {
-    navClass: theme.navClass,
-    navShrink: false,
-    authorImage: theme.authorImage,
-    gitHubImage: theme.gitHubImage,
-  })
+  // const [state, dispatch] = useReducer(navReducer, {
+  //   navClass: theme.navClass,
+  //   navShrink: false,
+  //   authorImage: theme.authorImage,
+  //   gitHubImage: theme.gitHubImage,
+  // })
   {
-    theme.useNavShrink &&
+    state.useNavShrink &&
       useScrollPosition(
         ({ prefPos, currPos }) => {
           const isShow = currPos.y < -60

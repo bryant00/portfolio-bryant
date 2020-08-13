@@ -1,35 +1,45 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer } from 'react'
 import { MyHead } from '../shared/MyHead'
 import NavBar from '../shared/NavBar'
 import Footer from '../shared/Footer'
-import { themes, ThemeContext } from '../../lib/themeContext'
+import {
+  ThemeContext,
+  DispatchContext,
+  navReducer,
+  themes,
+} from '../../lib/themeContext'
 import { Row, Col, Container } from 'react-bootstrap'
 // export default ({ children, theme }) => {
 export default ({ children, page }) => {
+  const [state, dispatch] = useReducer(navReducer, themes)
   const theme = useContext(ThemeContext)
+
   return (
-    <ThemeContext.Provider value={themes[page]}>
-      {page === 'index' ? (
-        <div className="d-flex flex-column h-100 layout">
-          <MyHead />
-          <NavBar useNavShrink={theme.useNavShrink} />
-          <div className={theme.heroClass}>
-            <main>{children}</main>
+    <DispatchContext.Provider value={dispatch}>
+      {/* <ThemeContext.Provider value={themes[page]}> */}
+      <ThemeContext.Provider value={themes[page]}>
+        {page === 'index' ? (
+          <div className="d-flex flex-column h-100 layout">
+            <MyHead />
+            <NavBar page={page} />
+            <div className={state[page].heroClass}>
+              <main>{children}</main>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      ) : (
-        <div className="d-flex flex-column h-100 layout">
-          <MyHead />
-          <NavBar useNavShrink={theme.useNavShrink} />
-          <Container className="about">
-            <Row className="">
-              <Col className="">{children}</Col>
-            </Row>
-          </Container>
-          <Footer />
-        </div>
-      )}
-    </ThemeContext.Provider>
+        ) : (
+          <div className="d-flex flex-column h-100 layout">
+            <MyHead />
+            <NavBar page={page} />
+            <Container className="about">
+              <Row className="">
+                <Col className="">{children}</Col>
+              </Row>
+            </Container>
+            <Footer />
+          </div>
+        )}
+      </ThemeContext.Provider>
+    </DispatchContext.Provider>
   )
 }
