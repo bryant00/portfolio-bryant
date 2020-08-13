@@ -1,14 +1,13 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Layout from '../components/layouts/Layout'
-import { Document, Page } from 'react-pdf'
+import LayoutDefault from '../components/layouts/LayoutDefault'
+import { Document, Page, pdfjs } from 'react-pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const Cv = () => {
-  // theme.title = 'Preview of my CV'
-  // theme.pageName = 'cv'
-
   return (
-    <Layout page="default">
+    <LayoutDefault page="default">
       <Document
         file={{
           url: '/bryant_cv.pdf',
@@ -22,7 +21,7 @@ const Cv = () => {
       >
         <Page pageNumber={1} />
       </Document>
-    </Layout>
+    </LayoutDefault>
   )
 }
 

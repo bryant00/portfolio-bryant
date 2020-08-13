@@ -9,14 +9,17 @@ export default ({ children, page }) => {
   const theme = useContext(ThemeContext)
   return (
     <ThemeContext.Provider value={themes[page]}>
-      <div className="d-flex flex-column h-100 layout">
-        <MyHead />
-        <NavBar useNavShrink={theme.useNavShrink} />
-        <div className={theme.heroClass}>
-          <main>{children}</main>
-        </div>
-        <Footer />
-      </div>
+      <MyHead />
+      <NavBar useNavShrink={theme.useNavShrink} />
+      <main role="main" className="flex-shrink-0">
+        <Container style={{ padding: '8vh 15px 0' }}>
+          {children}
+          {/* <Row className="">
+            <Col className="">{children}</Col>
+          </Row> */}
+        </Container>
+      </main>
+      <Footer />
     </ThemeContext.Provider>
   )
 }
