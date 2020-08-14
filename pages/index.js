@@ -1,46 +1,13 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useReducer,
-  useLayoutEffect,
-} from 'react'
+import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { useAuth0 } from '../lib/auth0-spa'
 import Layout from '../components/layouts/Layout'
 import AboutPage from '../components/about'
 import PortfolioPage from '../components/portfolio'
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'shrink':
-      console.log('shrink')
-      return {
-        ...state,
-        navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
-        navShrink: true,
-      }
-    case 'grow':
-      console.log('grow')
-      return {
-        ...state,
-        navClass: 'navbar-dark text-light bg-transparent p-2 navhead',
-        navShrink: false,
-      }
-    default:
-      throw new Error()
-  }
-}
+import { theme } from '../lib/themeContext'
 
 const HomePage = () => {
-  const { user, loading } = useAuth0()
-  const [state, dispatch] = useReducer(reducer, {
-    mainClass: `index-header text-light`,
-    title: 'Bryant Patton Portfolio',
-  })
-
   return (
-    <Layout theme={state}>
+    <Layout page="index">
       <Container fluid className="">
         <Row className="welcome">
           <Col className="mx-auto mt-5 pt-5 text-center">

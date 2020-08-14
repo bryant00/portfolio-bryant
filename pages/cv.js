@@ -1,42 +1,42 @@
-import React from 'react'
-import Layout from '../components/layouts/Layout'
+import React, { useState } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
+import LayoutDefault from '../components/layouts/LayoutDefault'
+import { Document, Page, pdfjs } from 'react-pdf'
 
-import { Row, Col, Container } from 'react-bootstrap'
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const Cv = () => {
-  const theme = {
-    mainClass: '',
-    navClass: 'default',
-    title: 'Preview of my CV',
-  }
+  const [numPages, setNumPages] = useState(null)
+  const [pageNumber, setPageNumber] = useState(1)
 
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages)
+  }
   return (
-    <Layout theme={theme}>
-      <div className="base-page cv-page">
-        <Container>
-          <div className="page-header">
-            <h1 className="page-header-title">Preview of my CV</h1>
-          </div>
-          <Row>
-            <Col md={{ size: 8, offset: 2 }}>
-              <div className="cv-title">
-                <a
-                  download="bryant_cv.pdf"
-                  className="btn btn-success"
-                  href="/bryant_cv.pdf"
-                >
-                  Download
-                </a>
-              </div>
-              <iframe
-                style={{ width: '100%', height: '800px' }}
-                src="/bryant_cv.pdf"
-              ></iframe>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </Layout>
+    <LayoutDefault page="default">
+      <Container style={{ padding: '77px 0 0' }}>
+        <Row>
+          <Col className="d-flex  justify-content-center">
+            <Document
+              file="/bryant_cv.pdf"
+              onLoadError={(e) =>
+                console.log('Error while loading document! ' + e.message)
+              }
+              onSourceError={(e) =>
+                console.log('Error while loading document! ' + e.message)
+              }
+              onLoadSuccess={onDocumentLoadSuccess}
+            >
+              {Array.from(new Array(numPages), (el, index) => (
+                <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+              ))}
+              {/* <Page pageNumber={pageNumber} /> */}
+            </Document>
+            {/* </div> */}
+          </Col>
+        </Row>
+      </Container>
+    </LayoutDefault>
   )
 }
 

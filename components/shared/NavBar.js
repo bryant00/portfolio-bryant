@@ -8,21 +8,21 @@ import Author from '../../svgs/author.svg'
 import AuthorLight from '../../svgs/authorLight.svg'
 import GitHub from '../../svgs/github.svg'
 import GitHubDark from '../../svgs/githubDark.svg'
-import { useScrollTop } from '../layouts/Layout'
+import { useScrollPosition } from '../layouts/UseScrollPosition'
+import { ThemeContext } from '../../lib/themeContext'
 
 function reducer(state, action) {
   switch (action.type) {
     case 'shrink':
-      console.log('shrink')
       return {
         ...state,
         navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
         navShrink: true,
         authorImage: Author,
         gitHubImage: GitHubDark,
+        // gitHubImage: theme.dark.gitHubImage,
       }
     case 'grow':
-      console.log('grow')
       return {
         ...state,
         navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
@@ -35,39 +35,32 @@ function reducer(state, action) {
   }
 }
 
-const NavBar = () => {
+const NavBar = ({ useNavShrink }) => {
+  const theme = useContext(ThemeContext)
   const { isAuthenticated, loginWithRedirect, logout, isOwner } = useAuth0()
   const router = useRouter()
   const [state, dispatch] = useReducer(reducer, {
-    navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
+    navClass: theme.navClass,
     navShrink: false,
-    authorImage: AuthorLight,
-    gitHubImage: GitHub,
+    authorImage: theme.authorImage,
+    gitHubImage: theme.gitHubImage,
   })
-  useScrollTop(
-    ({ prefPos, currPos }) => {
-      // const isShow = currPos.y > prefPos.y
-      const isShow = currPos.y < -60
-      // console.log(
-      //   'currPos.y > prefPos.y',
-      //   currPos.y,
-      //   prefPos.y,
-      //   'isShow:',
-      //   isShow,
-      //   'state.navShrink:',
-      //   state.navShrink
-      // )
-      if (isShow !== state.navShrink)
-        isShow ? dispatch({ type: 'shrink' }) : dispatch({ type: 'grow' })
-    },
-    [state],
-    false,
-    false,
-    300
-  )
+  {
+    theme.useNavShrink &&
+      useScrollPosition(
+        ({ prefPos, currPos }) => {
+          const isShow = currPos.y < -60
+          if (isShow !== state.navShrink)
+            isShow ? dispatch({ type: 'shrink' }) : dispatch({ type: 'grow' })
+        },
+        [state],
+        false,
+        false,
+        300
+      )
+  }
   return (
     <Navbar fixed="top" className={state.navClass}>
-      {/* <div className="container"> */}
       <ActiveLink activeClassName="active" href="/">
         <a className="navbar-brand ml-2" href="/">
           <img
@@ -79,9 +72,9 @@ const NavBar = () => {
           />
         </a>
       </ActiveLink>
-      {/* <div className="collapse navbar-collapse" id="navbarsExample02"> */}
       <ul className="navbar-nav mr-auto">
-        {isAuthenticated && isOwner ? (
+        {/* hiding portfolio page until formatted */}
+        {/* {isAuthenticated && isOwner ? (
           <ActiveLink activeClassName="active" href="/portfolio">
             <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
               <NavDropdown.Item href="/portfolio">Portfolio</NavDropdown.Item>
@@ -103,7 +96,7 @@ const NavBar = () => {
               </a>
             </ActiveLink>
           </li>
-        )}
+        )} */}
         <li className="nav-item">
           <ActiveLink activeClassName="active" href="/cv">
             <a className="nav-link" href="/cv">
@@ -141,8 +134,6 @@ const NavBar = () => {
           </a>
         </li>
       </ul>
-      {/* </div> */}
-      {/* </div> */}
     </Navbar>
   )
 }

@@ -27,9 +27,8 @@ export default async (req, res) => {
 
 const portfolioData = [
   {
-    _id: '5ea8b0a8f2b85d283e9ece60',
+    _id: '1',
     title: 'Net Giver Work Order Management App',
-    company: 'Net Giver',
     description:
       'An app used to simplify work order utilization. Coordinating work orders among groups of people is difficult, from creating the list of tasks to prioritizing and assigning them. Digital task lists exist, but they do not connect the tasks at hand to objects in the physical world. Net Giver provides user ease for creating and editing work orders, all in one convenient app.',
     projectUrl: 'https://expo.io/@skylerwebdev/ngwom',
@@ -43,5 +42,20 @@ const portfolioData = [
       'Take pictures and upload images',
     ],
     tech: ['React Native', 'Postgres', 'GraphQL', 'Twilio Authy'],
+  },
+  {
+    _id: '2',
+    title: 'NBA Player Career Longevity Predictor',
+    description:
+      'Website that predicts how many years we can expect an NBA players carreer to last. ',
+    projectUrl: 'https://client.nba-longevity.now.sh/',
+    githubUrl: 'https://github.com/build-week-longevity-predictor/client',
+    imageName: 'nba_narrow.png',
+    features: [
+      'Model using 10 years of NBA player data',
+      'Search for current and past NBA players',
+      'Save your favorite players',
+    ],
+    tech: ['Node Express', 'React', 'Python'],
   },
 ]
