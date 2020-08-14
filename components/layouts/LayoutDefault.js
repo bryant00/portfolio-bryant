@@ -11,14 +11,19 @@ export default ({ children, page }) => {
     <ThemeContext.Provider value={themes[page]}>
       <MyHead />
       <NavBar useNavShrink={theme.useNavShrink} />
-      <main role="main" className="flex-shrink-0">
-        <Container style={{ padding: '8vh 15px 0' }}>
-          {children}
-          {/* <Row className="">
+      {/* <main
+        role="main"
+        className="flex-shrink-0"
+        // style={{ padding: '77px 0 0' }}
+      > */}
+      {/* <Container style={{ padding: '8vh 15px 0' }}> */}
+      {/* <Container style={{ padding: '77px 15px 0' }}> */}
+      {children}
+      {/* <Row className="">
             <Col className="">{children}</Col>
           </Row> */}
-        </Container>
-      </main>
+      {/* </Container> */}
+      {/* </main> */}
       <Footer />
     </ThemeContext.Provider>
   )
