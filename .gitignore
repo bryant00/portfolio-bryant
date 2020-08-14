@@ -13,6 +13,7 @@
 ./assigments.txt
 /bootstrap-4.5.0-examples
 *-copy.js
+*-tmp.js
 # Logs
 logs
 *.log
