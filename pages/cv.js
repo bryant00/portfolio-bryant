@@ -16,7 +16,7 @@ const Cv = () => {
     <LayoutDefault page="default">
       <Container style={{ padding: '77px 0 0' }}>
         <Row>
-          <Col>
+          <Col className="d-flex  justify-content-center">
             <Document
               file="/bryant_cv.pdf"
               onLoadError={(e) =>
