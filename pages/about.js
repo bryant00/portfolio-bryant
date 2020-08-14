@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout'
 import { Row, Col, Container, Button } from 'react-bootstrap'
-import Cat from '../svgs/cat.svg'
+
 import Author from '../svgs/author.svg'
 const AboutPage = () => {
   const theme = {
