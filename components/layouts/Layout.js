@@ -4,7 +4,7 @@ import NavBar from '../shared/NavBar'
 import Footer from '../shared/Footer'
 import { themes, ThemeContext } from '../../lib/themeContext'
 import { Row, Col, Container } from 'react-bootstrap'
-// export default ({ children, theme }) => {
+
 export default ({ children, page }) => {
   const theme = useContext(ThemeContext)
   return (

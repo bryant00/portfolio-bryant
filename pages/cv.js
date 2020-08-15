@@ -30,9 +30,7 @@ const Cv = () => {
               {Array.from(new Array(numPages), (el, index) => (
                 <Page key={`page_${index + 1}`} pageNumber={index + 1} />
               ))}
-              {/* <Page pageNumber={pageNumber} /> */}
             </Document>
-            {/* </div> */}
           </Col>
         </Row>
       </Container>

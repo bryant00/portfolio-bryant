@@ -4,10 +4,10 @@ import ActiveLink from './ActiveLink'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
-import Author from '../../svgs/author.svg'
-import AuthorLight from '../../svgs/authorLight.svg'
-import GitHub from '../../svgs/github.svg'
-import GitHubDark from '../../svgs/githubDark.svg'
+// import Author from '../../svgs/author.svg'
+// import AuthorLight from '../../svgs/authorLight.svg'
+// import GitHub from '../../svgs/github.svg'
+// import GitHubDark from '../../svgs/githubDark.svg'
 import { useScrollPosition } from '../layouts/UseScrollPosition'
 import { ThemeContext } from '../../lib/themeContext'
 
@@ -18,17 +18,20 @@ function reducer(state, action) {
         ...state,
         navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
         navShrink: true,
-        authorImage: Author,
-        gitHubImage: GitHubDark,
-        // gitHubImage: theme.dark.gitHubImage,
+        // authorImage: Author,
+        authorImage: state.dark.authorImage,
+        // gitHubImage: GitHubDark,
+        gitHubImage: state.dark.gitHubImage,
       }
     case 'grow':
       return {
         ...state,
         navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
         navShrink: false,
-        authorImage: AuthorLight,
-        gitHubImage: GitHub,
+        // authorImage: AuthorLight,
+        // gitHubImage: GitHub,
+        authorImage: state.dark.authorImage,
+        gitHubImage: state.dark.gitHubImage,
       }
     default:
       throw new Error()
@@ -44,6 +47,8 @@ const NavBar = ({ useNavShrink }) => {
     navShrink: false,
     authorImage: theme.authorImage,
     gitHubImage: theme.gitHubImage,
+    dark: theme.dark,
+    light: theme.light,
   })
   {
     theme.useNavShrink &&
