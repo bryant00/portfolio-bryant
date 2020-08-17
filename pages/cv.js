@@ -30,8 +30,18 @@ const Cv = () => {
               {Array.from(new Array(numPages), (el, index) => (
                 <Page key={`page_${index + 1}`} pageNumber={index + 1} />
               ))}
+              <a
+                download="bryant_cv.pdf"
+                className="btn btn-outline-secondary mb-2"
+                href="/bryant_cv.pdf"
+              >
+                Download
+              </a>
             </Document>
           </Col>
+        </Row>
+        <Row>
+          <Col></Col>
         </Row>
       </Container>
     </LayoutDefault>
