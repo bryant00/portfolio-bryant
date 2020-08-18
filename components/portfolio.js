@@ -23,7 +23,7 @@ export default () => {
     if (!data) return <div>Loading...</div>
 
     const list = data.map((portfolio, index) => (
-      <Row key={index}>
+      <Row key={index} className="my-5">
         <Col className="border-top mt-2 py-2">
           <PortfolioCard portfolio={portfolio}></PortfolioCard>
         </Col>

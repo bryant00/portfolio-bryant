@@ -4,12 +4,9 @@ import ActiveLink from './ActiveLink'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
-// import Author from '../../svgs/author.svg'
-// import AuthorLight from '../../svgs/authorLight.svg'
-// import GitHub from '../../svgs/github.svg'
-// import GitHubDark from '../../svgs/githubDark.svg'
 import { useScrollPosition } from '../layouts/UseScrollPosition'
 import { ThemeContext } from '../../lib/themeContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -136,6 +133,34 @@ const NavBar = ({ useNavShrink }) => {
             rel="noreferrer noopener"
           >
             <img src={state.gitHubImage} width="40px" height="auto" />
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link "
+            href="https://github.com/bryant00"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <FontAwesomeIcon
+              icon={theme.faLinkedin}
+              width="40px"
+              height="auto"
+            />
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link "
+            href="mailto:bryantpatton@gmail.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <FontAwesomeIcon
+              icon={theme.faMailBulk}
+              width="40px"
+              height="auto"
+            />
           </a>
         </li>
       </ul>
