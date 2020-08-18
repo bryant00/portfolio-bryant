@@ -4,13 +4,14 @@ const Footer = () => {
   return (
     <footer
       className="footer mt-auto py-3 "
-      style={{ backgroundColor: '#6c757d' }}
+      style={{ backgroundColor: 'white' }}
+      // style={{ background: 'linear-gradient(black, white)' }}
     >
       <div
         className="container"
         style={{ paddingRight: '15px', paddingLeft: '15px' }}
       >
-        <span className="text-light">© Bryant Patton 2020</span>
+        <span className="">© Bryant Patton 2020</span>
       </div>
     </footer>
   )

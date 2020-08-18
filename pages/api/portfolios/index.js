@@ -58,4 +58,18 @@ const portfolioData = [
     ],
     tech: ['Node Express', 'React', 'Python'],
   },
+  {
+    _id: '3',
+    title: 'Immunizations Tracking App',
+    description: 'Immunization History In Your Pocket.',
+    projectUrl: 'https://csb-1wvix.bryantpatton.now.sh/',
+    githubUrl: 'https://github.com/bryant00/Drs-Login-App',
+    imageName: 'immunizations.png',
+    features: [
+      'Imunizations central repositories',
+      'Doctors safely track clients record history',
+      'Save and share data',
+    ],
+    tech: ['Node Express', 'React', 'Postgres'],
+  },
 ]
