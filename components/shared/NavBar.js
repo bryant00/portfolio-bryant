@@ -138,7 +138,7 @@ const NavBar = ({ useNavShrink }) => {
         <li className="nav-item">
           <a
             className="nav-link "
-            href="https://github.com/bryant00"
+            href="https://linkedin.com/bryantpatton"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -157,7 +157,7 @@ const NavBar = ({ useNavShrink }) => {
             rel="noreferrer noopener"
           >
             <FontAwesomeIcon
-              icon={theme.faMailBulk}
+              icon={theme.faEnvelope}
               width="40px"
               height="auto"
             />
