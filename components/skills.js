@@ -7,17 +7,51 @@ import {
   faCss3,
   faPython,
   faAws,
-  famysq,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default () => {
-  const Data = () => {
-    const data = [faJsSquare, faHtml5, faCss3, faPython, faAws]
+  const Tools = () => {
+    const data = [{ name: 'AWS', img: faAws }]
 
     const list = data.map((t, index) => (
       <Col className="list-inline-item col-md-auto">
-        <FontAwesomeIcon key={index} icon={t} width="40px" height="auto" />
+        <div className="badge badge-pill badge-dark list-inline">
+          <FontAwesomeIcon
+            key={index}
+            icon={t.img}
+            width="40px"
+            height="40px"
+            className="list-inline-item mx-2"
+          />
+          <span className="list-inline-item px-2 text-md">{t.name}</span>
+        </div>
+      </Col>
+    ))
+
+    return list
+  }
+
+  const Languages = () => {
+    const data = [
+      { name: 'HTML', img: faHtml5 },
+      { name: 'CSS', img: faCss3 },
+      { name: 'Python', img: faPython },
+      { name: 'JavaScript', img: faJsSquare },
+    ]
+
+    const list = data.map((t, index) => (
+      <Col className="list-inline-item col-md-auto">
+        <div className="badge badge-pill badge-dark list-inline">
+          <FontAwesomeIcon
+            key={index}
+            icon={t.img}
+            width="40px"
+            height="40px"
+            className="list-inline-item mx-2"
+          />
+          <span className="list-inline-item px-2 text-md">{t.name}</span>
+        </div>
       </Col>
     ))
 
@@ -26,9 +60,13 @@ export default () => {
 
   return (
     <>
-      <h1 className="">Technology and Languages</h1>
+      <h1 className="">Technology and Tools</h1>
       <Row className="list-inline row justify-content-md-start py-3">
-        <Data></Data>
+        <Tools></Tools>
+      </Row>
+      <h1 className="">Languages</h1>
+      <Row className="list-inline row justify-content-md-start py-3">
+        <Languages></Languages>
       </Row>
     </>
   )

@@ -28,7 +28,7 @@ const HomePage = () => {
             </Row>
           </Container>
         </Row>
-        <Row className="mt-3">
+        <Row className="mt-3 ">
           <Container fluid className="bg-light text-dark rounded mx-2 ">
             <Row className="mt-5">
               <Col md="6" className="mx-auto ">
