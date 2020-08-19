@@ -13,7 +13,7 @@ function reducer(state, action) {
     case 'shrink':
       return {
         ...state,
-        navClass: 'navbar-light bg-light text-dark  p-0 shadow-lg',
+        navClass: 'navbar-light bg-light text-dark p-0 shadow-lg',
         navShrink: true,
         // authorImage: Author,
         authorImage: state.dark.authorImage,
@@ -23,11 +23,11 @@ function reducer(state, action) {
     case 'grow':
       return {
         ...state,
-        navClass: 'navbar-dark text-white bg-transparent p-2 navhead',
+        navClass: 'navbar-dark text-white bg-transparent p-0 navhead',
         navShrink: false,
         // authorImage: AuthorLight,
         // gitHubImage: GitHub,
-        authorImage: state.dark.authorImage,
+        authorImage: state.light.authorImage,
         gitHubImage: state.dark.gitHubImage,
       }
     default:
@@ -62,7 +62,11 @@ const NavBar = ({ useNavShrink }) => {
       )
   }
   return (
-    <Navbar fixed="top" className={state.navClass}>
+    <Navbar
+      fixed="top"
+      className={state.navClass}
+      style={{ transition: 'all 0.6s ease-out' }}
+    >
       <ActiveLink activeClassName="active" href="/">
         <a className="navbar-brand ml-2" href="/">
           <img
@@ -102,7 +106,7 @@ const NavBar = ({ useNavShrink }) => {
         <li className="nav-item">
           <ActiveLink activeClassName="active" href="/cv">
             <a className="nav-link" href="/cv">
-              CV
+              <span class="navbar-text">CV</span>
             </a>
           </ActiveLink>
         </li>
@@ -132,7 +136,12 @@ const NavBar = ({ useNavShrink }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <img src={state.gitHubImage} width="40px" height="auto" />
+            <FontAwesomeIcon
+              icon={state.gitHubImage}
+              width="40px"
+              width="40px"
+            />
+            {/* <img src={state.gitHubImage} width="40px" height="auto" /> */}
           </a>
         </li>
         <li className="nav-item">
@@ -145,7 +154,7 @@ const NavBar = ({ useNavShrink }) => {
             <FontAwesomeIcon
               icon={theme.faLinkedin}
               width="40px"
-              height="auto"
+              width="40px"
             />
           </a>
         </li>
@@ -159,7 +168,7 @@ const NavBar = ({ useNavShrink }) => {
             <FontAwesomeIcon
               icon={theme.faEnvelope}
               width="40px"
-              height="auto"
+              width="40px"
             />
           </a>
         </li>

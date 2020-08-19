@@ -15,10 +15,9 @@ export default () => {
     const data = [{ name: 'AWS', img: faAws }]
 
     const list = data.map((t, index) => (
-      <Col className="list-inline-item col-md-auto">
+      <Col className="list-inline-item col-md-auto" key={index}>
         <div className="badge badge-pill badge-dark list-inline">
           <FontAwesomeIcon
-            key={index}
             icon={t.img}
             width="40px"
             height="40px"
@@ -41,10 +40,9 @@ export default () => {
     ]
 
     const list = data.map((t, index) => (
-      <Col className="list-inline-item col-md-auto">
+      <Col className="list-inline-item col-md-auto" key={index}>
         <div className="badge badge-pill badge-dark list-inline">
           <FontAwesomeIcon
-            key={index}
             icon={t.img}
             width="40px"
             height="40px"
