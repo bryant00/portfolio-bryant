@@ -67,20 +67,21 @@ const NavBar = ({ useNavShrink }) => {
       className={state.navClass}
       style={{ transition: 'all 0.6s ease-out' }}
     >
-      <ActiveLink activeClassName="active" href="/">
-        <a className="navbar-brand ml-2" href="/">
-          <img
-            src={state.authorImage}
-            width="60"
-            height="100%"
-            className="d-inline-block align-middle"
-            alt="Bryant Patton logo"
-          />
-        </a>
-      </ActiveLink>
-      <ul className="navbar-nav mr-auto">
-        {/* hiding portfolio page until formatted */}
-        {/* {isAuthenticated && isOwner ? (
+      <div className="container-fluid">
+        <ActiveLink activeClassName="active" href="/">
+          <a className="navbar-brand ml-2" href="/">
+            <img
+              src={state.authorImage}
+              width="60"
+              height="100%"
+              className="d-inline-block align-middle"
+              alt="Bryant Patton logo"
+            />
+          </a>
+        </ActiveLink>
+        <ul className="navbar-nav mr-auto">
+          {/* hiding portfolio page until formatted */}
+          {/* {isAuthenticated && isOwner ? (
           <ActiveLink activeClassName="active" href="/portfolio">
             <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
               <NavDropdown.Item href="/portfolio">Portfolio</NavDropdown.Item>
@@ -103,76 +104,80 @@ const NavBar = ({ useNavShrink }) => {
             </ActiveLink>
           </li>
         )} */}
-        <li className="nav-item">
-          <ActiveLink activeClassName="active" href="/cv">
-            <a className="nav-link" href="/cv">
-              <span class="navbar-text">CV</span>
-            </a>
-          </ActiveLink>
-        </li>
-        {isAuthenticated && isOwner && (
           <li className="nav-item">
-            <a onClick={() => logout()} className="nav-link port-navbar-link ">
-              Logout
-            </a>
+            <ActiveLink activeClassName="active" href="/cv">
+              <a className="nav-link" href="/cv">
+                <span class="navbar-text">CV</span>
+              </a>
+            </ActiveLink>
           </li>
-        )}
-        {!isAuthenticated && isOwner && (
+          {isAuthenticated && isOwner && (
+            <li className="nav-item">
+              <a
+                onClick={() => logout()}
+                className="nav-link port-navbar-link "
+              >
+                <span class="navbar-text">Logout</span>
+              </a>
+            </li>
+          )}
+          {!isAuthenticated && isOwner && (
+            <li className="nav-item">
+              <a
+                onClick={() => loginWithRedirect()}
+                className="nav-link port-navbar-link"
+              >
+                <span class="navbar-text">Login</span>
+              </a>
+            </li>
+          )}
+        </ul>
+        <ul className="navbar-nav mr-2">
           <li className="nav-item">
             <a
-              onClick={() => loginWithRedirect()}
-              className="nav-link port-navbar-link"
+              className="nav-link "
+              href="https://github.com/bryant00"
+              target="_blank"
+              rel="noreferrer noopener"
             >
-              Login
+              <FontAwesomeIcon
+                icon={state.gitHubImage}
+                width="40px"
+                width="40px"
+              />
+              {/* <img src={state.gitHubImage} width="40px" height="auto" /> */}
             </a>
           </li>
-        )}
-      </ul>
-      <ul className="navbar-nav mr-2">
-        <li className="nav-item">
-          <a
-            className="nav-link "
-            href="https://github.com/bryant00"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FontAwesomeIcon
-              icon={state.gitHubImage}
-              width="40px"
-              width="40px"
-            />
-            {/* <img src={state.gitHubImage} width="40px" height="auto" /> */}
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className="nav-link "
-            href="https://linkedin.com/bryantpatton"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FontAwesomeIcon
-              icon={theme.faLinkedin}
-              width="40px"
-              width="40px"
-            />
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className="nav-link "
-            href="mailto:bryantpatton@gmail.com"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FontAwesomeIcon
-              icon={theme.faEnvelope}
-              width="40px"
-              width="40px"
-            />
-          </a>
-        </li>
-      </ul>
+          <li className="nav-item">
+            <a
+              className="nav-link "
+              href="https://linkedin.com/bryantpatton"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <FontAwesomeIcon
+                icon={theme.faLinkedin}
+                width="40px"
+                width="40px"
+              />
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link "
+              href="mailto:bryantpatton@gmail.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <FontAwesomeIcon
+                icon={theme.faEnvelope}
+                width="40px"
+                width="40px"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
     </Navbar>
   )
 }
