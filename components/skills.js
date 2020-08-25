@@ -7,20 +7,28 @@ import {
   faCss3,
   faPython,
   faAws,
+  faReact,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import PostgresIcon from '../svgs/PostgreSQL'
+
 export default () => {
+  console.dir(faAws)
   const Tools = () => {
-    const data = [{ name: 'AWS', img: faAws }]
+    const data = [
+      { name: 'AWS', img: faAws },
+      { name: 'React', img: faReact },
+      { name: 'PostgreSQL', img: PostgresIcon },
+    ]
 
     const list = data.map((t, index) => (
       <Col className="list-inline-item col-md-auto" key={index}>
         <div className="badge badge-pill badge-dark list-inline">
           <FontAwesomeIcon
             icon={t.img}
-            width="40px"
-            height="40px"
+            width="20px"
+            height="20px"
             className="list-inline-item mx-2"
           />
           <span className="list-inline-item px-2 text-md">{t.name}</span>
@@ -41,11 +49,11 @@ export default () => {
 
     const list = data.map((t, index) => (
       <Col className="list-inline-item col-md-auto" key={index}>
-        <div className="badge badge-pill badge-dark list-inline">
+        <div className="badge badge-pill badge-dark list-inline m-2">
           <FontAwesomeIcon
             icon={t.img}
-            width="40px"
-            height="40px"
+            width="20px"
+            height="20px"
             className="list-inline-item mx-2"
           />
           <span className="list-inline-item px-2 text-md">{t.name}</span>
@@ -58,11 +66,11 @@ export default () => {
 
   return (
     <>
-      <h1 className="">Technology and Tools</h1>
+      <h3 className="">Technology and Tools</h3>
       <Row className="list-inline row justify-content-md-start py-3">
         <Tools></Tools>
       </Row>
-      <h1 className="">Languages</h1>
+      <h3 className="">Languages</h3>
       <Row className="list-inline row justify-content-md-start py-3">
         <Languages></Languages>
       </Row>

@@ -151,7 +151,7 @@ const NavBar = ({ useNavShrink }) => {
           <li className="nav-item">
             <a
               className="nav-link "
-              href="https://linkedin.com/bryantpatton"
+              href="https://linkedin.com/in/bryantpatton"
               target="_blank"
               rel="noreferrer noopener"
             >
