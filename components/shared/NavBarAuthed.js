@@ -80,6 +80,30 @@ const NavBar = ({ useNavShrink }) => {
           </a>
         </ActiveLink>
         <ul className="navbar-nav mr-auto">
+          {/* hiding portfolio page until formatted */}
+          {/* {isAuthenticated && isOwner ? (
+          <ActiveLink activeClassName="active" href="/portfolio">
+            <NavDropdown title="Portfolio" id="portfolio-nav-dropdown">
+              <NavDropdown.Item href="/portfolio">Portfolio</NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push('/portfolio/new')
+                }}
+              >
+                Add Portfolio
+              </NavDropdown.Item>
+            </NavDropdown>
+          </ActiveLink>
+        ) : (
+          <li className="nav-item">
+            <ActiveLink activeClassName="active" href="/portfolio">
+              <a className="nav-link " href="/portfolio">
+                Portfolio
+              </a>
+            </ActiveLink>
+          </li>
+        )} */}
           <li className="nav-item">
             <ActiveLink activeClassName="active" href="/cv">
               <a className="nav-link" href="/cv">
@@ -121,6 +145,7 @@ const NavBar = ({ useNavShrink }) => {
                 width="40px"
                 width="40px"
               />
+              {/* <img src={state.gitHubImage} width="40px" height="auto" /> */}
             </a>
           </li>
           <li className="nav-item">

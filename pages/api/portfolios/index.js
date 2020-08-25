@@ -72,4 +72,19 @@ const portfolioData = [
     ],
     tech: ['Node Express', 'React', 'Postgres'],
   },
+  {
+    _id: '4',
+    title: 'bryantpatton.com',
+    description: 'This site!',
+    projectUrl: 'https://bryantpatton.com',
+    githubUrl: 'https://github.com/bryant00/portfolio-bryant',
+    imageName: '',
+    features: [
+      'Server-side rendering',
+      ' Secure admin login with OAuth2.0',
+      'Serverless functions for calling and adding content data',
+      'Deployed using Zeit Now and AWS DNS',
+    ],
+    tech: ['NextJS', 'React', 'MongoDB', 'Bootstrap', 'OAuth2.0'],
+  },
 ]

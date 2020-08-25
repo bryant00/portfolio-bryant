@@ -11,15 +11,16 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import PostgresIcon from '../svgs/PostgreSQL'
+import faPostgres from '../svgs/PostgreSQL'
 
 export default () => {
   console.dir(faAws)
+  console.dir(faPostgres)
   const Tools = () => {
     const data = [
       { name: 'AWS', img: faAws },
       { name: 'React', img: faReact },
-      { name: 'PostgreSQL', img: PostgresIcon },
+      { name: 'PostgreSQL', img: faPostgres },
     ]
 
     const list = data.map((t, index) => (

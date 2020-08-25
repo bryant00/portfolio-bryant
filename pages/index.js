@@ -21,7 +21,7 @@ const HomePage = () => {
         </Row>
         <Row>
           <Container fluid className="bg-white text-dark rounded mx-2">
-            <Row className="mt-1 mb-4">
+            <Row className="mt-2 mb-4">
               <Col md="6" className="mx-auto ">
                 <AboutPage />
               </Col>
