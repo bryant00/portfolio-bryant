@@ -3,8 +3,8 @@ import React, { useState, useContext, useReducer } from 'react'
 const Footer = () => {
   return (
     <footer
-      className="footer mt-auto py-3 "
-      style={{ backgroundColor: 'white' }}
+      className="footer mt-auto py-3 bg-light"
+      // style={{ backgroundColor: 'white' }}
       // style={{ background: 'linear-gradient(black, white)' }}
     >
       <div

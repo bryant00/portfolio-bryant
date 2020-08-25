@@ -20,27 +20,19 @@ const HomePage = () => {
           </Col>
         </Row>
         <Row>
-          <Container fluid className="bg-light text-dark rounded mx-2">
-            <Row className="mt-5">
-              <Col md="6" className="mx-auto">
+          <Container fluid className="bg-white text-dark rounded mx-2">
+            <Row className="mt-2 mb-4">
+              <Col md="6" className="mx-auto ">
                 <AboutPage />
               </Col>
             </Row>
           </Container>
         </Row>
-        <Row className="mt-3 ">
-          <Container fluid className="bg-light text-dark rounded mx-2 ">
-            <Row className="mt-5">
-              <Col md="6" className="mx-auto ">
-                <Skills />
-              </Col>
-            </Row>
-          </Container>
-        </Row>
+
         <Row className="mt-3">
-          <Container fluid className="bg-light text-dark rounded mx-2">
-            <Row className="mt-5">
-              <Col md="6" className="mx-auto">
+          <Container fluid className="bg-white text-dark rounded mx-2">
+            <Row className="mt-1 mb-4">
+              <Col md="6" className="mx-auto ">
                 <PortfolioPage />
               </Col>
             </Row>
