@@ -11,10 +11,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import faPostgres from '../svgs/PostgreSQL'
+import faPostgres from '../svgs/testJS'
 
 export default () => {
-  console.dir(faAws)
+  // console.dir(faAws)
   console.dir(faPostgres)
   const Tools = () => {
     const data = [

@@ -6,8 +6,6 @@ import { faMapPin, faMailBulk } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import PostgreSQL from '../svgs/PostgreSQL.svg'
-import PostGres from '../svgs/PostgreSQL'
 
 const AboutPage = () => {
   const Data = () => {
@@ -26,7 +24,7 @@ const AboutPage = () => {
       { href: undefined, text: 'bryantpatton@gmail.com', icon: faMailBulk },
     ]
     const list = Info.map((d, i) => (
-      <div className="d-flex ">
+      <div className="d-flex " key={i}>
         {d.href != undefined ? (
           <>
             <FontAwesomeIcon
@@ -36,7 +34,6 @@ const AboutPage = () => {
               className="mr-1"
             />
             <a
-              key={i}
               href={d.href}
               target="_blank"
               rel="noreferrer noopener"

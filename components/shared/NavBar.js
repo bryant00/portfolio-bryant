@@ -83,7 +83,7 @@ const NavBar = ({ useNavShrink }) => {
           <li className="nav-item">
             <ActiveLink activeClassName="active" href="/cv">
               <a className="nav-link" href="/cv">
-                <span class="navbar-text">CV</span>
+                <span className="navbar-text">CV</span>
               </a>
             </ActiveLink>
           </li>
@@ -93,7 +93,7 @@ const NavBar = ({ useNavShrink }) => {
                 onClick={() => logout()}
                 className="nav-link port-navbar-link "
               >
-                <span class="navbar-text">Logout</span>
+                <span className="navbar-text">Logout</span>
               </a>
             </li>
           )}
@@ -103,7 +103,7 @@ const NavBar = ({ useNavShrink }) => {
                 onClick={() => loginWithRedirect()}
                 className="nav-link port-navbar-link"
               >
-                <span class="navbar-text">Login</span>
+                <span className="navbar-text">Login</span>
               </a>
             </li>
           )}
