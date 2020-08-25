@@ -11,25 +11,25 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import faPostgres from '../svgs/testJS'
+import PostgreSQL from '../svgs/PostgreSQL'
+import Django from '../svgs/Django'
 
 export default () => {
-  // console.dir(faAws)
-  console.dir(faPostgres)
   const Tools = () => {
     const data = [
       { name: 'AWS', img: faAws },
       { name: 'React', img: faReact },
-      { name: 'PostgreSQL', img: faPostgres },
+      { name: 'PostgreSQL', img: PostgreSQL },
+      { name: 'Django', img: Django },
     ]
 
     const list = data.map((t, index) => (
       <Col className="list-inline-item col-md-auto" key={index}>
-        <div className="badge badge-pill badge-dark list-inline">
+        <div className="badge badge-pill badge-light list-inline">
           <FontAwesomeIcon
             icon={t.img}
-            width="20px"
-            height="20px"
+            width="30px"
+            height="30px"
             className="list-inline-item mx-2"
           />
           <span className="list-inline-item px-2 text-md">{t.name}</span>
@@ -50,11 +50,11 @@ export default () => {
 
     const list = data.map((t, index) => (
       <Col className="list-inline-item col-md-auto" key={index}>
-        <div className="badge badge-pill badge-dark list-inline m-2">
+        <div className="badge badge-pill badge-light list-inline m-2">
           <FontAwesomeIcon
             icon={t.img}
-            width="20px"
-            height="20px"
+            width="30px"
+            height="30px"
             className="list-inline-item mx-2"
           />
           <span className="list-inline-item px-2 text-md">{t.name}</span>
