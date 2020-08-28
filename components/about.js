@@ -1,38 +1,53 @@
-import React from 'react'
-import Layout from '../components/layouts/Layout'
-import { Row, Col, Container, Button } from 'react-bootstrap'
+import React, { useContext } from 'react'
+import { Row, Col, Image } from 'react-bootstrap'
 import Skills from './skills'
 import { faMapPin, faMailBulk } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { IconsContext } from '../lib/iconsContext'
 
 const AboutPage = () => {
+  const { fontAwesome } = useContext(IconsContext)
   const Data = () => {
     const Info = [
-      { href: undefined, text: 'San Francisco, CA', icon: faMapPin },
+      {
+        href: undefined,
+        text: 'San Francisco, CA',
+        icon: fontAwesome.location.image,
+      },
       {
         href: 'https://github.com/bryant00',
         text: 'https://github.com/bryant00',
-        icon: faGithub,
+        icon: fontAwesome.github.image,
+        target: '_blank',
+        rel: 'noreferrer noopener',
       },
       {
         href: 'https://www.linkedin.com/in/bryantpatton/',
         text: 'https://www.linkedin.com/in/bryantpatton/',
-        icon: faLinkedin,
+        icon: fontAwesome.linkedin.image,
+        target: '_blank',
+        rel: 'noreferrer noopener',
       },
-      { href: undefined, text: 'bryantpatton@gmail.com', icon: faMailBulk },
+      {
+        href: undefined,
+        text: 'bryantpatton@gmail.com',
+        icon: fontAwesome.email.image,
+      },
+      {
+        href: '/cv',
+        text: 'Resume',
+        icon: fontAwesome.filePdf.image,
+        target: '_blank',
+        rel: 'noreferrer noopener',
+      },
     ]
     const list = Info.map((d, i) => (
       <div className="d-flex " key={i}>
         {d.href != undefined ? (
           <>
-            <FontAwesomeIcon
-              icon={d.icon}
-              width="16px"
-              height="16px"
-              className="mr-1"
-            />
+            <Image src={d.icon} width="16px" height="16px" className="mr-1" />
             <a
               href={d.href}
               target="_blank"
@@ -44,12 +59,7 @@ const AboutPage = () => {
           </>
         ) : (
           <>
-            <FontAwesomeIcon
-              icon={d.icon}
-              width="16px"
-              height="16px"
-              className="mr-1"
-            />
+            <Image src={d.icon} width="16px" height="16px" className="mr-1" />
             <div>{d.text}</div>
           </>
         )}
@@ -62,11 +72,12 @@ const AboutPage = () => {
       <h1 className="">About Me</h1>
       <Row className="">
         <Col md="6" className="mx-auto">
-          <img
-            alt="web network"
+          <Image
+            alt="bryant patton"
             src="/images/avatar.jpeg"
             width="150rem"
             height="auto"
+            rounded
           />
           <p className=" ">
             My name is Bryant Patton. I'm a Full Stack developer and experienced

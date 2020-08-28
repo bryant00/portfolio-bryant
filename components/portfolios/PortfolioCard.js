@@ -24,15 +24,11 @@ const PortfolioCard = (props) => {
           <ul className="list-inline row justify-content-md-start">
             {portfolio.techIcons.map((t, i) => {
               return (
-                // <li key={i} className="list-inline-item col-md-auto">
-                //   {f}
-                // </li>
                 <div
                   key={i}
                   className="badge badge-pill badge-light list-inline m-2"
                 >
                   <Image
-                    // src={icon.image}
                     src={t.image}
                     rounded
                     width="30px"
