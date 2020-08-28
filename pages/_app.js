@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Router from 'next/router'
 import { Auth0Provider } from '../lib/auth0-spa'
 import NProgress from 'nprogress'
 // import whyDidYouRender from '@welldone-software/why-did-you-render'
-
+import { IconsContext, icons } from '../lib/iconsContext'
 import '../styles/main.scss'
 
 //Font Awesome config
@@ -28,7 +28,9 @@ Router.events.on('routeChangeError', () => NProgress.done())
 function MyApp({ Component, pageProps, router }) {
   return (
     <Auth0Provider>
-      <Component {...pageProps} router={router} />
+      <IconsContext.Provider value={icons}>
+        <Component {...pageProps} router={router} />
+      </IconsContext.Provider>
     </Auth0Provider>
   )
 }

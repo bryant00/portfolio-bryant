@@ -41,7 +41,7 @@ const portfolioData = [
       'View all work orders in one convenient place',
       'Take pictures and upload images',
     ],
-    tech: ['React Native', 'Postgres', 'GraphQL', 'Twilio Authy'],
+    tech: ['reactNative', 'postgressql', 'graphql', 'twillio'],
   },
   {
     _id: '2',
@@ -56,7 +56,7 @@ const portfolioData = [
       'Search for current and past NBA players',
       'Save your favorite players',
     ],
-    tech: ['Node Express', 'React', 'Python'],
+    tech: ['node', 'react', 'python'],
   },
   {
     _id: '3',
@@ -70,12 +70,12 @@ const portfolioData = [
       'Doctors safely track clients record history',
       'Save and share data',
     ],
-    tech: ['Node Express', 'React', 'Postgres'],
+    tech: ['node', 'react', 'postgressql'],
   },
   {
     _id: '4',
-    title: 'bryantpatton.com',
-    description: 'This site!',
+    title: 'My Personal Site',
+    description: 'bryantpatton.com (This Site!)',
     projectUrl: 'https://bryantpatton.com',
     githubUrl: 'https://github.com/bryant00/portfolio-bryant',
     imageName: '',
@@ -85,6 +85,6 @@ const portfolioData = [
       'Serverless functions for calling and adding content data',
       'Deployed using Zeit Now and AWS DNS',
     ],
-    tech: ['NextJS', 'React', 'MongoDB', 'Bootstrap', 'OAuth2.0'],
+    tech: ['nextjs', 'react', 'mongoDb', 'bootstrap', 'auth0', 'node'],
   },
 ]
