@@ -74,8 +74,8 @@ const portfolioData = [
   },
   {
     _id: '4',
-    title: 'bryantpatton.com',
-    description: 'This site!',
+    title: 'My Personal Site (This Site!)',
+    description: 'bryantpatton.com',
     projectUrl: 'https://bryantpatton.com',
     githubUrl: 'https://github.com/bryant00/portfolio-bryant',
     imageName: '',

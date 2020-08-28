@@ -8,11 +8,6 @@ import { Row, Col, Container, Button } from 'react-bootstrap'
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default () => {
-  const theme = {
-    navClass: 'default',
-    title: 'Bryant Patton - Porfolio',
-  }
-
   const Data = () => {
     const { data, error } = useSWR('/api/portfolios', fetcher)
 
