@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
+import { IconsContext } from '../../lib/iconsContext'
 
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
+  const icons = useContext(IconsContext)
   const projectImage = `/images/${portfolio.imageName}`
   return (
     <>
@@ -20,11 +22,30 @@ const PortfolioCard = (props) => {
           </ul>
           <h5>Tech Stack</h5>
           <ul className="list-inline row justify-content-md-start">
-            {portfolio.tech.map((f, i) => (
-              <li key={i} className="list-inline-item col-md-auto">
-                {f}
-              </li>
-            ))}
+            {portfolio.techIcons.map((t, i) => {
+              return (
+                // <li key={i} className="list-inline-item col-md-auto">
+                //   {f}
+                // </li>
+                <div
+                  key={i}
+                  className="badge badge-pill badge-light list-inline m-2"
+                >
+                  <Image
+                    // src={icon.image}
+                    src={t.image}
+                    rounded
+                    width="30px"
+                    height="30px"
+                    className="list-inline-item mx-2"
+                  />
+
+                  <span className="list-inline-item px-2 text-md">
+                    {t.name}
+                  </span>
+                </div>
+              )
+            })}
           </ul>
           <p>
             <a

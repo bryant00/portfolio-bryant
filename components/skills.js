@@ -39,7 +39,6 @@ export default () => {
   }, [setLoaded, setLanguageMapped, setToolsMapped])
 
   const IconBox = ({ iconList }) => {
-    console.log(iconList)
     const list = iconList.map((t, index) => (
       <Col className="list-inline-item col-md-auto" key={index}>
         <div className="badge badge-pill badge-light list-inline m-2">
