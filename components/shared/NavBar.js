@@ -1,6 +1,5 @@
 import React, { useState, useContext, useReducer } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
-import ActiveLink from './ActiveLink'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
@@ -81,11 +80,6 @@ const NavBar = ({ useNavShrink }) => {
           <li className="nav-item">
             <a className="nav-link" href="/cv">
               <span className="navbar-text">CV</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/resume">
-              <span className="navbar-text">Resume</span>
             </a>
           </li>
           {isAuthenticated && isOwner && (
