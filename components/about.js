@@ -17,6 +17,11 @@ const AboutPage = () => {
         icon: fontAwesome.location.image,
       },
       {
+        href: undefined,
+        text: 'Full-Stack Developer',
+        icon: fontAwesome.user.image,
+      },
+      {
         href: 'https://github.com/bryant00',
         text: 'https://github.com/bryant00',
         icon: fontAwesome.github.image,

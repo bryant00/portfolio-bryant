@@ -68,24 +68,25 @@ const NavBar = ({ useNavShrink }) => {
       style={{ transition: 'all 0.6s ease-out' }}
     >
       <div className="container-fluid">
-        <ActiveLink activeClassName="active" href="/">
-          <a className="navbar-brand ml-2" href="/">
-            <img
-              src={state.authorImage}
-              width="60"
-              height="100%"
-              className="d-inline-block align-middle"
-              alt="Bryant Patton logo"
-            />
-          </a>
-        </ActiveLink>
+        <a className="navbar-brand ml-2" href="/">
+          <img
+            src={state.authorImage}
+            width="60"
+            height="100%"
+            className="d-inline-block align-middle"
+            alt="Bryant Patton logo"
+          />
+        </a>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <ActiveLink activeClassName="active" href="/cv">
-              <a className="nav-link" href="/cv">
-                <span className="navbar-text">CV</span>
-              </a>
-            </ActiveLink>
+            <a className="nav-link" href="/cv">
+              <span className="navbar-text">CV</span>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/resume">
+              <span className="navbar-text">Resume</span>
+            </a>
           </li>
           {isAuthenticated && isOwner && (
             <li className="nav-item">

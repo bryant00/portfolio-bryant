@@ -53,7 +53,7 @@ export default () => {
     mutate('/api/portfolios', dataIconsMap, false)
     return (
       <>
-        <h1 className="">Portfolio</h1>
+        <h1 className="">Projects</h1>
         <Data data={data}></Data>
       </>
     )
