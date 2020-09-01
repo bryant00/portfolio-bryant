@@ -3,8 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Layout from '../components/layouts/Layout'
 import AboutPage from '../components/about'
 import PortfolioPage from '../components/portfolio'
-import Skills from '../components/skills'
-import { theme } from '../lib/themeContext'
 
 const HomePage = () => {
   return (

@@ -5,7 +5,7 @@ import Footer from '../shared/Footer'
 import { themes, ThemeContext } from '../../lib/themeContext'
 import { Row, Col, Container } from 'react-bootstrap'
 
-export default ({ children, page }) => {
+export const LayoutDefault = ({ children, page }) => {
   const theme = useContext(ThemeContext)
   return (
     <ThemeContext.Provider value={themes[page]}>
@@ -18,3 +18,4 @@ export default ({ children, page }) => {
     </ThemeContext.Provider>
   )
 }
+export default LayoutDefault

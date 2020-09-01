@@ -8,20 +8,7 @@ export default {
     site_name: 'Bryant Patton Portfolio',
     url: 'https://bryantpatton.com/',
 
-    images: [
-      {
-        url: 'https://bryantpatton.com/images/node-1.jpg',
-        width: 400,
-        height: 621,
-        alt: 'Og Node 1',
-      },
-      {
-        url: 'https://bryantpatton.com/images/node-2.jpg',
-        width: 400,
-        height: 621,
-        alt: 'Og Node 1',
-      },
-    ],
+    images: [],
     site_name: 'Bryant Patton Portfolio',
   },
   twitter: {
