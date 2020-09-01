@@ -1,6 +1,5 @@
 import React, { useState, useContext, useReducer } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
-import ActiveLink from './ActiveLink'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
@@ -68,17 +67,15 @@ const NavBar = ({ useNavShrink }) => {
       style={{ transition: 'all 0.6s ease-out' }}
     >
       <div className="container-fluid">
-        <ActiveLink activeClassName="active" href="/">
-          <a className="navbar-brand ml-2" href="/">
-            <img
-              src={state.authorImage}
-              width="60"
-              height="100%"
-              className="d-inline-block align-middle"
-              alt="Bryant Patton logo"
-            />
-          </a>
-        </ActiveLink>
+        <a className="navbar-brand ml-2" href="/">
+          <img
+            src={state.authorImage}
+            width="60"
+            height="100%"
+            className="d-inline-block align-middle"
+            alt="Bryant Patton logo"
+          />
+        </a>
         <ul className="navbar-nav mr-auto">
           {/* hiding portfolio page until formatted */}
           {/* {isAuthenticated && isOwner ? (
@@ -105,11 +102,9 @@ const NavBar = ({ useNavShrink }) => {
           </li>
         )} */}
           <li className="nav-item">
-            <ActiveLink activeClassName="active" href="/cv">
-              <a className="nav-link" href="/cv">
-                <span class="navbar-text">CV</span>
-              </a>
-            </ActiveLink>
+            <a className="nav-link" href="/cv">
+              <span class="navbar-text">CV</span>
+            </a>
           </li>
           {isAuthenticated && isOwner && (
             <li className="nav-item">
