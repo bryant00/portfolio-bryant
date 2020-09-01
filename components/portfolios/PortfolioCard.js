@@ -4,7 +4,7 @@ import { IconsContext } from '../../lib/iconsContext'
 
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
-  const icons = useContext(IconsContext)
+  const { fontAwesome } = useContext(IconsContext)
   const projectImage = `/images/${portfolio.imageName}`
   return (
     <>
@@ -16,6 +16,12 @@ const PortfolioCard = (props) => {
           <ul className="list-inline row justify-content-md-start">
             {portfolio.features.map((f, i) => (
               <li key={i} className="list-inline-item col-md-auto">
+                <Image
+                  src={fontAwesome.check.image}
+                  width="16px"
+                  height="16px"
+                  className="mr-1"
+                />
                 {f}
               </li>
             ))}
@@ -24,15 +30,11 @@ const PortfolioCard = (props) => {
           <ul className="list-inline row justify-content-md-start">
             {portfolio.techIcons.map((t, i) => {
               return (
-                // <li key={i} className="list-inline-item col-md-auto">
-                //   {f}
-                // </li>
                 <div
                   key={i}
                   className="badge badge-pill badge-light list-inline m-2"
                 >
                   <Image
-                    // src={icon.image}
                     src={t.image}
                     rounded
                     width="30px"
