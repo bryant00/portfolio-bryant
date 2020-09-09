@@ -1,9 +1,51 @@
 .index-header {
   width: 100%;
   position: relative;
-  background: url('/images/landingPage/background-index-2000w.jpg') no-repeat,
+  background: url('/images/landingPage/background-index-3000w.jpg') no-repeat,
     linear-gradient(black, white);
 }
 .welcome {
-  margin-bottom: 23vh;
+  // margin-bottom: 23vh;
+  // margin-bottom: 5rem;
+  margin-bottom: calc(4rem + 1.5vw);
+}
+
+//mobile
+@media (max-width: 480px) {
+  .index-header {
+    background: url('/images/landingPage/background-index-1200w.jpg') no-repeat,
+      linear-gradient(black, white);
+    //need to add div breakpoints, make text responsive
+    // background: url('/images/landingPage/background-index-1200w.jpg') no-repeat;
+  }
+}
+//tablet
+@media (min-width: 481px) and (max-width: 1024px) {
+  .index-header {
+    background: url('/images/landingPage/background-index-1680w.jpg') no-repeat,
+      linear-gradient(black, white);
+  }
+}
+
+//laptop
+@media (min-width: 1025px) and (max-width: 1680px) {
+  .index-header {
+    background: url('/images/landingPage/background-index-2000w.jpg') no-repeat,
+      linear-gradient(black, white);
+  }
+}
+
+//monitor
+@media (min-width: 1681px) and (max-width: 1999px) {
+  .index-header {
+    background: url('/images/landingPage/background-index-3000w.jpg') no-repeat,
+      linear-gradient(black, white);
+  }
+}
+//widescreen
+@media (min-width: 2000px) {
+  .index-header {
+    background: url('/images/landingPage/background-index-3000w.jpg') no-repeat,
+      linear-gradient(black, white);
+  }
 }

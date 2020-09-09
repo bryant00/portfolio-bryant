@@ -3,8 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Layout from '../components/layouts/Layout'
 import AboutPage from '../components/about'
 import PortfolioPage from '../components/portfolio'
-import Skills from '../components/skills'
-import { theme } from '../lib/themeContext'
 
 const HomePage = () => {
   return (
@@ -15,7 +13,7 @@ const HomePage = () => {
             <h1 className="text-uppercase m-2">Bryant Patton</h1>
           </Col>
           <div className="w-100"></div>
-          <Col className="mx-auto mt-3 text-center text-muted">
+          <Col className="mx-auto mt-3 text-center text-white-50">
             <h3>Welcome to my website</h3>
           </Col>
         </Row>
@@ -31,7 +29,7 @@ const HomePage = () => {
 
         <Row className="mt-3">
           <Container fluid className="bg-white text-dark rounded mx-2">
-            <Row className="mt-1 mb-4">
+            <Row className="mt-2 mb-4">
               <Col md="6" className="mx-auto ">
                 <PortfolioPage />
               </Col>

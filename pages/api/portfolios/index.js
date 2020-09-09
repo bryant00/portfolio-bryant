@@ -87,4 +87,14 @@ const portfolioData = [
     ],
     tech: ['nextjs', 'react', 'mongoDb', 'bootstrap', 'auth0', 'node'],
   },
+  {
+    _id: '5',
+    title: 'B2B Landing Page',
+    description: 'Marketing landing page for B2B client',
+    projectUrl: 'http://juniper.pntheon.com/bp-test/',
+    githubUrl: 'https://github.com/bryant00/express-grant-api',
+    imageName: 'b2b.png',
+    features: ['OAuth2.0 social login with LinkedIn'],
+    tech: ['auth0', 'node'],
+  },
 ]

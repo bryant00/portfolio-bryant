@@ -1,18 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Layout from './layouts/Layout'
 import { Row, Col, Image, Button } from 'react-bootstrap'
 import { IconsContext } from '../lib/iconsContext'
-import {
-  faJsSquare,
-  faHtml5,
-  faCss3,
-  faPython,
-  faAws,
-  faReact,
-} from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default () => {
+export const Skills = () => {
   const icons = useContext(IconsContext)
   const languageAry = ['html5', 'css3', 'python', 'javascript']
   let tools = ['aws', 'react', 'postgressql', 'django', 'git', 'redux', 'node']
@@ -71,3 +61,4 @@ export default () => {
     </>
   )
 }
+export default Skills
