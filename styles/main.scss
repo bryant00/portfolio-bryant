@@ -1,38 +1,8 @@
+$font-family-base: Helvetica, sans-serif;
+$enable-responsive-font-sizes: true;
 @import '../node_modules/bootstrap/scss/bootstrap';
-// @use './shared/colors';
-// @import './shared/colors';
-// @import './shared/mixins';
-
 // PAGES
 @import './loader';
 @import './index';
-// @import './about';
 @import './cv';
-// @import './buttons';
-// @import './forms';
-
 @import './header';
-
-$font-stack: Helvetica, sans-serif;
-
-/* import bootstrap to set changes */
-
-html {
-  height: 100% !important;
-}
-body {
-  height: 100% !important;
-  display: flex !important;
-  // flex-direction: column !important;
-}
-
-// @import "../node_modules/bootstrap/scss/functions";
-// @import "../node_modules/bootstrap/scss/variables";
-// @import "../node_modules/bootstrap/scss/mixins";
-
-// // Optional
-// @import "../node_modules/bootstrap/scss/reboot";
-// @import "../node_modules/bootstrap/scss/type";
-// @import "../node_modules/bootstrap/scss/images";
-// @import "../node_modules/bootstrap/scss/code";
-// @import "../node_modules/bootstrap/scss/grid";

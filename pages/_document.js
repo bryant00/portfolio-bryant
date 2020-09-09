@@ -8,10 +8,11 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html className="h-100">
+      // <Html className="h-100">
+      <Html>
         <Head />
-        <body className="d-flex flex-column h-100">
-          {/* <body> */}
+        {/* <body className="d-flex flex-column h-100"> */}
+        <body>
           <Main />
           <NextScript />
         </body>
