@@ -27,8 +27,8 @@ export const PortfolioPage = () => {
 
   const Data = ({ data }) => {
     const list = data.map((portfolio, index) => (
-      <Row key={index} className="my-5">
-        <Col className="border-top mt-2 py-2">
+      <Row key={index} className="my-3">
+        <Col className="border-top  py-2">
           <PortfolioCard portfolio={portfolio}></PortfolioCard>
         </Col>
       </Row>
