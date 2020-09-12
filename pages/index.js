@@ -37,17 +37,28 @@ const HomePage = () => {
       </div>
 
       <Container fluid className="components-container">
-        <Row className="about bg-white text-dark rounded mx-2">
-          <Container fluid className="bg-white text-dark rounded ">
-            <Row className="mt-2 mb-4">
-              <Col md="6" className="mx-auto ">
+        {/* Components */}
+        <Row className="about bg-white text-dark rounded no-gutters mb-1">
+          <Col className="col-12  bg-white text-dark rounded ">
+            <Row className="mt-2 mb-4 ">
+              <Col className="col-10 col-lg-8 mx-auto ">
                 <AboutPage />
               </Col>
             </Row>
-          </Container>
+          </Col>
         </Row>
 
-        <Row className="mt-3">
+        <Row className="about bg-white text-dark rounded no-gutters mt-1">
+          <Col className="col-12  bg-white text-dark rounded ">
+            <Row className="mt-2 mb-4 ">
+              <Col className="col-10 col-lg-8 mx-auto ">
+                <PortfolioPage />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
+        {/* <Row className="mt-3">
           <Container fluid className="bg-white text-dark rounded mx-2">
             <Row className="mt-2 mb-4">
               <Col md="6" className="mx-auto ">
@@ -55,7 +66,7 @@ const HomePage = () => {
               </Col>
             </Row>
           </Container>
-        </Row>
+        </Row> */}
       </Container>
     </Layout>
   )
