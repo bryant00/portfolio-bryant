@@ -5,7 +5,8 @@ import { IconsContext } from '../../lib/iconsContext'
 const PortfolioCard = (props) => {
   const { buttonLabel, className, portfolio, children } = props
   const { fontAwesome } = useContext(IconsContext)
-  const projectImage = `/images/${portfolio.imageName}`
+  let projectImage = `/images/projects/${portfolio.imageName}`
+
   return (
     <>
       <h5>{portfolio.title}</h5>

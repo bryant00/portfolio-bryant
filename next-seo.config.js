@@ -2,7 +2,7 @@ export default {
   description: 'Portfolio Website and Blog for Bryant Patton Web Development',
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'en_US',
     title: 'Bryant Patton Portfolio',
     description: 'Portfolio Website and Blog for Bryant Patton Web Development',
     site_name: 'Bryant Patton Portfolio',

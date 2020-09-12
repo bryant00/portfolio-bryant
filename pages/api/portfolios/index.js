@@ -78,7 +78,7 @@ const portfolioData = [
     description: 'bryantpatton.com (This Site!)',
     projectUrl: 'https://bryantpatton.com',
     githubUrl: 'https://github.com/bryant00/portfolio-bryant',
-    imageName: '',
+    imageName: 'author.svg',
     features: [
       'Server-side rendering',
       ' Secure admin login with OAuth2.0',
