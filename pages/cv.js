@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import LayoutDefault from '../components/layouts/LayoutDefault'
+import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
+import Layout from '../components/layouts/Layout'
 import { Document, Page, pdfjs } from 'react-pdf'
+import SideLinks from '../components/shared/SideLinks'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
@@ -12,11 +13,31 @@ const Cv = () => {
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages)
   }
+  function changePage(offset) {
+    setPageNumber((prevPageNumber) => prevPageNumber + offset)
+  }
+
+  function previousPage() {
+    changePage(-1)
+  }
+
+  function nextPage() {
+    changePage(1)
+  }
   return (
-    <LayoutDefault page="default">
-      <Container style={{ padding: '77px 0 0' }}>
-        <Row>
-          <Col className="d-flex  justify-content-center">
+    <Layout page="default">
+      <Jumbotron fluid className="cv-jumbotron">
+        <div class="container">
+          <h1 class="display-4">Resume/CV</h1>
+          <p class="lead">
+            View, download, share my resume and send me a note.
+          </p>
+        </div>
+      </Jumbotron>
+      <Container fluid className="mb-2 cv-container">
+        {/* <SideLinks /> */}
+        <Row className="">
+          <Col className="col-11 d-flex  justify-content-center mx-auto resume">
             <Document
               file="/bryant_cv.pdf"
               onLoadError={(e) =>
@@ -27,24 +48,31 @@ const Cv = () => {
               }
               onLoadSuccess={onDocumentLoadSuccess}
             >
-              {Array.from(new Array(numPages), (el, index) => (
-                <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-              ))}
-              <a
-                download="bryant_cv.pdf"
-                className="btn btn-outline-secondary mb-2"
-                href="/bryant_cv.pdf"
-              >
-                Download
-              </a>
+              <Page pageNumber={pageNumber} renderMode="svg" />
+              <div class="page-controls">
+                <button
+                  type="button"
+                  disabled={pageNumber <= 1}
+                  onClick={previousPage}
+                >
+                  ‹
+                </button>
+                <span>
+                  {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+                </span>
+                <button
+                  type="button"
+                  disabled={pageNumber >= numPages}
+                  onClick={nextPage}
+                >
+                  ›
+                </button>
+              </div>
             </Document>
           </Col>
         </Row>
-        <Row>
-          <Col></Col>
-        </Row>
       </Container>
-    </LayoutDefault>
+    </Layout>
   )
 }
 
