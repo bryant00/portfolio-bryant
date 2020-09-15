@@ -80,9 +80,10 @@ const AboutPage = () => {
           <Image
             alt="bryant patton"
             src="/images/avatar.jpeg"
-            width="150rem"
+            maxWidth="150rem"
             height="auto"
             rounded
+            fluid
           />
           <p className=" ">
             My name is Bryant Patton. I'm a Full Stack developer and experienced

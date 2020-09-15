@@ -8,14 +8,14 @@ export const Layout = ({ children, page }) => {
   const theme = useContext(ThemeContext)
   return (
     <ThemeContext.Provider value={themes[page]}>
-      <div className="d-flex flex-column h-100 layout">
-        <MyHead />
-        <NavBar useNavShrink={theme.useNavShrink} />
-        <div className={theme.heroClass}>
-          <main>{children}</main>
-        </div>
-        <Footer />
-      </div>
+      <MyHead />
+      {/* <div className="d-flex flex-column h-100 layout"> */}
+      <NavBar useNavShrink={theme.useNavShrink} />
+
+      <main role="main">{children}</main>
+
+      <Footer />
+      {/* </div> */}
     </ThemeContext.Provider>
   )
 }

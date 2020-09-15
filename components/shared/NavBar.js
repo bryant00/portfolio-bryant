@@ -66,88 +66,83 @@ const NavBar = ({ useNavShrink }) => {
       className={state.navClass}
       style={{ transition: 'all 0.6s ease-out' }}
     >
-      <div className="container-fluid">
-        <a className="navbar-brand ml-2" href="/">
-          <img
-            src={state.authorImage}
-            width="60"
-            height="100%"
-            className="d-inline-block align-middle"
-            alt="Bryant Patton logo"
-          />
-        </a>
-        <ul className="navbar-nav mr-auto">
+      <a className="navbar-brand ml-2" href="/">
+        <img
+          src={state.authorImage}
+          width="33em"
+          // height="100%"
+          className="d-inline-block align-middle image-fluid"
+          alt="Bryant Patton logo"
+        />
+      </a>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <a className="nav-link" href="/cv">
+            <span className="navbar-text">CV</span>
+          </a>
+        </li>
+        {isAuthenticated && isOwner && (
           <li className="nav-item">
-            <a className="nav-link" href="/cv">
-              <span className="navbar-text">CV</span>
+            <a onClick={() => logout()} className="nav-link port-navbar-link ">
+              <span className="navbar-text">Logout</span>
             </a>
           </li>
-          {isAuthenticated && isOwner && (
-            <li className="nav-item">
-              <a
-                onClick={() => logout()}
-                className="nav-link port-navbar-link "
-              >
-                <span className="navbar-text">Logout</span>
-              </a>
-            </li>
-          )}
-          {!isAuthenticated && isOwner && (
-            <li className="nav-item">
-              <a
-                onClick={() => loginWithRedirect()}
-                className="nav-link port-navbar-link"
-              >
-                <span className="navbar-text">Login</span>
-              </a>
-            </li>
-          )}
-        </ul>
-        <ul className="navbar-nav mr-2">
+        )}
+        {!isAuthenticated && isOwner && (
           <li className="nav-item">
             <a
-              className="nav-link "
-              href="https://github.com/bryant00"
-              target="_blank"
-              rel="noreferrer noopener"
+              onClick={() => loginWithRedirect()}
+              className="nav-link port-navbar-link"
             >
-              <FontAwesomeIcon
-                icon={state.gitHubImage}
-                width="40px"
-                width="40px"
-              />
+              <span className="navbar-text">Login</span>
             </a>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link "
-              href="https://linkedin.com/in/bryantpatton"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <FontAwesomeIcon
-                icon={theme.faLinkedin}
-                width="40px"
-                width="40px"
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link "
-              href="mailto:bryantpatton@gmail.com"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <FontAwesomeIcon
-                icon={theme.faEnvelope}
-                width="40px"
-                width="40px"
-              />
-            </a>
-          </li>
-        </ul>
-      </div>
+        )}
+      </ul>
+      <ul className="navbar-nav mr-2">
+        <li className="nav-item">
+          <a
+            className="nav-link "
+            href="https://github.com/bryant00"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <FontAwesomeIcon
+              icon={state.gitHubImage}
+              width="40px"
+              width="40px"
+            />
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link "
+            href="https://linkedin.com/in/bryantpatton"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <FontAwesomeIcon
+              icon={theme.faLinkedin}
+              width="40px"
+              width="40px"
+            />
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link "
+            href="mailto:bryantpatton@gmail.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <FontAwesomeIcon
+              icon={theme.faEnvelope}
+              width="40px"
+              width="40px"
+            />
+          </a>
+        </li>
+      </ul>
     </Navbar>
   )
 }
