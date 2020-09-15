@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
 import Skills from './skills'
-import { faMapPin, faMailBulk } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { IconsContext } from '../lib/iconsContext'
 
 const AboutPage = () => {

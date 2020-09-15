@@ -3,7 +3,7 @@ import { Row, Col, Image } from 'react-bootstrap'
 import { IconsContext } from '../../lib/iconsContext'
 
 const PortfolioCard = (props) => {
-  const { buttonLabel, className, portfolio, children } = props
+  const { portfolio, children } = props
   const { fontAwesome } = useContext(IconsContext)
   let projectImage = `/images/projects/${portfolio.imageName}`
 

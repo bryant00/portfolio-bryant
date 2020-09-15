@@ -4,6 +4,7 @@ import { Auth0Provider } from '../lib/auth0-spa'
 import NProgress from 'nprogress'
 // import whyDidYouRender from '@welldone-software/why-did-you-render'
 import { IconsContext, icons } from '../lib/iconsContext'
+
 import '../styles/main.scss'
 
 //Font Awesome config

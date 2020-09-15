@@ -1,0 +1,16 @@
+nav#sidelinks {
+  position: fixed;
+  margin-top: 3.5rem;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0;
+}
+
+.sidelink-sticky {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  // padding-top:
+}

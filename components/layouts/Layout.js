@@ -9,13 +9,9 @@ export const Layout = ({ children, page }) => {
   return (
     <ThemeContext.Provider value={themes[page]}>
       <MyHead />
-      {/* <div className="d-flex flex-column h-100 layout"> */}
       <NavBar useNavShrink={theme.useNavShrink} />
-
       <main role="main">{children}</main>
-
       <Footer />
-      {/* </div> */}
     </ThemeContext.Provider>
   )
 }

@@ -11,9 +11,7 @@ export const LayoutDefault = ({ children, page }) => {
     <ThemeContext.Provider value={themes[page]}>
       <MyHead />
       <NavBar useNavShrink={theme.useNavShrink} />
-
-      {children}
-
+      <main role="main">{children}</main>
       <Footer />
     </ThemeContext.Provider>
   )
