@@ -32,6 +32,13 @@
     background-color: white;
   }
 }
+.react-pdf__Page__textContent {
+  width: auto !important;
+  height: auto !important;
+  border: solid #f8f9fa;
+  border-width: 0rem;
+  border-radius: 0.25rem !important;
+}
 .react-pdf__Document:hover .page-controls {
   opacity: 1;
 }

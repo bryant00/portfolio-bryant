@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
 import Layout from '../components/layouts/Layout'
 import { Document, Page, pdfjs } from 'react-pdf'
-import SideLinks from '../components/shared/SideLinks'
+import CvActions from '../components/shared/CvActions'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
@@ -27,15 +27,14 @@ const Cv = () => {
   return (
     <Layout page="default">
       <Jumbotron fluid className="cv-jumbotron">
-        <div class="container">
-          <h1 class="display-4">Resume/CV</h1>
-          <p class="lead">
+        <div className="container">
+          <h1 className="display-4">Resume/CV</h1>
+          <p className="lead">
             View, download, share my resume and send me a note.
           </p>
         </div>
       </Jumbotron>
       <Container fluid className="mb-2 cv-container">
-        {/* <SideLinks /> */}
         <Row className="">
           <Col className="col-11 d-flex  justify-content-center mx-auto resume">
             <Document
@@ -48,8 +47,12 @@ const Cv = () => {
               }
               onLoadSuccess={onDocumentLoadSuccess}
             >
-              <Page pageNumber={pageNumber} renderMode="svg" />
-              <div class="page-controls">
+              <Page
+                pageNumber={pageNumber}
+                renderMode="svg"
+                renderTextLayer={false}
+              />
+              <div className="page-controls">
                 <button
                   type="button"
                   disabled={pageNumber <= 1}
@@ -71,6 +74,8 @@ const Cv = () => {
             </Document>
           </Col>
         </Row>
+
+        <CvActions />
       </Container>
     </Layout>
   )
