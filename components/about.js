@@ -32,7 +32,7 @@ const AboutPage = () => {
         rel: 'noreferrer noopener',
       },
       {
-        href: undefined,
+        href: 'mailto:bryantpatton@gmail.com',
         text: 'bryantpatton@gmail.com',
         icon: fontAwesome.email.image,
       },
@@ -76,7 +76,7 @@ const AboutPage = () => {
           <Image
             alt="bryant patton"
             src="/images/avatar.jpeg"
-            maxWidth="150rem"
+            // maxWidth="150rem"
             height="auto"
             rounded
             fluid

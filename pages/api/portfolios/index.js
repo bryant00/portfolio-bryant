@@ -47,7 +47,7 @@ const portfolioData = [
     _id: '2',
     title: 'NBA Player Career Longevity Predictor',
     description:
-      'Website that predicts how many years we can expect an NBA players carreer to last. ',
+      'Website that predicts how many years we can expect an NBA players career to last. ',
     projectUrl: 'https://client.nba-longevity.now.sh/',
     githubUrl: 'https://github.com/build-week-longevity-predictor/client',
     imageName: 'nba_narrow.png',
@@ -78,7 +78,7 @@ const portfolioData = [
     description: 'bryantpatton.com (This Site!)',
     projectUrl: 'https://bryantpatton.com',
     githubUrl: 'https://github.com/bryant00/portfolio-bryant',
-    imageName: 'author.svg',
+    imageName: 'code.svg',
     features: [
       'Server-side rendering',
       ' Secure admin login with OAuth2.0',
