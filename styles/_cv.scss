@@ -16,7 +16,8 @@
   position: relative;
 }
 .react-pdf__Page {
-  box-shadow: 0 3rem 4rem 0 rgba(16, 36, 94, 0.2);
+  box-shadow: 0 1rem 2rem 0 rgba(16, 36, 94, 0.2);
+  margin-bottom: 2rem;
 }
 .react-pdf__Page__svg {
   width: auto !important;
