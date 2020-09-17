@@ -44,7 +44,7 @@ const CvActions = () => {
       return (
         <a
           key={index}
-          className=" badge mx-auto my-1 border"
+          className=" badge mx-auto my-1 border my-md-2"
           href={pill.href}
           download={pill.download}
           target={pill.target}
@@ -62,13 +62,13 @@ const CvActions = () => {
     return list
   }
   return (
-    <div className="row">
-      <div className="col-md-4 order-md-2 mb-4">
-        <ul className="list-group d-flex flex-row mb-3">
-          <Data />
-        </ul>
-      </div>
+    // <div className="row">
+    <div className="col-md-2 order-md-2 mb-4 my-md-auto">
+      <ul className="list-group d-flex flex-row flex-md-column p-2  ">
+        <Data />
+      </ul>
     </div>
+    // </div>
   )
 }
 
