@@ -7,7 +7,7 @@ const CvActions = () => {
 
   return (
     <div className="row">
-      <div className="col col-11 d-flex flex-col justify-content-around mx-auto">
+      <div className="col col-8 col-lg-4 d-flex flex-col justify-content-around mx-auto">
         <div className="badge badge-pill badge-light  m-2">
           <a href="bryant_cv.pdf" target="_blank" rel="noreferrer noopener">
             <Image
