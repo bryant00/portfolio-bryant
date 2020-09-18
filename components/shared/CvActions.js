@@ -4,48 +4,71 @@ import { Container, Row, Col, Image } from 'react-bootstrap'
 
 const CvActions = () => {
   const { actions } = useContext(IconsContext)
+  const pills = [
+    {
+      id: 'link',
+      href: '',
+      download: false,
+      target: '_blank',
+      rel: 'noreferrer noopener',
+      src: 'copy',
+      alt: 'Link',
+      text: 'Link',
+    },
+    {
+      id: 'googleDrive',
+      href: '',
+      download: false,
+      target:
+        'https://docs.google.com/document/d/10KsbcRN8s7gVbauvWMYzNwhHA3Y_h1lcPW7CNXXuCrY/edit?usp=sharing',
+      rel: 'noreferrer noopener',
+      src: 'googleDrive',
+      alt: 'Google Drive',
+      text: 'PDF',
+    },
+    {
+      id: 'download',
+      href: '',
+      download: 'bryant_cv.pdf',
+      target: '_blank',
+      rel: 'noreferrer noopener',
+      src: 'downArrow',
+      alt: 'Download',
+      text: 'Download',
+    },
+  ]
 
+  const Data = () => {
+    const list = pills.map((pill, index) => {
+      const { src } = pill
+      return (
+        <a
+          key={index}
+          className=" badge mx-auto my-1 border my-md-2"
+          href={pill.href}
+          download={pill.download}
+          target={pill.target}
+          rel={pill.rel}
+        >
+          <img
+            src={actions[`${src}`].image}
+            className="svg-icons m-1 "
+            alt={pill.alt}
+          />
+          <span className=" px-1 text-md">{pill.text}</span>
+        </a>
+      )
+    })
+    return list
+  }
   return (
-    <div className="row">
-      <div className="col col-11 d-flex flex-col justify-content-around mx-auto">
-        <div className="badge badge-pill badge-light  m-2">
-          <a href="bryant_cv.pdf" target="_blank" rel="noreferrer noopener">
-            <Image
-              src={actions.filePdf.image}
-              className="svg-icons m-2"
-              alt="Download"
-            />
-            <span className=" px-2 text-md">PDF</span>
-          </a>
-        </div>
-
-        <div className="badge badge-pill badge-light  m-2">
-          <a
-            href="https://docs.google.com/document/d/10KsbcRN8s7gVbauvWMYzNwhHA3Y_h1lcPW7CNXXuCrY/edit?usp=sharing"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Image
-              src={actions.googleDrive.image}
-              className="svg-icons m-2"
-              alt="Download"
-            />
-            <span className=" px-2 text-md">Google Docs</span>
-          </a>
-        </div>
-
-        <div className="badge badge-pill badge-light  m-2">
-          <a href="bryant_cv.pdf" target="_blank" rel="noreferrer noopener">
-            <Image
-              src={actions.downArrow.image}
-              className="svg-icons m-2"
-              alt="Download"
-            />
-            <span className=" px-2 text-md">Download</span>
-          </a>
-        </div>
-      </div>
+    // <div className="row">
+    <div className="col-md-2 order-md-2 mb-4 my-md-auto">
+      <ul className="list-group d-flex flex-row flex-md-column p-2  ">
+        <Data />
+      </ul>
     </div>
+    // </div>
   )
 }
 

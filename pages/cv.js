@@ -36,7 +36,7 @@ const Cv = () => {
       </Jumbotron>
       <Container fluid className="mb-2 cv-container">
         <Row className="">
-          <Col className="col-11 d-flex  justify-content-center mx-auto resume">
+          <Col className="col-11 mx-auto col-md-8 ml-md-auto  mr-md-0 order-md-1 d-flex  justify-content-center resume">
             <Document
               file="/bryant_cv.pdf"
               onLoadError={(e) =>
@@ -73,9 +73,10 @@ const Cv = () => {
               </div>
             </Document>
           </Col>
+          <CvActions />
         </Row>
 
-        <CvActions />
+        {/* <CvActions /> */}
       </Container>
     </Layout>
   )
