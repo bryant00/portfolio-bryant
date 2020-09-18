@@ -7,7 +7,7 @@ const CvActions = () => {
   const pills = [
     {
       id: 'link',
-      href: '',
+      href: 'bryant_cv.pdf',
       download: false,
       target: '_blank',
       rel: 'noreferrer noopener',
@@ -17,14 +17,14 @@ const CvActions = () => {
     },
     {
       id: 'googleDrive',
-      href: '',
-      download: false,
-      target:
+      href:
         'https://docs.google.com/document/d/10KsbcRN8s7gVbauvWMYzNwhHA3Y_h1lcPW7CNXXuCrY/edit?usp=sharing',
+      download: false,
+      target: '_blank',
       rel: 'noreferrer noopener',
       src: 'googleDrive',
       alt: 'Google Drive',
-      text: 'PDF',
+      text: 'Google Drive',
     },
     {
       id: 'download',
