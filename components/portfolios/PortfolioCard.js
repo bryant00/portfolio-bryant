@@ -44,7 +44,8 @@ const PortfolioCard = (props) => {
     <>
       <hr className="my-4"></hr>
       <h4 className="mt-4">{portfolio.title}</h4>
-      <div className="my-4 col-md-8 mx-auto d-flex flex-column order-md-4">
+      {/* <div className="my-4 col-md-8 mx-auto d-flex flex-column order-md-4"> */}
+      <div className="my-4 mx-auto d-flex flex-column justify-content-center align-items-center">
         <img src={projectImage} className="img-fluid p-0 portfolio-image" />
       </div>
       <p>{portfolio.description}</p>
