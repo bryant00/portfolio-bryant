@@ -47,7 +47,6 @@ const HomePage = () => {
             </Row>
           </Col>
         </Row>
-
         <Row className="about bg-white text-dark rounded no-gutters mt-1">
           <Col className="col-12  bg-white text-dark rounded ">
             <Row className="mt-2 mb-4 ">
@@ -57,16 +56,6 @@ const HomePage = () => {
             </Row>
           </Col>
         </Row>
-
-        {/* <Row className="mt-3">
-          <Container fluid className="bg-white text-dark rounded mx-2">
-            <Row className="mt-2 mb-4">
-              <Col md="6" className="mx-auto ">
-                <PortfolioPage />
-              </Col>
-            </Row>
-          </Container>
-        </Row> */}
       </Container>
     </Layout>
   )
