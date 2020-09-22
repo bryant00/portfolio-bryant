@@ -8,12 +8,12 @@ const AboutPage = () => {
   const Data = () => {
     const Info = [
       {
-        href: false,
+        href: null,
         text: 'San Francisco, CA',
         icon: fontAwesome.location.image,
       },
       {
-        href: false,
+        href: null,
         text: 'Full-Stack Developer',
         icon: fontAwesome.user.image,
       },
@@ -48,7 +48,7 @@ const AboutPage = () => {
       <div className="d-flex p-1 align-items-center" key={i}>
         <Image src={d.icon} width="16px" height="16px" className="mr-1" />
         <a
-          href={d.href}
+          href={d.href != null ? d.href : undefined}
           target="_blank"
           rel="noreferrer noopener"
           className="overflow-hidden"
