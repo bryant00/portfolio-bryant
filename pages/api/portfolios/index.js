@@ -33,7 +33,7 @@ const portfolioData = [
       'An app used to simplify work order utilization. Coordinating work orders among groups of people is difficult, from creating the list of tasks to prioritizing and assigning them. Digital task lists exist, but they do not connect the tasks at hand to objects in the physical world. Net Giver provides user ease for creating and editing work orders, all in one convenient app.',
     projectUrl: 'https://expo.io/@skylerwebdev/ngwom',
     githubUrl:
-      'https://github.com/Lambda-School-Labs/net-giver-work-order-management-fe',
+      'https://github.com/Lambda-School-Labs/net-giver-work-order-management-be',
     imageName: 'netgiverapp.png',
     features: [
       'QR scanner',
@@ -64,7 +64,7 @@ const portfolioData = [
     description: 'Immunization History In Your Pocket.',
     projectUrl: 'https://csb-1wvix.bryantpatton.now.sh/',
     githubUrl: 'https://github.com/bryant00/Drs-Login-App',
-    imageName: 'immunizations.png',
+    imageName: 'Immunizations.png',
     features: [
       'Imunizations central repositories',
       'Doctors safely track clients record history',
