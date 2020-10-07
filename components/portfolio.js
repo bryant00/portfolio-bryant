@@ -12,19 +12,6 @@ export const PortfolioPage = () => {
   const [dataIcons, setDataIcons] = useState(null)
   let [loaded, setLoaded] = useState(false)
 
-  let dataIconsMap = []
-  // if (data) {
-  //   dataIconsMap = data.reduce((ac, cv) => {
-  //     let project = cv
-  //     let tech = project['tech']
-  //     let techIcons = tech.map((t) => icons[t])
-  //     let projectWithIcons = { ...project, techIcons: techIcons }
-  //     ac.push(projectWithIcons)
-  //     return ac
-  //   }, [])
-  //   setDataIcons(dataIconsMap)
-  // }
-
   const Data = ({ data }) => {
     const list = data.map((portfolio, index) => (
       <PortfolioCard key={index} portfolio={portfolio}></PortfolioCard>
