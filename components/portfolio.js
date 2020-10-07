@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import PortfolioCard from './portfolios/PortfolioCard'
 import useSWR, { mutate } from 'swr'
-import { Row, Col, Container, Button } from 'react-bootstrap'
 import { IconsContext } from '../lib/iconsContext'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
@@ -9,22 +8,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 export const PortfolioPage = () => {
   const icons = useContext(IconsContext)
   const { data, error } = useSWR('/api/portfolios', fetcher)
-  const [dataIcons, setDataIcons] = useState(null)
-  let [loaded, setLoaded] = useState(false)
-
-  let dataIconsMap = []
-  // if (data) {
-  //   dataIconsMap = data.reduce((ac, cv) => {
-  //     let project = cv
-  //     let tech = project['tech']
-  //     let techIcons = tech.map((t) => icons[t])
-  //     let projectWithIcons = { ...project, techIcons: techIcons }
-  //     ac.push(projectWithIcons)
-  //     return ac
-  //   }, [])
-  //   setDataIcons(dataIconsMap)
-  // }
-
   const Data = ({ data }) => {
     const list = data.map((portfolio, index) => (
       <PortfolioCard key={index} portfolio={portfolio}></PortfolioCard>
