@@ -75,8 +75,6 @@ const Cv = () => {
           </Col>
           <CvActions />
         </Row>
-
-        {/* <CvActions /> */}
       </Container>
     </Layout>
   )

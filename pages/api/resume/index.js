@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactPDF, {
-  PDFViewer,
   Document,
   Page,
   Text,
