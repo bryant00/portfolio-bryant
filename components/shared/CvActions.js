@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { IconsContext } from '../../lib/iconsContext'
-import { Container, Row, Col, Image } from 'react-bootstrap'
 
 const CvActions = () => {
   const { actions } = useContext(IconsContext)
