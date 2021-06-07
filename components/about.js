@@ -40,8 +40,8 @@ const AboutPage = () => {
         href: '/cv',
         text: 'Resume',
         icon: fontAwesome.filePdf.image,
-        target: '_blank',
-        rel: 'noreferrer noopener',
+        target: "",
+        rel: "",
       },
     ]
     const list = Info.map((d, i) => (
