@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { IconsContext } from '../../lib/iconsContext'
-import { Container, Row, Col, Image } from 'react-bootstrap'
 
 const CvActions = () => {
   const { actions } = useContext(IconsContext)
@@ -62,13 +61,11 @@ const CvActions = () => {
     return list
   }
   return (
-    // <div className="row">
     <div className="col-md-2 order-md-2 mb-4 my-md-auto">
       <ul className="list-group d-flex flex-row flex-md-column p-2  ">
         <Data />
       </ul>
     </div>
-    // </div>
   )
 }
 
