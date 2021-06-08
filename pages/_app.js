@@ -4,7 +4,6 @@ import { Auth0Provider } from '../lib/auth0-spa'
 import NProgress from 'nprogress'
 // import whyDidYouRender from '@welldone-software/why-did-you-render'
 import { IconsContext, icons } from '../lib/iconsContext'
-import 'react-pdf/dist/Page/AnnotationLayer.css'
 import '../styles/main.scss'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
