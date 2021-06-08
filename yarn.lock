@@ -118,7 +118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:^1.2.30":
+"@fortawesome/fontawesome-svg-core@npm:^1.2.35":
   version: 1.2.35
   resolution: "@fortawesome/fontawesome-svg-core@npm:1.2.35"
   dependencies:
@@ -870,13 +870,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^4.1.3":
-  version: 4.4.1
-  resolution: "bootstrap@npm:4.4.1"
+"bootstrap@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "bootstrap@npm:4.6.0"
   peerDependencies:
     jquery: 1.9.1 - 3
-    popper.js: ^1.16.0
-  checksum: 6dd8f4c905c651619b93f9fde7b28131304f390ac276a61cc2ea64b38868e4a5cb71b144cca134b16fff0d518a73a75df2910eb734fd7ccafaad626466bd489c
+    popper.js: ^1.16.1
+  checksum: 66019b6969b997eb3bcec7276010263df643b2607db00dbbd13f451d6f6d57fa5b563cd9712a4814024e5489faf5e2d73c553a1ebea1b61d0e1ab766e4805229
   languageName: node
   linkType: hard
 
@@ -3535,13 +3535,13 @@ fsevents@~2.3.1:
   resolution: "portfolio-bryant@workspace:."
   dependencies:
     "@auth0/auth0-spa-js": 1.15.0
-    "@fortawesome/fontawesome-svg-core": ^1.2.30
+    "@fortawesome/fontawesome-svg-core": ^1.2.35
     "@fortawesome/free-brands-svg-icons": ^5.15.3
     "@fortawesome/free-solid-svg-icons": ^5.15.3
     "@fortawesome/react-fontawesome": ^0.1.14
     "@react-pdf/renderer": ^2.0.15
     "@welldone-software/why-did-you-render": ^6.1.4
-    bootstrap: ^4.1.3
+    bootstrap: ^4.6.0
     date-fns: ^2.22.1
     dotenv: ^10.0.0
     formik: ^2.2.9
@@ -3562,10 +3562,10 @@ fsevents@~2.3.1:
     react-dom: ^17.0.2
     react-emotion: ^10.0.0
     react-pdf: ^5.3.0
-    react-typed: ^1.0.9
+    react-typed: ^1.2.0
     sass: ^1.34.1
     slate: ^0.63.0
-    slate-html-serializer: ^0.8.11
+    slate-html-serializer: ^0.8.13
     slate-react: ^0.65.0
     slugify: ^1.5.3
     styled-jsx: ^3.4.4
@@ -3940,7 +3940,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"react-typed@npm:^1.0.9":
+"react-typed@npm:^1.2.0":
   version: 1.2.0
   resolution: "react-typed@npm:1.2.0"
   dependencies:
@@ -4240,7 +4240,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"slate-html-serializer@npm:^0.8.11":
+"slate-html-serializer@npm:^0.8.13":
   version: 0.8.13
   resolution: "slate-html-serializer@npm:0.8.13"
   dependencies:
