@@ -1,5 +1,4 @@
 const dotenv = require('dotenv')
-const webpack = require('webpack')
 dotenv.config()
 module.exports = () => {
   const env= {
@@ -17,17 +16,3 @@ module.exports = () => {
     env,
   }
 } 
-
-module.exports = {
-  
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
-  },
-  future: { webpack5: true }
-};
-
