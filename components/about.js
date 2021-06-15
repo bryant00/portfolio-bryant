@@ -40,8 +40,8 @@ const AboutPage = () => {
         href: '/cv',
         text: 'Resume',
         icon: fontAwesome.filePdf.image,
-        target: "",
-        rel: "",
+        target: '',
+        rel: '',
       },
     ]
     const list = Info.map((d, i) => (
@@ -68,7 +68,7 @@ const AboutPage = () => {
             <Col className="col-4">
               <Image
                 alt="bryant patton"
-                src="/images/avatar.jpeg"
+                src="https://bryantpatton-images.s3.us-west-1.amazonaws.com/landingPage/avatar.jpeg"
                 height="auto"
                 rounded
                 fluid

@@ -1,8 +1,6 @@
 const dotenv = require('dotenv')
-const withImages = require('next-images')
 dotenv.config()
-module.exports = withImages({
-  //   target: 'serverless',
+module.exports = {
   env: {
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -14,4 +12,4 @@ module.exports = withImages({
     DB_URI: process.env.DB_URI,
     DB_NAME: process.env.DB_NAME,
   },
-})
+}

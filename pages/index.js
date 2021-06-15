@@ -4,11 +4,12 @@ import Layout from '../components/layouts/Layout'
 import AboutPage from '../components/about'
 import PortfolioPage from '../components/portfolio'
 
-const mobile = '/images/landingPage/background-index-1200w.jpg'
-const tablet = '/images/landingPage/background-index-1680w.jpg'
-const laptop = '/images/landingPage/background-index-2000w.jpg'
-const monitor = '/images/landingPage/background-index-3000w.jpg'
-const widescreen = '/images/landingPage/background-index-4000w.jpg'
+const bucket = 'https://bryantpatton-images.s3.us-west-1.amazonaws.com'
+const mobile = bucket + '/landingPage/background-index-1200w.jpg'
+const tablet = bucket + '/landingPage/background-index-1680w.jpg'
+const laptop = bucket + '/landingPage/background-index-2000w.jpg'
+const monitor = bucket + '/landingPage/background-index-3000w.jpg'
+const widescreen = bucket + '/landingPage/background-index-4000w.jpg'
 
 const HomePage = () => {
   return (

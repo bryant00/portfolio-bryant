@@ -35,6 +35,8 @@ const portfolioData = [
     githubUrl:
       'https://github.com/Lambda-School-Labs/net-giver-work-order-management-be',
     imageName: 'netgiverapp.png',
+    imageUrl:
+      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/netgiverapp.png',
     features: [
       'QR scanner',
       'Create, edit and assign work orders',
@@ -51,6 +53,8 @@ const portfolioData = [
     projectUrl: 'https://client.nba-longevity.now.sh/',
     githubUrl: 'https://github.com/build-week-longevity-predictor/client',
     imageName: 'nba_narrow.png',
+    imageUrl:
+      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/nba_narrow.png',
     features: [
       'Model using 10 years of NBA player data',
       'Search for current and past NBA players',
@@ -65,6 +69,8 @@ const portfolioData = [
     projectUrl: 'https://csb-1wvix.bryantpatton.now.sh/',
     githubUrl: 'https://github.com/bryant00/Drs-Login-App',
     imageName: 'Immunizations.png',
+    imageUrl:
+      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/Immunizations.png',
     features: [
       'Imunizations central repositories',
       'Doctors safely track clients record history',
@@ -79,6 +85,8 @@ const portfolioData = [
     projectUrl: 'https://bryantpatton.com',
     githubUrl: 'https://github.com/bryant00/portfolio-bryant',
     imageName: 'code.svg',
+    imageUrl:
+      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/code.svg',
     features: [
       'Server-side rendering',
       ' Secure admin login with OAuth2.0',
@@ -94,6 +102,8 @@ const portfolioData = [
     projectUrl: 'http://juniper.pntheon.com/bp-test/',
     githubUrl: 'https://github.com/bryant00/express-grant-api',
     imageName: 'b2b.png',
+    imageUrl:
+      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/b2b.png',
     features: ['OAuth2.0 social login with LinkedIn'],
     tech: ['auth0', 'node'],
   },

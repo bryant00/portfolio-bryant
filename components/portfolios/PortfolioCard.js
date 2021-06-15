@@ -5,7 +5,8 @@ import { IconsContext } from '../../lib/iconsContext'
 const PortfolioCard = (props) => {
   const { portfolio } = props
   const { fontAwesome } = useContext(IconsContext)
-  let projectImage = `/images/projects/${portfolio.imageName}`
+  // let projectImage = `/images/projects/${portfolio.imageName}`
+  let projectImage = portfolio.imageUrl
 
   const Features = () => {
     const list = portfolio.features.map((f, i) => (

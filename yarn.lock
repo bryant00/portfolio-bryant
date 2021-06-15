@@ -2856,22 +2856,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mime-db@npm:1.44.0":
-  version: 1.44.0
-  resolution: "mime-db@npm:1.44.0"
-  checksum: b4e3b2141418572fba9786f7e36324faef15e23032ad0871f56760cb304ee721ba4c8cc795d3c1cac69a2a8b94045c1d6b08c4a8d1ef6ba1226a3a5193915c57
-  languageName: node
-  linkType: hard
-
-"mime-types@npm:^2.1.26":
-  version: 2.1.27
-  resolution: "mime-types@npm:2.1.27"
-  dependencies:
-    mime-db: 1.44.0
-  checksum: 51fe2f2c08c10ac7a2f67e2ce5de30f6500faa88d095418a1ab6e90e30960db7c682a8ecce60d3d4e293ac52c4700ca99399833db998ea9ec83d6f0503b70a94
-  languageName: node
-  linkType: hard
-
 "minimalistic-assert@npm:^1.0.0, minimalistic-assert@npm:^1.0.1":
   version: 1.0.1
   resolution: "minimalistic-assert@npm:1.0.1"
@@ -3054,18 +3038,6 @@ fsevents@~2.3.1:
   dependencies:
     querystring: ^0.2.0
   checksum: 26a3716a257db5d88d2678691175144d4732cb1b12d35925f939f837b7bb9d98ce18f1d7750409fb8988f190ad075b4b72310b0e212d61fd3d832e6d073ab89b
-  languageName: node
-  linkType: hard
-
-"next-images@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "next-images@npm:1.7.0"
-  dependencies:
-    file-loader: ^6.0.0
-    url-loader: ^4.0.0
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 58149d6f4035c1085868f4414ff1fe4e3661f7f92111c6f5980b656453aa72a10277a7ec06c176a45ce91defdd9da53ab78c32b7019f2bd2ecd25fe8568714d0
   languageName: node
   linkType: hard
 
@@ -3551,7 +3523,6 @@ fsevents@~2.3.1:
     moment: ^2.29.1
     mongodb: ^3.6.9
     next: ^10.2.3
-    next-images: ^1.7.0
     next-seo: ^4.24.0
     nprogress: ^0.2.0
     prettier: ^2.3.1
@@ -4901,23 +4872,6 @@ resolve@1.1.7:
   dependencies:
     punycode: ^2.1.0
   checksum: 651a49f55d6d65a15e589ed5ffa23bf99e495699e246c1c3fecbe6f232c675589fdae4e93a88608525ff130f39b6fb854c19982820813a2d94c005c11eafd7ed
-  languageName: node
-  linkType: hard
-
-"url-loader@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "url-loader@npm:4.1.0"
-  dependencies:
-    loader-utils: ^2.0.0
-    mime-types: ^2.1.26
-    schema-utils: ^2.6.5
-  peerDependencies:
-    file-loader: "*"
-    webpack: ^4.0.0 || ^5.0.0
-  peerDependenciesMeta:
-    file-loader:
-      optional: true
-  checksum: 5870b969687458608c7cb7fc4e7f46a15478f506724828af3ddbe957318485b428f0fd9f08f01c413e8b556b08d7eb9520d5863e871b0bc279762a47d300a0b5
   languageName: node
   linkType: hard
 
