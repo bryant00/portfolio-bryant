@@ -1,31 +1,30 @@
 import { MongoClient } from 'mongodb'
 
-// const uri = process.env.DB_URI
+const uri = process.env.DB_URI
 
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
-const dbName = 'portfolios'
+const dbName = 'projects'
 
 export default async (req, res) => {
   try {
-    // const afterConnection = await client.connect()
+    const afterConnection = await client.connect()
 
-    // const db = await client.db(process.env.DB_NAME)
+    const db = await client.db(process.env.DB_NAME)
 
-    // const collection = await db.collection(dbName)
+    const collection = await db.collection(dbName)
 
-    // const portfolios = await collection.find({}).toArray()
-    const portfolios = portfolioData
-    res.status(200).json(portfolios)
+    const portfolioData = await collection.find({}).toArray()
+    res.status(200).json(portfolioData)
   } catch (err) {
     console.log(err)
   }
 }
 
-const portfolioData = [
+const portfolioData2 = [
   {
     _id: '1',
     title: 'Net Giver Work Order Management App',
@@ -44,6 +43,7 @@ const portfolioData = [
       'Take pictures and upload images',
     ],
     tech: ['reactNative', 'postgressql', 'graphql', 'twillio'],
+    status: 'offline',
   },
   {
     _id: '2',
@@ -61,6 +61,7 @@ const portfolioData = [
       'Save your favorite players',
     ],
     tech: ['node', 'react', 'python'],
+    status: 'offline',
   },
   {
     _id: '3',

@@ -5,7 +5,7 @@ import { IconsContext } from '../lib/iconsContext'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const PortfolioPage = () => {
+const OtherProjects = () => {
   const icons = useContext(IconsContext)
   const { data, error } = useSWR('/api/portfolios', fetcher)
   const Data = ({ data }) => {
@@ -38,4 +38,4 @@ const PortfolioPage = () => {
     )
   }
 }
-export default PortfolioPage
+export default OtherProjects
