@@ -2,12 +2,26 @@ import { MongoClient } from 'mongodb'
 
 const uri = process.env.DB_URI
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+const client = new MongoClient(uri)
 
-const dbName = 'projects'
+async function run(req, res) {
+  try {
+    await client.connect()
+    const db = client.db('test').command({ ping: 1 })
+    console.log('Connected successfully to server')
+    const projects = db.collection('projects')
+    const portfolioData = await projects.find({}).toArray()
+    res.status(200).json(portfolioData)
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close()
+  }
+}
+// run().catch(console.dir)
 
 export default async (req, res) => {
   try {
@@ -15,7 +29,7 @@ export default async (req, res) => {
 
     const db = await client.db(process.env.DB_NAME)
 
-    const collection = await db.collection(dbName)
+    const collection = await db.collection('projects')
 
     const portfolioData = await collection.find({}).toArray()
     res.status(200).json(portfolioData)
@@ -23,89 +37,3 @@ export default async (req, res) => {
     console.log(err)
   }
 }
-
-const portfolioData2 = [
-  {
-    _id: '1',
-    title: 'Net Giver Work Order Management App',
-    description:
-      'An app used to simplify work order utilization. Coordinating work orders among groups of people is difficult, from creating the list of tasks to prioritizing and assigning them. Digital task lists exist, but they do not connect the tasks at hand to objects in the physical world. Net Giver provides user ease for creating and editing work orders, all in one convenient app.',
-    projectUrl: 'https://expo.io/@skylerwebdev/ngwom',
-    githubUrl:
-      'https://github.com/Lambda-School-Labs/net-giver-work-order-management-be',
-    imageName: 'netgiverapp.png',
-    imageUrl:
-      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/netgiverapp.png',
-    features: [
-      'QR scanner',
-      'Create, edit and assign work orders',
-      'View all work orders in one convenient place',
-      'Take pictures and upload images',
-    ],
-    tech: ['reactNative', 'postgressql', 'graphql', 'twillio'],
-    status: 'offline',
-  },
-  {
-    _id: '2',
-    title: 'NBA Player Career Longevity Predictor',
-    description:
-      'Website that predicts how many years we can expect an NBA players career to last. ',
-    projectUrl: 'https://client.nba-longevity.now.sh/',
-    githubUrl: 'https://github.com/build-week-longevity-predictor/client',
-    imageName: 'nba_narrow.png',
-    imageUrl:
-      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/nba_narrow.png',
-    features: [
-      'Model using 10 years of NBA player data',
-      'Search for current and past NBA players',
-      'Save your favorite players',
-    ],
-    tech: ['node', 'react', 'python'],
-    status: 'offline',
-  },
-  {
-    _id: '3',
-    title: 'Immunizations Tracking App',
-    description: 'Immunization History In Your Pocket.',
-    projectUrl: 'https://csb-1wvix.bryantpatton.now.sh/',
-    githubUrl: 'https://github.com/bryant00/Drs-Login-App',
-    imageName: 'Immunizations.png',
-    imageUrl:
-      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/Immunizations.png',
-    features: [
-      'Imunizations central repositories',
-      'Doctors safely track clients record history',
-      'Save and share data',
-    ],
-    tech: ['node', 'react', 'postgressql'],
-  },
-  {
-    _id: '4',
-    title: 'My Personal Site',
-    description: 'bryantpatton.com (This Site!)',
-    projectUrl: 'https://bryantpatton.com',
-    githubUrl: 'https://github.com/bryant00/portfolio-bryant',
-    imageName: 'code.svg',
-    imageUrl:
-      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/code.svg',
-    features: [
-      'Server-side rendering',
-      ' Secure admin login with OAuth2.0',
-      'Serverless functions for calling and adding content data',
-      'Deployed using Zeit Now and AWS DNS',
-    ],
-    tech: ['nextjs', 'react', 'mongoDb', 'bootstrap', 'auth0', 'node'],
-  },
-  {
-    _id: '5',
-    title: 'B2B Landing Page',
-    description: 'Marketing landing page for B2B client',
-    projectUrl: 'http://juniper.pntheon.com/bp-test/',
-    githubUrl: 'https://github.com/bryant00/express-grant-api',
-    imageName: 'b2b.png',
-    imageUrl:
-      'https://bryantpatton-images.s3.us-west-1.amazonaws.com/projects/b2b.png',
-    features: ['OAuth2.0 social login with LinkedIn'],
-    tech: ['auth0', 'node'],
-  },
-]
