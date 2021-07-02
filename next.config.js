@@ -11,5 +11,6 @@ module.exports = {
     SESSION_COOKIE_LIFETIME: process.env.SESSION_COOKIE_LIFETIME,
     DB_URI: process.env.DB_URI,
     DB_NAME: process.env.DB_NAME,
+    GA_TRACKING_ID: process.env.GA_TRACKING_ID,
   },
 }

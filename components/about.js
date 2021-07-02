@@ -11,11 +11,13 @@ const AboutPage = () => {
         href: null,
         text: 'San Francisco, CA',
         icon: fontAwesome.location.image,
+        action: '',
       },
       {
         href: null,
         text: 'Full-Stack Developer',
         icon: fontAwesome.user.image,
+        action: '',
       },
       {
         href: 'https://github.com/bryant00',
@@ -23,6 +25,7 @@ const AboutPage = () => {
         icon: fontAwesome.github.image,
         target: '_blank',
         rel: 'noreferrer noopener',
+        action: 'github',
       },
       {
         href: 'https://www.linkedin.com/in/bryantpatton/',
@@ -30,11 +33,13 @@ const AboutPage = () => {
         icon: fontAwesome.linkedin.image,
         target: '_blank',
         rel: 'noreferrer noopener',
+        action: 'linkedin',
       },
       {
         href: 'mailto:bryantpatton@gmail.com',
         text: 'bryantpatton@gmail.com',
         icon: fontAwesome.email.image,
+        action: 'email',
       },
       {
         href: '/cv',
@@ -42,6 +47,7 @@ const AboutPage = () => {
         icon: fontAwesome.filePdf.image,
         target: '',
         rel: '',
+        action: 'cv',
       },
     ]
     const list = Info.map((d, i) => (
