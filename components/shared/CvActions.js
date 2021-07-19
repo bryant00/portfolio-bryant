@@ -14,17 +14,17 @@ const CvActions = () => {
       alt: 'Link',
       text: 'Link',
     },
-    {
-      id: 'googleDrive',
-      href:
-        'https://docs.google.com/document/d/10KsbcRN8s7gVbauvWMYzNwhHA3Y_h1lcPW7CNXXuCrY/edit?usp=sharing',
-      download: false,
-      target: '_blank',
-      rel: 'noreferrer noopener',
-      src: 'googleDrive',
-      alt: 'Google Drive',
-      text: 'Google Drive',
-    },
+    // {
+    //   id: 'googleDrive',
+    //   href:
+    //     'https://docs.google.com/document/d/10KsbcRN8s7gVbauvWMYzNwhHA3Y_h1lcPW7CNXXuCrY/edit?usp=sharing',
+    //   download: false,
+    //   target: '_blank',
+    //   rel: 'noreferrer noopener',
+    //   src: 'googleDrive',
+    //   alt: 'Google Drive',
+    //   text: 'Google Drive',
+    // },
     {
       id: 'download',
       href: '',

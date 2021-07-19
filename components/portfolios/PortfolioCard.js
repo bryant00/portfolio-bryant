@@ -67,7 +67,7 @@ const PortfolioCard = (props) => {
           Github Code
         </a>
       </p>
-      <p>
+      {/* <p>
         <a
           className="text-primary"
           target="_blank"
@@ -76,7 +76,7 @@ const PortfolioCard = (props) => {
         >
           Demo
         </a>
-      </p>
+      </p> */}
     </>
   )
 }
