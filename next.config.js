@@ -1,4 +1,5 @@
 const dotenv = require('dotenv')
+console.log(process.env.DB_URI)
 dotenv.config()
 module.exports = {
   env: {

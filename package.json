@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next",
+    "dev": "NODE_OPTIONS='--inspect --openssl-legacy-provider' next",
     "build": "next build",
     "start": "next start"
   },
@@ -27,7 +27,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "js-cookie": "2.2.1",
     "moment": "^2.29.1",
-    "mongodb": "^3.6.9",
+    "mongodb": "^4.8.1",
     "next": "^10.2.3",
     "next-seo": "^4.24.0",
     "nprogress": "^0.2.0",
