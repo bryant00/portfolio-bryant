@@ -1,13 +1,18 @@
 import { MongoClient, ObjectID } from 'mongodb'
 
-const uri = process.env.DB_URI
+const username = encodeURIComponent(process.env.DB_USERNAME);
+const password = encodeURIComponent(process.env.DB_PASSWORD);
+const cluster = process.env.DB_CLUSTER;
+const dbName = 'projects';
+
+let uri = `mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-const dbName = 'portfolios'
+
 
 export default async ({ query: { id } }, res) => {
   try {
