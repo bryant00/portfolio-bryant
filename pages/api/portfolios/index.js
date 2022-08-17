@@ -17,11 +17,9 @@ async function run(req, res) {
     const portfolioData = await projects.find({}).toArray()
     res.status(200).json(portfolioData)
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close()
   }
 }
-// run().catch(console.dir)
 
 export default async (req, res) => {
   try {
