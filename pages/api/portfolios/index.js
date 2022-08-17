@@ -1,17 +1,17 @@
 import { MongoClient } from 'mongodb'
+const username = encodeURIComponent(process.env.DB_USERNAME);
+const password = encodeURIComponent(process.env.DB_PASSWORD);
+const cluster = process.env.DB_CLUSTER;
+const dbName=process.env.DB_NAME;
 
-const uri = process.env.DB_URI
+let uri = `mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`
 
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
 const client = new MongoClient(uri)
 
 async function run(req, res) {
   try {
     await client.connect()
-    const db = client.db('test').command({ ping: 1 })
+    const db = client.db(dbName).command({ ping: 1 })
     console.log('Connected successfully to server')
     const projects = db.collection('projects')
     const portfolioData = await projects.find({}).toArray()
