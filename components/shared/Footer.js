@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer  py-3 ">
       <div className="container">
-        <span className="">© Bryant Patton 2021</span>
+        <span className="">© Bryant Patton 2022</span>
       </div>
     </footer>
   )
