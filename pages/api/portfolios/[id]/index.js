@@ -1,9 +1,8 @@
 import { MongoClient, ObjectID } from 'mongodb'
-
 const username = encodeURIComponent(process.env.DB_USERNAME);
 const password = encodeURIComponent(process.env.DB_PASSWORD);
 const cluster = process.env.DB_CLUSTER;
-const dbName = 'projects';
+const DB_NAME=process.env.DB_NAME;
 
 let uri = `mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`
 
@@ -12,9 +11,9 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 })
 
+const dbName = 'portfolios'
 
-
-export default async ({ query: { id } }, res) => {
+const Index =  async ({ query: { id } }, res) => {
   try {
     const afterConnection = await client.connect()
 
@@ -30,3 +29,5 @@ export default async ({ query: { id } }, res) => {
     console.log(err)
   }
 }
+
+export default Index;

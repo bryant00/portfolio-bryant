@@ -1,11 +1,12 @@
 import React, { useState, useContext, useReducer } from 'react'
 import { useAuth0 } from '../../lib/auth0-spa'
 import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useRouter } from 'next/router'
 import { useScrollPosition } from '../layouts/UseScrollPosition'
 import { ThemeContext } from '../../lib/themeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
+import Image from 'next/future/image'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -14,9 +15,7 @@ function reducer(state, action) {
         ...state,
         navClass: 'navbar-light bg-light text-dark p-0 shadow-lg',
         navShrink: true,
-        // authorImage: Author,
         authorImage: state.dark.authorImage,
-        // gitHubImage: GitHubDark,
         gitHubImage: state.dark.gitHubImage,
       }
     case 'grow':
@@ -24,8 +23,6 @@ function reducer(state, action) {
         ...state,
         navClass: 'navbar-dark text-white bg-transparent p-0 navhead',
         navShrink: false,
-        // authorImage: AuthorLight,
-        // gitHubImage: GitHub,
         authorImage: state.light.authorImage,
         gitHubImage: state.dark.gitHubImage,
       }
@@ -46,19 +43,19 @@ const NavBar = ({ useNavShrink }) => {
     dark: theme.dark,
     light: theme.light,
   })
+  const scroller = useScrollPosition(
+    ({ prefPos, currPos }) => {
+      const isShow = currPos.y < -60
+      if (isShow !== state.navShrink)
+        isShow ? dispatch({ type: 'shrink' }) : dispatch({ type: 'grow' })
+    },
+    [state],
+    false,
+    false,
+    300
+  )
   {
-    theme.useNavShrink &&
-      useScrollPosition(
-        ({ prefPos, currPos }) => {
-          const isShow = currPos.y < -60
-          if (isShow !== state.navShrink)
-            isShow ? dispatch({ type: 'shrink' }) : dispatch({ type: 'grow' })
-        },
-        [state],
-        false,
-        false,
-        300
-      )
+    theme.useNavShrink && scroller
   }
   return (
     <Navbar
@@ -66,20 +63,25 @@ const NavBar = ({ useNavShrink }) => {
       className={state.navClass}
       style={{ transition: 'all 0.6s ease-out' }}
     >
-      <a className="navbar-brand ml-2" href="/">
-        <img
-          src={state.authorImage}
-          width="33em"
-          // height="100%"
-          className="d-inline-block align-middle image-fluid"
-          alt="Bryant Patton logo"
-        />
-      </a>
+      <Link href="/" passHref>
+        <a className="navbar-brand ml-2">
+          <Image
+            src={state.authorImage}
+            width={33}
+            height={33}
+           
+            className="d-inline-block align-middle image-fluid"
+            alt="Bryant Patton logo"
+          />
+        </a>
+      </Link>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <a className="nav-link" href="/cv">
-            <span className="navbar-text">CV</span>
-          </a>
+          <Link href="/cv" passHref>
+            <a className="nav-link">
+              <span className="navbar-text">CV</span>
+            </a>
+          </Link>
         </li>
         {isAuthenticated && isOwner && (
           <li className="nav-item">
@@ -107,11 +109,7 @@ const NavBar = ({ useNavShrink }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon
-              icon={state.gitHubImage}
-              width="40px"
-              width="40px"
-            />
+            <FontAwesomeIcon icon={state.gitHubImage} width="40px" />
           </a>
         </li>
         <li className="nav-item">
@@ -121,11 +119,7 @@ const NavBar = ({ useNavShrink }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon
-              icon={theme.faLinkedin}
-              width="40px"
-              width="40px"
-            />
+            <FontAwesomeIcon icon={theme.faLinkedin} width="40px" />
           </a>
         </li>
         <li className="nav-item">
@@ -135,11 +129,7 @@ const NavBar = ({ useNavShrink }) => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon
-              icon={theme.faEnvelope}
-              width="40px"
-              width="40px"
-            />
+            <FontAwesomeIcon icon={theme.faEnvelope} width="40px" />
           </a>
         </li>
       </ul>

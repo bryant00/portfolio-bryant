@@ -21,7 +21,7 @@ async function run(req, res) {
   }
 }
 
-export default async (req, res) => {
+ const Index = async (req, res) => {
   try {
     const afterConnection = await client.connect()
 
@@ -35,3 +35,5 @@ export default async (req, res) => {
     console.log(err)
   }
 }
+
+export default  Index

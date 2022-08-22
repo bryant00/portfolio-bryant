@@ -83,9 +83,9 @@ const AboutPage = () => {
           </Row>
 
           <p className="my-3">
-            My name is Bryant Patton. I'm a Full Stack developer and experienced
-            marketing tech who’s passionate about the web, design, and backend
-            development. I use this site to share what I've built and experiment
+            My name is Bryant Patton. I&lsquo;m a Full Stack developer and experienced
+            marketing tech who&rsquo;s passionate about the web, design, and backend
+            development. I use this site to share what I&rsquo;ve built and experiment
             with new technologies.
           </p>
           <div className="d-flex flex-column my-3">

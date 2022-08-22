@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Layout from '../components/layouts/Layout'
 import { Document, Page, pdfjs } from 'react-pdf'
 import CvActions from '../components/shared/CvActions'
@@ -26,14 +26,14 @@ const Cv = () => {
   }
   return (
     <Layout page="default">
-      <Jumbotron fluid className="cv-jumbotron">
+      <div fluid className="bg-light p-5 rounded-lg m-3 cv-jumbotron">
         <div className="container">
           <h1 className="display-4">Resume/CV</h1>
           <p className="lead">
             View, download, share my resume and send me a note.
           </p>
         </div>
-      </Jumbotron>
+      </div>
       <Container fluid className="mb-2 cv-container">
         <Row className="">
           <Col className="col-11 mx-auto col-md-8 ml-md-auto  mr-md-0 order-md-1 d-flex  justify-content-center resume">

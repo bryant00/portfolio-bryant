@@ -1,6 +1,6 @@
 $font-family-base: Helvetica, sans-serif;
 $enable-responsive-font-sizes: true;
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import './modules/bootstrap/scss/bootstrap';
 // PAGES
 @import './loader';
 @import './index';
