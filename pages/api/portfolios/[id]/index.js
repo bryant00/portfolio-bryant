@@ -13,7 +13,7 @@ const client = new MongoClient(uri, {
 
 const dbName = 'portfolios'
 
-export default async ({ query: { id } }, res) => {
+const Index =  async ({ query: { id } }, res) => {
   try {
     const afterConnection = await client.connect()
 
@@ -29,3 +29,5 @@ export default async ({ query: { id } }, res) => {
     console.log(err)
   }
 }
+
+export default Index;

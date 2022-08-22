@@ -6,7 +6,7 @@ import { useAuth0 } from '../../lib/auth0-spa'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default () => {
+const Index = () => {
   const theme = {
     navClass: 'default',
     title: 'Bryant Patton - Porfolio',
